@@ -1,6 +1,6 @@
 public class Classe
 {
-    private Aula aula;
+    /*private Aula aula;
     private Grup grup;
     private Dia dia;
     private Hora horaIni;
@@ -15,6 +15,6 @@ public class Classe
         this.horaIni = new Hora(horaIni);
     }
 
-    ///
+    ///*/
 
 }

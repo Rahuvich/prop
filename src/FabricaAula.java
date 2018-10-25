@@ -20,9 +20,9 @@ public class FabricaAula {
 	            System.out.println(cadena);
 	        }*/
     }
-
+/*
     public static void main(String[] args) throws IOException {
         Fabricar_aulas("C:/Users/usuario/Documents/GitHub/core"); // Si hi ha un error de lectura a aquest ficher donara error
-    }
+    }*/
 
 }

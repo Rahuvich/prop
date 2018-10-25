@@ -1,20 +1,32 @@
-import org.json.*;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class FabricaAssig {
 
-    public static void carregaAssig(String archivo){
-        JSONObject assigFile = new JSONObject(archivo);
-        JSONArray llista = assigFile.getJSONArray("Assignatures");
+    public static void carregaAssig(String archivo) throws IOException, ParseException {
+        // parsing file "JSONExample.json"
+        Object obj = new JSONParser().parse(new FileReader(archivo));
+        // typecasting obj to JSONObject
+        JSONObject assigFile = (JSONObject) obj;
 
-        for(int i = 0; i < assigFile.length(); ++i){
-            String nomAssig = llista.getJSONObject(i).getString("codiAssig");
-            String codiBloc = llista.getJSONObject(i).getString("bloc");
-            JSONArray llistaGrups = llista.getJSONObject(i).getJSONArray("grups");
+        JSONArray llista = (JSONArray) assigFile.get("Assignatures");
+
+        for(int i = 0; i < llista.size(); ++i){
+            String nomAssig = (String) ((JSONObject) llista.get(i)).get("codiAssig");
+            String codiBloc = (String) ((JSONObject) llista.get(i)).get("bloc");
+            JSONArray llistaGrups = (JSONArray) ((JSONObject) llista.get(i)).get("grups");
             ArrayList<Integer> grups = new ArrayList<>();
-            for(int j = 0; j < llistaGrups.length(); ++j) grups.add(llistaGrups.getInt(j));
+            for(int j = 0; j < llistaGrups.size(); ++j) grups.add(((Long) llistaGrups.get(j)).intValue());
             Assignatura assig = new Assignatura(nomAssig, codiBloc, grups);
+            System.out.println(nomAssig);
         }
     }
 
