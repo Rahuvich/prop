@@ -2,18 +2,18 @@ public class Bloc
 {
 
     ///ATRIBUTS///
-    private int numero;
+    private String codi;
 
     ///CREADORES///
-    public Bloc(int num)
+    public Bloc(String codi)
     {
-        this.numero = num;
+        this.codi = codi;
     }
 
     ///CONSULTORES///
-    public int getnumero()
+    public String getCodi()
     {
-        return numero;
+        return codi;
     }
 
 }

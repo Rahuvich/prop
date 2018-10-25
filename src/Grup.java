@@ -4,10 +4,11 @@ public class Grup
     private Assignatura assig;
 
     ///CREADORES///
-    public Grup(int numGrup, String nomAssig, int numbloc)
+
+    public Grup(int numGrup, Assignatura assig)
     {
         this.numero = numGrup;
-        this.assig = new Assignatura(nomAssig, numbloc);
+        this.assig = assig;
     }
 
     ///CONSULTORES///
@@ -23,8 +24,8 @@ public class Grup
         return this.assig.getnomassig();
     }
 
-    public int getnumbloc()
+    public String getCodiBloc()
     {
-        return this.assig.getnumbloc();
+        return this.assig.getCodiBloc();
     }
 }

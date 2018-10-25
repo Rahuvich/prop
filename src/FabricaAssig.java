@@ -4,14 +4,17 @@ import java.util.ArrayList;
 
 public class FabricaAssig {
 
-    public static void readAssig(String archivo){
-        JSONObject assig = new JSONObject(archivo);
-        JSONArray lista = assig.getJSONArray("Assignatures");
+    public static void carregaAssig(String archivo){
+        JSONObject assigFile = new JSONObject(archivo);
+        JSONArray llista = assigFile.getJSONArray("Assignatures");
 
-        for(int i = 0; i < assig.length(); ++i){
-            String nomAssig = lista.getJSONObject(i).getString("codiAssig");
-            String numBloc = lista.getJSONObject(i).getString("bloc");
-
+        for(int i = 0; i < assigFile.length(); ++i){
+            String nomAssig = llista.getJSONObject(i).getString("codiAssig");
+            String codiBloc = llista.getJSONObject(i).getString("bloc");
+            JSONArray llistaGrups = llista.getJSONObject(i).getJSONArray("grups");
+            ArrayList<Integer> grups = new ArrayList<>();
+            for(int j = 0; j < llistaGrups.length(); ++j) grups.add(llistaGrups.getInt(j));
+            Assignatura assig = new Assignatura(nomAssig, codiBloc, grups);
         }
     }
 

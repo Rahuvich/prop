@@ -1,15 +1,26 @@
-
+import java.util.ArrayList;
 
 public class Assignatura
 {
     private String nomAssig;
     private Bloc bloc;
+    private ArrayList<Grup> grupsAssig;
 
     ///CREADORES///
-    public Assignatura(String nomAssig, int num)
+    public Assignatura(String nomAssig, String codiBloc)
     {
         this.nomAssig = nomAssig;
-        this.bloc = new Bloc(num);
+        this.bloc = new Bloc(codiBloc);
+    }
+
+    public Assignatura(String nomAssig, String codiBloc, ArrayList<Integer> grups )
+    {
+        this.nomAssig = nomAssig;
+        this.bloc = new Bloc(codiBloc);
+        grupsAssig = new ArrayList<Grup>();
+        for(int i = 0; i < grups.size(); ++i){
+            grupsAssig.add(new Grup(grups.get(i), this));
+        }
     }
 
     ///CONSULTORES///
@@ -19,7 +30,9 @@ public class Assignatura
         return this.nomAssig;
     }
 
-    public int getnumbloc() {
-        return bloc.getnumero();
+    public String getCodiBloc() {
+        return bloc.getCodi();
     }
+
+
 }
