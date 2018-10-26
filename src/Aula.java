@@ -15,30 +15,8 @@ public class Aula
         this.numero = numero;
         this.capacitat = capacitat;
     }
-    public Aula (String aula, String capacitat)
-    {
-        //char caracter = cadena.charAt(0); //Solo primer caracter
-        StringBuilder sb = new StringBuilder();
-        sb.append(aula.charAt(0));
-        sb.append(aula.charAt(1));
-        this.aulari = sb.toString();
 
-        this.pis = aula.charAt(2);
-
-        sb = new StringBuilder();
-        sb.append(aula.charAt(3));
-        sb.append(aula.charAt(4));
-        sb.append(aula.charAt(5));
-        this.numero = Integer.parseInt(sb.toString() );
-        //int entero = Integer.parseInt(cadena);
-
-        this.capacitat = Integer.parseInt(capacitat);
-
-
-
-    }
     ///CONSULTORES///
-
     public String getaulari()
     {
         return this.aulari;

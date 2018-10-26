@@ -7,7 +7,7 @@ public class program {
 
         // Generar Assignatures
         try {
-            FabricaAssig.carregaAssig("/Users/raulmateobeneyto/Documents/prop/src/dades/assig.json");
+            Fabrica.carregaAssig("/Users/raulmateobeneyto/Documents/prop/src/dades/assig.json");
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ParseException e) {
@@ -15,6 +15,14 @@ public class program {
         }
 
         // Generar Aules
+        try {
+            Fabrica.carregaAules("/Users/raulmateobeneyto/Documents/prop/src/dades/aules.json");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
 
         // Generar horaris
     }

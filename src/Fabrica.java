@@ -9,7 +9,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class FabricaAssig {
+public class Fabrica {
 
     public static void carregaAssig(String archivo) throws IOException, ParseException {
         // parsing file "JSONExample.json"
@@ -34,38 +34,21 @@ public class FabricaAssig {
         }
     }
 
-    /*
+    public static void carregaAules(String archivo) throws IOException, ParseException {
+        // parsing file "JSONExample.json"
+        Object obj = new JSONParser().parse(new FileReader(archivo));
+        // typecasting obj to JSONObject
+        JSONObject aulesFile = (JSONObject) obj;
 
-    JSON FILE:
+        JSONArray llista = (JSONArray) aulesFile.get("Aules");
 
-    {
-   "pageInfo": {
-         "pageName": "abc",
-         "pagePic": "http://example.com/content.jpg"
+        for(int i = 0; i < llista.size(); ++i){
+            String aulari = (String) ((JSONObject) llista.get(i)).get("aulari");
+            String pis = (String) ((JSONObject) llista.get(i)).get("pis");
+            int numero = ((Long) ((JSONObject) llista.get(i)).get("numero")).intValue();
+            int capacitat = ((Long) ((JSONObject) llista.get(i)).get("capacitat")).intValue();
+            System.out.println(aulari + pis + String.format("%02d", numero) + " amb capacitat: "+capacitat);
+            Aula assig = new Aula(aulari, pis.charAt(0), numero, capacitat);
+        }
     }
-    "posts": [
-         {
-              "post_id": "123456789012_123456789012",
-              "actor_id": "1234567890",
-              "picOfPersonWhoPosted": "http://example.com/photo.jpg",
-              "nameOfPersonWhoPosted": "Jane Doe",
-              "message": "Sounds cool. Can't wait to see it!",
-              "likesCount": "2",
-              "comments": [],
-              "timeOfPost": "1234567890"
-         }
-    ]
-}
-
-
-    JAVA FILE:
-
-    JSONObject obj = new JSONObject(" .... ");
-    String pageName = obj.getJSONObject("pageInfo").getString("pageName");
-
-    JSONArray arr = obj.getJSONArray("posts");
-    for (int i = 0; i < arr.length(); i++)
-    {
-        String post_id = arr.getJSONObject(i).getString("post_id");
-    }*/
 }
