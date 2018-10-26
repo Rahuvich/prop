@@ -22,11 +22,15 @@ public class FabricaAssig {
         for(int i = 0; i < llista.size(); ++i){
             String nomAssig = (String) ((JSONObject) llista.get(i)).get("codiAssig");
             String codiBloc = (String) ((JSONObject) llista.get(i)).get("bloc");
+            System.out.println(nomAssig + " pertany a bloc " + codiBloc);
             JSONArray llistaGrups = (JSONArray) ((JSONObject) llista.get(i)).get("grups");
             ArrayList<Integer> grups = new ArrayList<>();
-            for(int j = 0; j < llistaGrups.size(); ++j) grups.add(((Long) llistaGrups.get(j)).intValue());
+            for(int j = 0; j < llistaGrups.size(); ++j) {
+                grups.add(((Long) llistaGrups.get(j)).intValue());
+                System.out.print(" " + ((Long) llistaGrups.get(j)).intValue());
+            }
+            System.out.println();
             Assignatura assig = new Assignatura(nomAssig, codiBloc, grups);
-            System.out.println(nomAssig);
         }
     }
 
