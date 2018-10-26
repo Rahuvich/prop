@@ -4,6 +4,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -12,8 +13,10 @@ import java.util.ArrayList;
 public class Fabrica {
 
     public static void carregaAssig(String archivo) throws IOException, ParseException {
+        String filePath = new File("").getAbsolutePath();
+        filePath = filePath.concat(archivo);
         // parsing file "JSONExample.json"
-        Object obj = new JSONParser().parse(new FileReader(archivo));
+        Object obj = new JSONParser().parse(new FileReader(filePath));
         // typecasting obj to JSONObject
         JSONObject assigFile = (JSONObject) obj;
 
@@ -35,8 +38,10 @@ public class Fabrica {
     }
 
     public static void carregaAules(String archivo) throws IOException, ParseException {
+        String filePath = new File("").getAbsolutePath();
+        filePath = filePath.concat(archivo);
         // parsing file "JSONExample.json"
-        Object obj = new JSONParser().parse(new FileReader(archivo));
+        Object obj = new JSONParser().parse(new FileReader(filePath));
         // typecasting obj to JSONObject
         JSONObject aulesFile = (JSONObject) obj;
 
