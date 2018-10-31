@@ -1,14 +1,14 @@
-public class Resttorn extends Restriccions{
+public class RestTornGrup extends Restriccions{
 	
     private String assig;
+    private int grup;
     private boolean mati;
     
 // @Override a sobre de la funció que vull sobreescriure
 
-    public Resttorn(String assig, boolean mati) {
+    public RestTornGrup(String assig, boolean mati) {
         this.assig = assig;
         this.mati = mati;
-       // super(assig, mati);
     }
     
     @Override
@@ -20,7 +20,7 @@ public class Resttorn extends Restriccions{
     		else return false;
     	else
     		if(hi ha lloc de tardes) return true;
-    		else return false
+    		else return false;
     	*/
 		return false;
 	}

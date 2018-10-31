@@ -25,13 +25,17 @@ public class Assignatura
 
     ///CONSULTORES///
 
-    public String getnomassig()
+    public String getNomAssig()
     {
         return this.nomAssig;
     }
 
     public String getCodiBloc() {
         return bloc.getCodi();
+    }
+    
+    public ArrayList<Grup> getGrups(){
+    	return grupsAssig;
     }
 
 

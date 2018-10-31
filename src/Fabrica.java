@@ -11,8 +11,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Fabrica {
+	
+	
 
-    public static void carregaAssig(String archivo) throws IOException, ParseException {
+    public static ArrayList<Assignatura> carregaAssig(String archivo) throws IOException, ParseException {
         String filePath = new File("").getAbsolutePath();
         filePath = filePath.concat(archivo);
         // parsing file "JSONExample.json"
@@ -22,6 +24,8 @@ public class Fabrica {
 
         JSONArray llista = (JSONArray) assigFile.get("Assignatures");
 
+        ArrayList<Assignatura> vassig = new ArrayList<>();
+        
         for(int i = 0; i < llista.size(); ++i){
             String nomAssig = (String) ((JSONObject) llista.get(i)).get("codiAssig");
             String codiBloc = (String) ((JSONObject) llista.get(i)).get("bloc");
@@ -33,8 +37,9 @@ public class Fabrica {
                 System.out.print(" " + ((Long) llistaGrups.get(j)).intValue());
             }
             System.out.println();
-            Assignatura assig = new Assignatura(nomAssig, codiBloc, grups);
+            vassig.add(new Assignatura(nomAssig, codiBloc, grups));
         }
+        return vassig;
     }
 
     public static void carregaAules(String archivo) throws IOException, ParseException {

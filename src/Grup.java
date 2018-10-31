@@ -21,7 +21,7 @@ public class Grup
 
     public String getnomAssig()
     {
-        return this.assig.getnomassig();
+        return this.assig.getNomAssig();
     }
 
     public String getCodiBloc()
