@@ -4,7 +4,7 @@ public class RestTornGrup extends Restriccions{
     private int grup;
     private boolean mati;
     
-// @Override a sobre de la funció que vull sobreescriure
+// @Override a sobre de la funcio que vull sobreescriure
 
     public RestTornGrup(String assig, boolean mati) {
         this.assig = assig;

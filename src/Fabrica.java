@@ -29,20 +29,20 @@ public class Fabrica {
         for(int i = 0; i < llista.size(); ++i){
             String nomAssig = (String) ((JSONObject) llista.get(i)).get("codiAssig");
             String codiBloc = (String) ((JSONObject) llista.get(i)).get("bloc");
-            System.out.println(nomAssig + " pertany a bloc " + codiBloc);
+            //System.out.println(nomAssig + " pertany a bloc " + codiBloc);
             JSONArray llistaGrups = (JSONArray) ((JSONObject) llista.get(i)).get("grups");
             ArrayList<Integer> grups = new ArrayList<>();
             for(int j = 0; j < llistaGrups.size(); ++j) {
                 grups.add(((Long) llistaGrups.get(j)).intValue());
-                System.out.print(" " + ((Long) llistaGrups.get(j)).intValue());
+                //System.out.print(" " + ((Long) llistaGrups.get(j)).intValue());
             }
-            System.out.println();
+            //System.out.println();
             vassig.add(new Assignatura(nomAssig, codiBloc, grups));
         }
         return vassig;
     }
 
-    public static void carregaAules(String archivo) throws IOException, ParseException {
+    public static ArrayList<Aula> carregaAules(String archivo) throws IOException, ParseException {
         String filePath = new File("").getAbsolutePath();
         filePath = filePath.concat(archivo);
         // parsing file "JSONExample.json"
@@ -52,13 +52,16 @@ public class Fabrica {
 
         JSONArray llista = (JSONArray) aulesFile.get("Aules");
 
+        ArrayList<Aula> vaula = new ArrayList<>();
+
         for(int i = 0; i < llista.size(); ++i){
             String aulari = (String) ((JSONObject) llista.get(i)).get("aulari");
             String pis = (String) ((JSONObject) llista.get(i)).get("pis");
             int numero = ((Long) ((JSONObject) llista.get(i)).get("numero")).intValue();
             int capacitat = ((Long) ((JSONObject) llista.get(i)).get("capacitat")).intValue();
-            System.out.println(aulari + pis + String.format("%02d", numero) + " amb capacitat: "+capacitat);
-            Aula assig = new Aula(aulari, pis.charAt(0), numero, capacitat);
+            //System.out.println(aulari + pis + String.format("%02d", numero) + " amb capacitat: "+capacitat);
+            vaula.add(new Aula(aulari, pis.charAt(0), numero, capacitat));
         }
+        return vaula;
     }
 }

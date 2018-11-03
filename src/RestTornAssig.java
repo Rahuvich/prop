@@ -3,7 +3,7 @@ public class RestTornAssig extends Restriccions{
     private String assig;
     private boolean mati;
     
-// @Override a sobre de la funció que vull sobreescriure
+// @Override a sobre de la funcio que vull sobreescriure
 
     public RestTornAssig(String assig, boolean mati) {
         this.assig = assig;

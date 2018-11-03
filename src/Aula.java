@@ -17,23 +17,27 @@ public class Aula
     }
 
     ///CONSULTORES///
-    public String getaulari()
+    public String getAulari()
     {
         return this.aulari;
     }
 
 
-    public char getpis()
+    public char getPis()
     {
         return this.pis;
     }
 
-    public int getnumero()
+    public int getNumero()
     {
         return this.numero;
     }
 
-    public int getcapacitat()
+    public String getAula(){
+        return aulari + pis + String.format("%02d", numero) + " amb capacitat: "+capacitat;
+    }
+
+    public int getCapacitat()
     {
         return this.capacitat;
     }

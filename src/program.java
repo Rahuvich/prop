@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class program {
     public static void main(String args[]) {
-
+        /*
         // Generar Assignatures
     	ArrayList<Assignatura> vassig = new ArrayList<>();
     	ArrayList<Aula> vaules = new ArrayList<>();
@@ -25,7 +25,11 @@ public class program {
 
         // Generar Aules
         try {
-            Fabrica.carregaAules("/src/dades/aules.json");
+            vaules = Fabrica.carregaAules("/src/dades/aules.json");
+            for(int i = 0; i < vaules.size(); i++)
+            {
+                System.out.println(vaules.get(i).getAula());
+            }
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ParseException e) {
@@ -56,6 +60,7 @@ public class program {
 
         reader.close();
 
-        // Generar horaris
+        // Generar horaris*/
+        TestDriver.execute();
     }
 }
