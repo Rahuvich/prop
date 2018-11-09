@@ -1,4 +1,9 @@
 
-public class ResAssig {
-
+public class ResAssig extends Restriccions{
+	
+	protected Assignatura assig;
+	
+	public Assignatura getAssig() {
+		return assig;
+	}
 }

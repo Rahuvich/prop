@@ -1,14 +1,12 @@
-public class RestTornAssig extends Restriccions{
+public class RestTornAssig extends ResAssig{
 	
-    private String assig;
     private boolean mati;
     
 // @Override a sobre de la funcio que vull sobreescriure
 
-    public RestTornAssig(String assig, boolean mati) {
+    public RestTornAssig(Assignatura assig, boolean mati) {
         this.assig = assig;
         this.mati = mati;
-        deGrup = false;
     }
     
     @Override

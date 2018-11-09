@@ -10,6 +10,8 @@ public class TestDriver {
     private static ArrayList<Aula> vaules = new ArrayList<>();
 
     private static Scanner reader = new Scanner(System.in);
+    
+    private static Horari horari = new Horari(8, 20);
 
     public static void execute(){
         loader();
@@ -17,6 +19,10 @@ public class TestDriver {
         tester();
 
         crearRestriccions();
+        
+        //horari.generarClasseGrup(null);
+        
+        horari.printHorari();
 
         reader.close();
     }
@@ -85,6 +91,9 @@ public class TestDriver {
         if(mati) System.out.print("mati");
         else System.out.print("tarda");
         System.out.println();
+        
+        RestTornGrup res = new RestTornGrup(vassig.get(assigIndex-1).getGrups().get(grup-1), mati);
+        horari.afegirRestriccio(res);
     }
 
     private static void crearRestTornAssig() {
@@ -114,6 +123,11 @@ public class TestDriver {
         if(mati) System.out.print("mati");
         else System.out.print("tarda");
         System.out.println();
+        
+        
+        
+        RestTornAssig res = new RestTornAssig(vassig.get(assigIndex-1), mati);
+        horari.afegirRestriccio(res);
     }
 
     private static void loader(){

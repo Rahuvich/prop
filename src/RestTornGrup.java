@@ -1,15 +1,12 @@
-public class RestTornGrup extends Restriccions{
+public class RestTornGrup extends ResGrup{
 	
-    private String assig;
-    private int grup;
     private boolean mati;
     
 // @Override a sobre de la funcio que vull sobreescriure
 
-    public RestTornGrup(String assig, boolean mati) {
-        this.assig = assig;
+    public RestTornGrup(Grup g, boolean mati) {
+        this.g = g;
         this.mati = mati;
-        deGrup = true;
     }
     
     @Override
