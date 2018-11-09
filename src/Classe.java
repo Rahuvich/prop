@@ -1,20 +1,23 @@
 public class Classe
 {
-    /*private Aula aula;
+    private Aula aula;
     private Grup grup;
     private Dia dia;
     private Hora horaIni;
+    private int duracio;
 
     ///CONTRUCTORA///
-    public Classe(String aulari, char pis, int numAula, int capacitat,
-                  Dia dia, int horaIni, int numGrup, String nomAssig, int numBloc )
+    public Classe(Aula a, Grup g, Dia d, Hora h, int duracio)
     {
-        this.aula = new Aula(aulari, pis, numAula, capacitat);
-        this.grup = new Grup(numGrup, nomAssig, numBloc);
+        this.aula = a;
+        this.grup = g;
         this.dia = dia;
-        this.horaIni = new Hora(horaIni);
+        this.horaIni = h;
+        this.duracio = duracio;
     }
 
-    ///*/
+    public String getAssig() {
+    	return grup.getnomAssig();
+    }
 
 }

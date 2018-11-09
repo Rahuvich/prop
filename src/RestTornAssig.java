@@ -8,10 +8,11 @@ public class RestTornAssig extends Restriccions{
     public RestTornAssig(String assig, boolean mati) {
         this.assig = assig;
         this.mati = mati;
+        deGrup = false;
     }
     
     @Override
-    public boolean es_compleix()
+    public boolean esCompleix()
 	{
     	/*
     	if(mati) 

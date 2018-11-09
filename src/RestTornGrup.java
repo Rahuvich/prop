@@ -9,10 +9,11 @@ public class RestTornGrup extends Restriccions{
     public RestTornGrup(String assig, boolean mati) {
         this.assig = assig;
         this.mati = mati;
+        deGrup = true;
     }
     
     @Override
-    public boolean es_compleix()
+    public boolean esCompleix()
 	{
     	/*
     	if(mati) 
