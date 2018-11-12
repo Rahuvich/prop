@@ -25,14 +25,15 @@ public class Horari {
 	public void generarTot() 
 	{
 		System.out.println("GENERA TOT");
+		
     }
 	
 	public void generarClassesAssig(Assignatura assig) 
 	{
 		System.out.println("GENERA ASSIG");
 		
-		
 	}
+	
 	public void generarClasseGrup(Grup g) 
 	{
 		System.out.println("GENERA GRUP");
@@ -44,17 +45,13 @@ public class Horari {
 			Restriccions res = new Restriccions();
 			for(int i = 0; i < vres.size(); ++i)
 			{
-				res.esCompleix();//em de pasar la classe y comprobat si funciona
-				//
+				res.esCompleix();//Hem de pasar la classe y comprobat si funciona
+
 			}
 		}
 		
-			
-		
 		System.out.println("Size de RestGrups: " + restGrups.size());
 		System.out.println("Size de RestAssig: " +restAssig.size());
-		
-		
 	}
 	
 	public void printHorari() {
