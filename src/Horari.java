@@ -91,6 +91,13 @@ public class Horari {
 		}
 	}
 	
+	public int getHoraIni () {
+		return this.horaIniDia;
+	}
+	
+	public int getHoraFi () {
+		return this.horaFiDia;
+	}
 
 }
 
