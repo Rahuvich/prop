@@ -8,12 +8,13 @@ public class RestTornGrup extends ResGrup{
         this.g = g;
         this.mati = mati;
     }
-    
+
     @Override
-    public boolean esCompleix()
+    public boolean esCompleix(Classe classe)
 	{
+	    System.out.println("Soc el net grup");
     	/*
-    	if(mati) 
+    	if(mati)
     		if(hi ha lloc pel de matins) return true;
     		else return false;
     	else

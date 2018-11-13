@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 
 public class Horari {
 	
@@ -7,22 +9,40 @@ public class Horari {
 	private int horaIniDia;
 	private int horaFiDia;
 	
-	private ArrayList[][][] horari;
+	//private ArrayList[][][][] horari;
+	private Classe[][][] horari;
 	
 	private HashMap<Grup, ArrayList<Restriccions>> restGrups;
 	private HashMap<Assignatura, ArrayList<Restriccions>> restAssig;
+
+	private ArrayList<Assignatura> vassigs;
+	private ArrayList<Aula> vaules;
 	
 	///CONSTRUCTORA///
-	public Horari(int horaIniDia, int horaFiDia) {
+	public Horari(int horaIniDia, int horaFiDia, ArrayList<Assignatura> vassigs, ArrayList<Aula> vaules) {
 		this.horaIniDia = horaIniDia;
 		this.horaFiDia = horaFiDia;
-		horari = new ArrayList[5][horaFiDia-horaIniDia][];
+		//horari = new ArrayList[5][horaFiDia-horaIniDia][vaules.size()][];
+		//horari = new ArrayList<Dia>(5, new ArrayList<>(horaFiDia - horaIniDia, new ArrayList<>(vaules.size())));
+		horari = new Classe[5][horaFiDia-horaIniDia][vaules.size()];
+
+		for (int i = 0; i < 5; ++i){
+			for (int j = 0; j < horaFiDia-horaIniDia; ++j){
+				for (int k = 0; k < vaules.size(); ++k){
+					horari[i][j][k] = new Classe();
+				}
+			}
+		}
+
+
 		restGrups = new HashMap<>();
 		restAssig = new HashMap<>();
+		this.vassigs = vassigs;
+		this.vaules = vaules;
 	}
 	
 	///CREADORES///
-	public void generarTot() 
+	public void generarTot()
 	{
 		System.out.println("GENERA TOT");
     }
@@ -35,20 +55,43 @@ public class Horari {
 	public void generarClasseGrup(Grup g) 
 	{
 		System.out.println("GENERA GRUP");
-		ArrayList<Restriccions> vres = new ArrayList<Restriccions>();
-		if(restGrups.containsKey(g)) 
+		boolean found = false;
+
+		for (int i = 0; i < 5 && !found; ++i){
+			for (int j = 0; j < horaFiDia-horaIniDia && !found; ++j){
+				for (int k = 0; k < vaules.size() && !found; ++k){
+					if(horari[i][j][k].isEmpty()) {
+						Classe aux = new Classe(vaules.get(k), g, Dia.values()[i], j, 2);
+						if(comprovarRestriccio(aux)){
+							found = true;
+							horari[i][j][k] = aux;
+							System.out.println("Classe creada");
+						}
+					}
+				}
+			}
+		}
+
+		//Classe classe = new Classe();
+
+		/*ArrayList<Restriccions> vres = new ArrayList<Restriccions>();
+		if(restGrups.containsKey(g))
 		{
 			vres = restGrups.get(g);
 			//crear instancia aleatoria classe
 			Restriccions res = new Restriccions();
 			for(int i = 0; i < vres.size(); ++i)
 			{
-				res.esCompleix();//Hem de pasar la classe y comprobat si funciona
+				res.esCompleix(null);//Hem de pasar la classe y comprobat si funciona
 
 			}
-		}
+		}*/
 	}
-	
+
+	private boolean comprovarRestriccio(Classe aux) {
+		return true;
+	}
+
 	public void printHorari() {
 		System.out.println("--- HORARI ---");
 		for(int i = 0; i < 5; ++i) {

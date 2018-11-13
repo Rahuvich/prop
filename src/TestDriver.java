@@ -14,17 +14,17 @@ public class TestDriver {
     private static Horari horari;
 
     public static void execute(){
-    	creaHorari();
-    	
         loader();
+
+    	creaHorari();
 
         tester();
 
         crearRestriccions();
         
-        //horari.generarClasseGrup(null);
+        horari.generarClasseGrup(null);
         
-        horari.printHorari();
+        //horari.printHorari();
 
         reader.close();
     }
@@ -35,7 +35,7 @@ public class TestDriver {
 
     	System.out.println("Insereix l'hora en que vulguis que acabin les classes");
     	int horaFi = readInput();
-    	horari = new Horari(horaIni, horaFi);
+    	horari = new Horari(horaIni, horaFi, vassig, vaules);
     	
     	System.out.println("El dia lectiu comenca a les " + horari.getHoraIni() + " i acaba a les " + horari.getHoraFi());
     }

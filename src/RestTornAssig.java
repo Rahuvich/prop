@@ -10,8 +10,9 @@ public class RestTornAssig extends ResAssig{
     }
     
     @Override
-    public boolean esCompleix()
+    public boolean esCompleix(Classe classe)
 	{
+	    System.out.println("Soc el net");
     	/*
     	if(mati) 
     		if(hi ha lloc pel de matins) return true;
