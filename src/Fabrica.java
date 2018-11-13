@@ -11,8 +11,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Fabrica {
-	
-	
 
     public static ArrayList<Assignatura> carregaAssig(String archivo) throws IOException, ParseException {
         String filePath = new File("").getAbsolutePath();
@@ -29,15 +27,18 @@ public class Fabrica {
         for(int i = 0; i < llista.size(); ++i){
             String nomAssig = (String) ((JSONObject) llista.get(i)).get("codiAssig");
             String codiBloc = (String) ((JSONObject) llista.get(i)).get("bloc");
+            int numeroAlumnes = ((Long) ((JSONObject) llista.get(i)).get("alumnes")).intValue();
             //System.out.println(nomAssig + " pertany a bloc " + codiBloc);
-            JSONArray llistaGrups = (JSONArray) ((JSONObject) llista.get(i)).get("grups");
+            /*JSONArray llistaGrups = (JSONArray) ((JSONObject) llista.get(i)).get("grups");
             ArrayList<Integer> grups = new ArrayList<>();
             for(int j = 0; j < llistaGrups.size(); ++j) {
                 grups.add(((Long) llistaGrups.get(j)).intValue());
                 //System.out.print(" " + ((Long) llistaGrups.get(j)).intValue());
             }
-            //System.out.println();
-            vassig.add(new Assignatura(nomAssig, codiBloc, grups));
+            //System.out.println();*/
+
+
+            vassig.add(new Assignatura(nomAssig, codiBloc, numeroAlumnes));
         }
         return vassig;
     }

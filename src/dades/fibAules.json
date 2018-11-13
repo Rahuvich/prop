@@ -187,7 +187,60 @@
         "numero": 2,
         "capacitat": 120
       },
-
+      {
+        "aulari":"A5",
+        "pis": "S",
+        "numero": 102,
+        "capacitat": 25
+      },
+      {
+        "aulari":"A5",
+        "pis": "S",
+        "numero": 103,
+        "capacitat": 14
+      },
+      {
+        "aulari":"A5",
+        "pis": "S",
+        "numero": 104,
+        "capacitat": 21
+      },
+      {
+        "aulari":"A5",
+        "pis": "S",
+        "numero": 105,
+        "capacitat": 14
+      },
+      {
+        "aulari":"A5",
+        "pis": "S",
+        "numero": 108,
+        "capacitat": 23
+      },
+      {
+        "aulari":"A5",
+        "pis": "S",
+        "numero": 109,
+        "capacitat": 25
+      },
+      {
+        "aulari":"A5",
+        "pis": "S",
+        "numero": 111,
+        "capacitat": 14
+      },
+      {
+        "aulari":"A5",
+        "pis": "S",
+        "numero": 112,
+        "capacitat": 14
+      },
+      {
+        "aulari":"A5",
+        "pis": "S",
+        "numero": 113,
+        "capacitat": 25
+      },
 
 
 
@@ -227,6 +280,28 @@
 
 
       {
+        "aulari":"B5",
+        "pis": "S",
+        "numero": 101,
+        "capacitat": 22
+      },
+      {
+        "aulari":"B5",
+        "pis": "S",
+        "numero": 201,
+        "capacitat": 23
+      },
+      {
+        "aulari":"B5",
+        "pis": "S",
+        "numero": 202,
+        "capacitat": 22
+      },
+
+
+
+
+      {
         "aulari":"C5",
         "pis": "0",
         "numero": 16,
@@ -242,6 +317,48 @@
         "pis": "0",
         "numero": 3,
         "capacitat": 54
+      },
+      {
+        "aulari":"C6",
+        "pis": "S",
+        "numero": 301,
+        "capacitat": 15
+      },
+      {
+        "aulari":"C6",
+        "pis": "S",
+        "numero": 302,
+        "capacitat": 29
+      },
+      {
+        "aulari":"C6",
+        "pis": "S",
+        "numero": 303,
+        "capacitat": 16
+      },
+      {
+        "aulari":"C6",
+        "pis": "S",
+        "numero": 304,
+        "capacitat": 10
+      },
+      {
+        "aulari":"C6",
+        "pis": "S",
+        "numero": 306,
+        "capacitat": 21
+      },
+      {
+        "aulari":"C6",
+        "pis": "S",
+        "numero": 308,
+        "capacitat": 21
+      },
+      {
+        "aulari":"C6",
+        "pis": "S",
+        "numero": 309,
+        "capacitat": 21
       }
     ]
   }

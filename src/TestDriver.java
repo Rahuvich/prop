@@ -81,7 +81,7 @@ public class TestDriver {
         int assigIndex = readInput();
 
         for (int i = 0; i<vassig.get(assigIndex).getGrups().size(); ++i){
-            System.out.println(i+1 + ". " + vassig.get(assigIndex-1).getGrups().get(i).getnumero());
+            System.out.println(i+1 + ". " + vassig.get(assigIndex-1).getGrups().get(i).getNumero());
         }
         int grup = readInput();
 
@@ -100,7 +100,7 @@ public class TestDriver {
             default:
         }
 
-        System.out.print("El grup " + vassig.get(assigIndex-1).getGrups().get(grup-1).getnumero() +  " de l'assignatura " + vassig.get(assigIndex-1).getNomAssig() + " nomes podra ser de ");
+        System.out.print("El grup " + vassig.get(assigIndex-1).getGrups().get(grup-1).getNumero() +  " de l'assignatura " + vassig.get(assigIndex-1).getNomAssig() + " nomes podra ser de ");
         if(mati) System.out.print("mati");
         else System.out.print("tarda");
         System.out.println();
@@ -145,18 +145,15 @@ public class TestDriver {
 
     private static void loader(){
         System.out.println("Que vols crear?");
-        System.out.println("1. Aules?");
-        System.out.println("2. Assignatures?");
+        System.out.println("1. miniFIB?");
+        System.out.println("2. FIB (beta)?");
 
         switch (readInput()){
             case 1:
-                if(vaules.size() != 0){
-                    System.out.println("Ja has creat les aules");
-                    break;
-                }
                 try {
-                    vaules = Fabrica.carregaAules("/src/dades/aules.json");
-                    System.out.println("Aules creades");
+                    vaules = Fabrica.carregaAules("/src/dades/miniAules.json");
+                    vassig = Fabrica.carregaAssig("/src/dades/miniAssig.json");
+                    System.out.println("Assignatures y aules de la miniFIB creades");
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (ParseException e) {
@@ -165,21 +162,17 @@ public class TestDriver {
                 break;
             case 2:
             default:
-                if(vassig.size() != 0){
-                    System.out.println("Ja has creat les assignatures");
-                    break;
-                }
                 try {
-                    vassig = Fabrica.carregaAssig("/src/dades/assig.json");
-                    System.out.println("Assig creades");
+                    vaules = Fabrica.carregaAules("/src/dades/fibAules.json");
+                    vassig = Fabrica.carregaAssig("/src/dades/fibAssig.json");
+                    System.out.println("Assignatures y aules de la FIB creades");
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
+                break;
         }
-
-        if(vassig.size() == 0 || vaules.size() == 0) loader();
     }
 
     private static void tester(){
@@ -253,7 +246,7 @@ public class TestDriver {
                     System.out.println(assig.getNomAssig());
                     for (Grup grup: assig.getGrups()){
                         System.out.print(" ");
-                        System.out.print(grup.getnumero());
+                        System.out.print(grup.getNumero());
                     }
                     System.out.println();
                 }

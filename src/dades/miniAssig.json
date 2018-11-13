@@ -3,33 +3,45 @@
 
     {
       "codiAssig":"F",
-      "grups": [10,11,12,20,21,22],
+      "alumnes": 200,
       "bloc": "1"
     },
-
     {
       "codiAssig":"FM",
-      "grups": [10,11,12,20,21,22],
+      "alumnes": 200,
       "bloc": "1"
     },
     {
       "codiAssig":"PRO1",
-      "grups": [10,11,12,20,21,22],
+      "alumnes": 200,
       "bloc": "1"
     },
     {
       "codiAssig":"IC",
-      "grups": [10,11,12,20,21,22,30,31,40,41],
+      "alumnes": 200,
       "bloc": "1"
     },
+
+
+
     {
       "codiAssig":"M2",
-      "grups": [10,11,12,20,21,22],
+      "alumnes": 50,
       "bloc": "2"
     },
     {
       "codiAssig":"M1",
-      "grups": [10,11,12,20,21,22],
+      "alumnes": 50,
+      "bloc": "2"
+    },
+    {
+      "codiAssig":"EC",
+      "alumnes": 50,
+      "bloc": "2"
+    },
+    {
+      "codiAssig":"PRO2",
+      "alumnes": 50,
       "bloc": "2"
     }
   ]

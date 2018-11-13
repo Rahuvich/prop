@@ -27,7 +27,7 @@ public class Classe
 
 
     public String getAssig() {
-    	return grup.getnomAssig();
+    	return grup.getNomAssig();
     }
 
     public boolean isEmpty(){return empty;}

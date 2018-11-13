@@ -2,24 +2,31 @@ public class Grup
 {
     private int numero;
     private Assignatura assig;
+    private int alumnes;
 
     ///CREADORES///
 
-    public Grup(int numGrup, Assignatura assig)
+    public Grup(int numGrup, Assignatura assig, int alumnes)
     {
         this.numero = numGrup;
         this.assig = assig;
+        this.alumnes = alumnes;
     }
 
     ///CONSULTORES///
 
-    public int getnumero()
+    public int getNumero()
     {
         return this.numero;
     }
 
+    public int getNumeroAlumnes()
+    {
+        return this.alumnes;
+    }
 
-    public String getnomAssig()
+
+    public String getNomAssig()
     {
         return this.assig.getNomAssig();
     }

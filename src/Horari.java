@@ -59,7 +59,7 @@ public class Horari {
 		for (int i = 0; i < 5 && !found; ++i){
 			for (int j = 0; j < horaFiDia-horaIniDia && !found; ++j){
 				for (int k = 0; k < vaules.size() && !found; ++k){
-					if(horari[i][j][k].isEmpty()) { //
+					if(horari[i][j][k].isEmpty() && vaules.get(k).getCapacitat() >= g.getNumeroAlumnes()) { // He afegit la segona condicio del if
 						Classe aux = new Classe(vaules.get(k), g, Dia.values()[i], j, 2);
 						if(comprovarRestriccio(aux)){
 							found = true;
