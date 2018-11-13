@@ -1,0 +1,277 @@
+{
+    "Assignatures": [
+  
+      {
+        "codiAssig":"F",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "1"
+      },
+      {
+        "codiAssig":"FM",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "1"
+      },
+      {
+        "codiAssig":"PRO1",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "1"
+      },
+      {
+        "codiAssig":"IC",
+        "grups": [10,11,12,20,21,22,30,31,40,41],
+        "bloc": "1"
+      },
+  
+  
+  
+      {
+        "codiAssig":"M2",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "2"
+      },
+      {
+        "codiAssig":"M1",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "2"
+      },
+      {
+        "codiAssig":"EC",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "2"
+      },
+      {
+        "codiAssig":"PRO2",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "2"
+      },
+  
+  
+  
+      {
+        "codiAssig":"BD",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "3"
+      },
+      {
+        "codiAssig":"CI",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "3"
+      },
+      {
+        "codiAssig":"EDA",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "3"
+      },
+      {
+        "codiAssig":"PE",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "3"
+      },
+      {
+        "codiAssig":"SO",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "3"
+      },
+  
+  
+  
+      {
+        "codiAssig":"AC",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "4"
+      },
+      {
+        "codiAssig":"EEE",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "4"
+      },
+      {
+        "codiAssig":"IDI",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "4"
+      },
+      {
+        "codiAssig":"IES",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "4"
+      },
+      {
+        "codiAssig":"XC",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "4"
+      },
+  
+  
+  
+      {
+        "codiAssig":"PAR",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "5"
+      },
+      {
+        "codiAssig":"PROP",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "5"
+      },
+  
+  
+  
+      {
+        "codiAssig":"A",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "Computacio"
+      },
+      {
+        "codiAssig":"G",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "Computacio"
+      },
+      {
+        "codiAssig":"IA",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "Computacio"
+      },
+      {
+        "codiAssig":"LI",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "Computacio"
+      },
+      {
+        "codiAssig":"LP",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "Computacio"
+      },
+      {
+        "codiAssig":"TC",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "Computacio"
+      },
+  
+  
+  
+      {
+        "codiAssig":"AC2",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "Enginyeria de computadors"
+      },
+      {
+        "codiAssig":"DSBM",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "Enginyeria de computadors"
+      },
+      {
+        "codiAssig":"MP",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "Enginyeria de computadors"
+      },
+      {
+        "codiAssig":"PEC",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "Enginyeria de computadors"
+      },
+      {
+        "codiAssig":"SO2",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "Enginyeria de computadors"
+      },
+      {
+        "codiAssig":"XC2",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "Enginyeria de computadors"
+      },
+  
+  
+  
+      {
+        "codiAssig":"AS",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "Enginyeria de software"
+      },
+      {
+        "codiAssig":"ASW",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "Enginyeria de software"
+      },
+      {
+        "codiAssig":"DBD",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "Enginyeria de software"
+      },
+      {
+        "codiAssig":"ER",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "Enginyeria de software"
+      },
+      {
+        "codiAssig":"GPS",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "Enginyeria de software"
+      },
+      {
+        "codiAssig":"PES",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "Enginyeria de software"
+      },
+  
+  
+  
+      {
+        "codiAssig":"ADEI",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "Sistemes de informacio"
+      },
+      {
+        "codiAssig":"DSI",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "Sistemes de informacio"
+      },
+      {
+        "codiAssig":"NE",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "Sistemes de informacio"
+      },
+      {
+        "codiAssig":"PSI",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "Sistemes de informacio"
+      },
+      {
+        "codiAssig":"SIO",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "Sistemes de informacio"
+      },
+  
+  
+  
+      {
+        "codiAssig":"ASO",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "Tecnologies de la informacio"
+      },
+      {
+        "codiAssig":"PI",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "Tecnologies de la informacio"
+      },
+      {
+        "codiAssig":"PTI",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "Tecnologies de la informacio"
+      },
+      {
+        "codiAssig":"SI",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "Tecnologies de la informacio"
+      },
+      {
+        "codiAssig":"SOA",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "Tecnologies de la informacio"
+      },
+      {
+        "codiAssig":"TXC",
+        "grups": [10,11,12,20,21,22],
+        "bloc": "Tecnologies de la informacio"
+      }
+    ]
+  }

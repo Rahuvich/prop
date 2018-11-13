@@ -1,0 +1,247 @@
+{
+    "Aules": [
+  
+      {
+        "aulari":"A6",
+        "pis": "2",
+        "numero": 1,
+        "capacitat": 46
+      },
+      {
+        "aulari":"A6",
+        "pis": "2",
+        "numero": 2,
+        "capacitat": 76
+      },
+      {
+        "aulari":"A6",
+        "pis": "2",
+        "numero": 3,
+        "capacitat": 50
+      },
+      {
+        "aulari":"A6",
+        "pis": "2",
+        "numero": 4,
+        "capacitat": 40
+      },
+      {
+        "aulari":"A6",
+        "pis": "2",
+        "numero": 5,
+        "capacitat": 40
+      },
+      {
+        "aulari":"A6",
+        "pis": "2",
+        "numero": 6,
+        "capacitat": 40
+      },
+      {
+        "aulari":"A6",
+        "pis": "1",
+        "numero": 1,
+        "capacitat": 46
+      },
+      {
+        "aulari":"A6",
+        "pis": "1",
+        "numero": 2,
+        "capacitat": 76
+      },
+      {
+        "aulari":"A6",
+        "pis": "1",
+        "numero": 3,
+        "capacitat": 50
+      },
+      {
+        "aulari":"A6",
+        "pis": "1",
+        "numero": 4,
+        "capacitat": 40
+      },
+      {
+        "aulari":"A6",
+        "pis": "1",
+        "numero": 5,
+        "capacitat": 40
+      },
+      {
+        "aulari":"A6",
+        "pis": "1",
+        "numero": 6,
+        "capacitat": 40
+      },
+      {
+        "aulari":"A6",
+        "pis": "E",
+        "numero": 1,
+        "capacitat": 140
+      },
+      {
+        "aulari":"A6",
+        "pis": "E",
+        "numero": 2,
+        "capacitat": 140
+      },
+      {
+        "aulari":"A6",
+        "pis": "0",
+        "numero": 1,
+        "capacitat": 120
+      },
+      {
+        "aulari":"A6",
+        "pis": "0",
+        "numero": 2,
+        "capacitat": 120
+      },
+
+
+
+
+
+
+      {
+        "aulari":"A5",
+        "pis": "2",
+        "numero": 1,
+        "capacitat": 40
+      },
+      {
+        "aulari":"A5",
+        "pis": "2",
+        "numero": 2,
+        "capacitat": 64
+      },
+      {
+        "aulari":"A5",
+        "pis": "2",
+        "numero": 3,
+        "capacitat": 40
+      },
+      {
+        "aulari":"A5",
+        "pis": "2",
+        "numero": 4,
+        "capacitat": 40
+      },
+      {
+        "aulari":"A5",
+        "pis": "1",
+        "numero": 1,
+        "capacitat": 46
+      },
+      {
+        "aulari":"A5",
+        "pis": "1",
+        "numero": 2,
+        "capacitat": 76
+      },
+      {
+        "aulari":"A5",
+        "pis": "1",
+        "numero": 3,
+        "capacitat": 50
+      },
+      {
+        "aulari":"A5",
+        "pis": "1",
+        "numero": 4,
+        "capacitat": 40
+      },
+      {
+        "aulari":"A5",
+        "pis": "1",
+        "numero": 5,
+        "capacitat": 40
+      },
+      {
+        "aulari":"A5",
+        "pis": "1",
+        "numero": 6,
+        "capacitat": 40
+      },
+      {
+        "aulari":"A5",
+        "pis": "E",
+        "numero": 1,
+        "capacitat": 140
+      },
+      {
+        "aulari":"A5",
+        "pis": "E",
+        "numero": 2,
+        "capacitat": 140
+      },
+      {
+        "aulari":"A5",
+        "pis": "0",
+        "numero": 1,
+        "capacitat": 120
+      },
+      {
+        "aulari":"A5",
+        "pis": "0",
+        "numero": 2,
+        "capacitat": 120
+      },
+
+
+
+
+
+      {
+        "aulari":"A4",
+        "pis": "2",
+        "numero": 2,
+        "capacitat": 64
+      },
+      {
+        "aulari":"A4",
+        "pis": "1",
+        "numero": 2,
+        "capacitat": 76
+      },
+      {
+        "aulari":"A4",
+        "pis": "0",
+        "numero": 2,
+        "capacitat": 120
+      },
+
+
+
+
+
+      {
+        "aulari":"B4",
+        "pis": "0",
+        "numero": 2,
+        "capacitat": 75
+      },
+
+
+
+
+
+      {
+        "aulari":"C5",
+        "pis": "0",
+        "numero": 16,
+        "capacitat": 49
+      },
+
+
+
+
+
+      {
+        "aulari":"C6",
+        "pis": "0",
+        "numero": 3,
+        "capacitat": 54
+      }
+    ]
+  }
