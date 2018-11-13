@@ -14,7 +14,9 @@ public class TestDriver {
     private static Horari horari;
 
     public static void execute(){
-        loader();
+    	chooseMode();
+    	
+/*        loader();
 
     	creaHorari();
 
@@ -27,15 +29,62 @@ public class TestDriver {
         //horari.printHorari();
 
         reader.close();
+*/    }
+    
+    private static void chooseMode() {
+    	System.out.println("Qui ets?");
+        System.out.println("1. Dev team (cargara automaticament la miniFIB amb horaIni 8 i horaFi 20, es saltara els testers i anira directament a restriccions");
+        System.out.println("2. Horacio");
+
+        switch (readInput()){
+        case 1:
+            try {
+                vaules = Fabrica.carregaAules("/src/dades/miniAules.json");
+                vassig = Fabrica.carregaAssig("/src/dades/miniAssig.json");
+                System.out.println("Assignatures y aules de la miniFIB creades");
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        	creaHorari(8, 20);
+
+            crearRestriccions();
+            
+            horari.generarClasseGrup(null);
+            
+            //horari.printHorari();
+
+            reader.close();
+            break;
+        case 2:
+        default:
+        	loader();
+        	
+        	System.out.println("Insereix l'hora en que vulguis que comencin les classes");
+        	int horaIni = readInput();
+
+        	System.out.println("Insereix l'hora en que vulguis que acabin les classes");
+        	int horaFi = readInput();
+        	
+        	creaHorari(horaIni, horaFi);
+
+            tester();
+
+            crearRestriccions();
+            
+            horari.generarClasseGrup(null);
+            
+            //horari.printHorari();
+
+            reader.close();
+            break;
+        }
     }
     
-    private static void creaHorari() {
-    	System.out.println("Insereix l'hora en que vulguis que comencin les classes");
-    	int horaIni = readInput();
+    private static void creaHorari(int ini, int fi) {
 
-    	System.out.println("Insereix l'hora en que vulguis que acabin les classes");
-    	int horaFi = readInput();
-    	horari = new Horari(horaIni, horaFi, vassig, vaules);
+    	horari = new Horari(ini, fi, vassig, vaules);
     	
     	System.out.println("El dia lectiu comenca a les " + horari.getHoraIni() + " i acaba a les " + horari.getHoraFi());
     }
@@ -253,7 +302,7 @@ public class TestDriver {
                 testAssig();
                 break;
             case 3:
-                for (Assignatura assig: vassig) System.out.println(assig.getCodiBloc());
+                    for (Assignatura assig: vassig) System.out.println(assig.getNomAssig() + ": " + assig.getCodiBloc());
                 testAssig();
                 break;
             case 4:

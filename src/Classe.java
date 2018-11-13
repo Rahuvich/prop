@@ -19,7 +19,7 @@ public class Classe
         this.duracio = duracio;
         empty = false;
     }
-
+   
     public Classe()
     {
         empty = true;
@@ -34,6 +34,10 @@ public class Classe
 
     public void setEmpty(){
         empty = true;
+    }
+    
+    public void printClasse() {
+    	System.out.println("El " + dia + " a les " + horaIni + "tindra classe el grup " + grup.getNumero() + " de " + grup.getNomAssig());
     }
 
 }
