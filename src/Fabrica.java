@@ -16,9 +16,7 @@ public class Fabrica {
 
     public static ArrayList<Assignatura> carregaAssig(String archivo) throws IOException, ParseException {
         String filePath = new File("").getAbsolutePath();
-        System.out.println(filePath);
         filePath = filePath.concat(archivo);
-        System.out.println(filePath);
         // parsing file "JSONExample.json"
         Object obj = new JSONParser().parse(new FileReader(filePath));
         // typecasting obj to JSONObject
