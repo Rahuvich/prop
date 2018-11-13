@@ -11,9 +11,11 @@ public class TestDriver {
 
     private static Scanner reader = new Scanner(System.in);
     
-    private static Horari horari = new Horari(8, 20);
+    private static Horari horari;
 
     public static void execute(){
+    	creaHorari();
+    	
         loader();
 
         tester();
@@ -25,6 +27,17 @@ public class TestDriver {
         horari.printHorari();
 
         reader.close();
+    }
+    
+    private static void creaHorari() {
+    	System.out.println("Insereix l'hora en que vulguis que comencin les classes");
+    	int horaIni = readInput();
+
+    	System.out.println("Insereix l'hora en que vulguis que acabin les classes");
+    	int horaFi = readInput();
+    	horari = new Horari(horaIni, horaFi);
+    	
+    	System.out.println("El dia lectiu comenca a les " + horari.getHoraIni() + " i acaba a les " + horari.getHoraFi());
     }
 
     private static void crearRestriccions(){
