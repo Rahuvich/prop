@@ -34,7 +34,6 @@ public class Horari {
 			}
 		}
 
-
 		restGrups = new HashMap<>();
 		restAssig = new HashMap<>();
 		this.vassigs = vassigs;
@@ -60,7 +59,7 @@ public class Horari {
 		for (int i = 0; i < 5 && !found; ++i){
 			for (int j = 0; j < horaFiDia-horaIniDia && !found; ++j){
 				for (int k = 0; k < vaules.size() && !found; ++k){
-					if(horari[i][j][k].isEmpty()) {
+					if(horari[i][j][k].isEmpty()) { //
 						Classe aux = new Classe(vaules.get(k), g, Dia.values()[i], j, 2);
 						if(comprovarRestriccio(aux)){
 							found = true;
@@ -71,24 +70,10 @@ public class Horari {
 				}
 			}
 		}
-
-		//Classe classe = new Classe();
-
-		/*ArrayList<Restriccions> vres = new ArrayList<Restriccions>();
-		if(restGrups.containsKey(g))
-		{
-			vres = restGrups.get(g);
-			//crear instancia aleatoria classe
-			Restriccions res = new Restriccions();
-			for(int i = 0; i < vres.size(); ++i)
-			{
-				res.esCompleix(null);//Hem de pasar la classe y comprobat si funciona
-
-			}
-		}*/
 	}
 
 	private boolean comprovarRestriccio(Classe aux) {
+		// Buscar dintre del vector de grup o assignatura si te alguna restriccio y cridar res.esCompleix()
 		return true;
 	}
 
@@ -101,7 +86,6 @@ public class Horari {
 				System.out.println("CLASSE");
 				
 			}
-				
 		}
 	}
 	
