@@ -76,7 +76,7 @@ public class Horari {
 		ArrayList<Restriccions> auxV = new ArrayList<>();
 		if(res instanceof ResGrup) {
 			Grup g = ((ResGrup) res).getGrup();
-			if(!restGrups.containsKey(g)) auxV = restGrups.putIfAbsent(g, new ArrayList<>());
+			restGrups.putIfAbsent(g, new ArrayList<>());
 			auxV = restGrups.get(g);
 			auxV.add(res);
 			restGrups.put(g, auxV);
@@ -84,7 +84,7 @@ public class Horari {
 		else if(res instanceof ResAssig)
 		{
 			Assignatura assig = ((ResAssig) res).getAssig();
-			if(!restAssig.containsKey(assig)) auxV = restAssig.putIfAbsent(assig, new ArrayList<>());
+			restAssig.putIfAbsent(assig, new ArrayList<>());
 			auxV = restAssig.get(assig);
 			auxV.add(res);
 			restAssig.put(assig, auxV);
