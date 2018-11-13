@@ -44,7 +44,7 @@ public class TestDriver {
         System.out.println("Escolleix restriccio");
         System.out.println("1. Restringir el torn mati/tarda d'una assignatura");
         System.out.println("2. Restringir el torn mati/tarda d'un grup");
-        System.out.println("3. Torne enrere");
+        System.out.println("3. Torna enrere");
 
         switch (readInput()){
             case 1:
