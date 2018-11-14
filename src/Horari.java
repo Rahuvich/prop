@@ -10,8 +10,7 @@ public class Horari {
 	///ATRIBUTS///
 	private int horaIniDia;
 	private int horaFiDia;
-	
-	//private ArrayList[][][][] horari;
+
 	private Classe[][][] horari;
 	
 	private HashMap<Grup, ArrayList<Restriccions>> restGrups;
@@ -26,7 +25,7 @@ public class Horari {
 		this.horaFiDia = horaFiDia;
 		//horari = new ArrayList[5][horaFiDia-horaIniDia][vaules.size()][];
 		//horari = new ArrayList<Dia>(5, new ArrayList<>(horaFiDia - horaIniDia, new ArrayList<>(vaules.size())));
-		horari = new Classe[5][horaFiDia-horaIniDia][vaules.size()];
+		horari = new Classe[5][horaFiDia][vaules.size()];
 
 		for (int i = 0; i < 5; ++i){
 			for (int j = horaIniDia; j < horaFiDia; ++j){
@@ -40,6 +39,8 @@ public class Horari {
 		restAssig = new HashMap<>();
 		this.vassigs = vassigs;
 		this.vaules = vaules;
+
+		printHorari();
 	}
 	///FUNCIONS AUXILIAR DE LES CREADORES///
 	
@@ -56,7 +57,7 @@ public class Horari {
 				solucio[i] = true;
 				backtrackingClasseGrup(assig, i+1, grupsAssig ,solucio);	
 			}
-			//Si no podemos generar el grupo, hemos de volver para atràs
+			//Si no podemos generar el grupo, hemos de volver para atras
 			solucio[i] =false;
 			backtrackingClasseGrup(assig, i, grupsAssig,solucio);
 		}
@@ -67,21 +68,24 @@ public class Horari {
 		return true;
 	}
 	/**
-	 * Printeja un horari pero els dies encara son numeros
+	 * Printeja un horari
 	 */
 	public void printHorari() {
-		System.out.println("--- HORARI ---");
+
+		System.out.printf("%2s", " ");
 		for(int i = 0; i < 5; ++i) {
-			System.out.println("- DIA "+ (i+1) +" -");
-			for(int j = horaIniDia ; j < horaFiDia; ++j) {
-				System.out.println("- HORA "+ j +" -");
-				System.out.println("CLASSE");
-				for(int k = 0; k < vaules.size(); k++)
-				{
-					if(!horari[i][j][k].isEmpty()) horari[i][j][k].printClasse();
-				}
-				
+			System.out.printf("%20s", Dia.values()[i].toString());
+		}
+		System.out.println();
+		for(int i = horaIniDia; i < horaFiDia; ++i) {
+			System.out.printf("%2d", i);
+			for (int j = 0; j<5;++j){
+				/**
+				 * CANVIAR EL OUTPUT UN COP TINGUEM FET EL BACKTRACKING
+				 */
+				System.out.printf("%20s", "10 PRO2");
 			}
+			System.out.println();
 		}
 	}
 	
@@ -110,7 +114,7 @@ public class Horari {
 		for (int i = 0; i < 5 && !found; ++i){
 			for (int j = horaIniDia; j < horaFiDia && !found; ++j){
 				for (int k = 0; k < vaules.size() && !found; ++k){
-					if(horari[i][j][k].isEmpty() && vaules.get(k).getCapacitat() >= g.getNumeroAlumnes()) { // He afegit la segona condicio del if
+					if(horari[i][j][k].isEmpty()) { // Cal afegir la segona condicio del if: && vaules.get(k).getCapacitat() >= g.getNumeroAlumnes()
 						Classe aux = new Classe(vaules.get(k), g, Dia.values()[i], j, 2);
 						if(comprovarRestriccio(aux)){
 							found = true;
