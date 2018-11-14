@@ -29,6 +29,8 @@ public class Classe
     public String getAssig() {
     	return grup.getNomAssig();
     }
+    
+    public int getHoraIni() {return this.horaIni;}
 
     public boolean isEmpty(){return empty;}
 

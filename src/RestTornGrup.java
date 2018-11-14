@@ -12,16 +12,15 @@ public class RestTornGrup extends ResGrup{
     @Override
     public boolean esCompleix(Classe classe)
 	{
-	    System.out.println("Soc el net grup");
-    	/*
-    	if(mati)
-    		if(hi ha lloc pel de matins) return true;
-    		else return false;
-    	else
-    		if(hi ha lloc de tardes) return true;
-    		else return false;
-    	*/
-		return false;
+	    System.out.println("Soc el net: restTornGrup");
+	    boolean ans = false;
+	    if (mati) {
+	    	if (classe.getHoraIni()<14) ans=true;
+	    }
+	    else {
+	    	if (classe.getHoraIni()>13) ans=true;
+	    }
+		return ans;
 	}
     
 }
