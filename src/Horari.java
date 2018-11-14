@@ -39,8 +39,6 @@ public class Horari {
 		restAssig = new HashMap<>();
 		this.vassigs = vassigs;
 		this.vaules = vaules;
-
-		printHorari();
 	}
 	///FUNCIONS AUXILIAR DE LES CREADORES///
 	
