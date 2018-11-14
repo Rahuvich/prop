@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -27,7 +29,7 @@ public class Horari {
 		horari = new Classe[5][horaFiDia-horaIniDia][vaules.size()];
 
 		for (int i = 0; i < 5; ++i){
-			for (int j = 0; j < horaFiDia-horaIniDia; ++j){
+			for (int j = horaIniDia; j < horaFiDia; ++j){
 				for (int k = 0; k < vaules.size(); ++k){
 					horari[i][j][k] = new Classe();
 				}
@@ -39,6 +41,49 @@ public class Horari {
 		this.vassigs = vassigs;
 		this.vaules = vaules;
 	}
+	///FUNCIONS AUXILIAR DE LES CREADORES///
+	
+	//
+	void backtrackingClasseGrup(Assignatura assig, int i, ArrayList<Grup> grupsAssig, boolean solucio[])
+	{
+		if(i == grupsAssig.size() && solucio[i-1]) printHorari();
+		else if(i == grupsAssig.size() && !solucio[i-1]);//Si no encontramos solucion
+		else
+		{
+			//Miramos si podemos generar el grupo
+			if(generarClasseGrup(grupsAssig.get(i)) && !solucio[i])
+			{
+				solucio[i] = true;
+				backtrackingClasseGrup(assig, i+1, grupsAssig ,solucio);	
+			}
+			//Si no podemos generar el grupo, hemos de volver para atràs
+			solucio[i] =false;
+			backtrackingClasseGrup(assig, i, grupsAssig,solucio);
+		}
+	}
+
+	private boolean comprovarRestriccio(Classe aux) {
+		// Buscar dintre del vector de grup o assignatura si te alguna restriccio y cridar res.esCompleix()
+		return true;
+	}
+	/**
+	 * Printeja un horari pero els dies encara son numeros
+	 */
+	public void printHorari() {
+		System.out.println("--- HORARI ---");
+		for(int i = 0; i < 5; ++i) {
+			System.out.println("- DIA "+ (i+1) +" -");
+			for(int j = horaIniDia ; j < horaFiDia; ++j) {
+				System.out.println("- HORA "+ j +" -");
+				System.out.println("CLASSE");
+				for(int k = 0; k < vaules.size(); k++)
+				{
+					if(!horari[i][j][k].isEmpty()) horari[i][j][k].printClasse();
+				}
+				
+			}
+		}
+	}
 	
 	///CREADORES///
 	public void generarTot()
@@ -49,15 +94,21 @@ public class Horari {
 	public void generarClassesAssig(Assignatura assig) 
 	{
 		System.out.println("GENERA ASSIG");
+		ArrayList<Grup> grupsAssig = assig.getGrups();
+		boolean solucio[] = new boolean[grupsAssig.size()]; 
+		Arrays.fill(solucio, false);
+		backtrackingClasseGrup(assig,0,grupsAssig, solucio);
+		
+		
 	}
 	
-	public void generarClasseGrup(Grup g) 
+	public boolean generarClasseGrup(Grup g) 
 	{
 		System.out.println("GENERA GRUP");
 		boolean found = false;
 
 		for (int i = 0; i < 5 && !found; ++i){
-			for (int j = 0; j < horaFiDia-horaIniDia && !found; ++j){
+			for (int j = horaIniDia; j < horaFiDia && !found; ++j){
 				for (int k = 0; k < vaules.size() && !found; ++k){
 					if(horari[i][j][k].isEmpty() && vaules.get(k).getCapacitat() >= g.getNumeroAlumnes()) { // He afegit la segona condicio del if
 						Classe aux = new Classe(vaules.get(k), g, Dia.values()[i], j, 2);
@@ -70,24 +121,10 @@ public class Horari {
 				}
 			}
 		}
+		return found;
 	}
-
-	private boolean comprovarRestriccio(Classe aux) {
-		// Buscar dintre del vector de grup o assignatura si te alguna restriccio y cridar res.esCompleix()
-		return true;
-	}
-
-	public void printHorari() {
-		System.out.println("--- HORARI ---");
-		for(int i = 0; i < 5; ++i) {
-			System.out.println("- DIA "+ (i+1) +" -");
-			for(int j = horaIniDia ; j < horaFiDia; ++j) {
-				System.out.println("- HORA "+ j +" -");
-				System.out.println("CLASSE");
-				
-			}
-		}
-	}
+	
+	
 	
 	/** 
 	 * 

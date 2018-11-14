@@ -128,7 +128,6 @@ public class TestDriver {
             System.out.println(i+1 + ". " + vassig.get(i).getNomAssig());
         }
         int assigIndex = readInput();
-
         for (int i = 0; i<vassig.get(assigIndex).getGrups().size(); ++i){
             System.out.println(i+1 + ". " + vassig.get(assigIndex-1).getGrups().get(i).getNumero());
         }
