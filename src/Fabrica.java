@@ -26,7 +26,7 @@ public class Fabrica {
         
         for(int i = 0; i < llista.size(); ++i){
             String nomAssig = (String) ((JSONObject) llista.get(i)).get("codiAssig");
-            String codiBloc = (String) ((JSONObject) llista.get(i)).get("bloc");
+            String codiBloc = (String) ((JSONObject) llista.get(i)).get("quatri");
             int numeroAlumnes = ((Long) ((JSONObject) llista.get(i)).get("alumnes")).intValue();
             //System.out.println(nomAssig + " pertany a bloc " + codiBloc);
             /*JSONArray llistaGrups = (JSONArray) ((JSONObject) llista.get(i)).get("grups");

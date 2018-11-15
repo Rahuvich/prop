@@ -34,6 +34,12 @@ public class Classe
 
     public boolean isEmpty(){return empty;}
 
+    public int getGrup(){
+        return grup.getNumero();
+    }
+
+    public String getAula(){ return aula.getAula();}
+
     public void setEmpty(){
         empty = true;
     }

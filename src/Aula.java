@@ -34,12 +34,16 @@ public class Aula
     }
 
     public String getAula(){
-        return aulari + pis + String.format("%02d", numero) + " amb capacitat: "+capacitat;
+        return aulari + pis + String.format("%02d", numero);
     }
 
     public int getCapacitat()
     {
         return this.capacitat;
+    }
+
+    public boolean esGran(){
+        return capacitat > 50;
     }
 
 }

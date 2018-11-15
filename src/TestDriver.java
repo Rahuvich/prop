@@ -74,25 +74,11 @@ public class TestDriver {
             tester();
 
             crearRestriccions();
-            
-            horari.generarClasseGrup(vassig.get(0).getGrups().get(0));
-            
-            System.out.println("Ha generat l'horari del grup correctament");
-            
-            
-            horari.generarClassesAssig(vassig.get(0));
-            
-            System.out.println("Ha generat l'horari de l'assignatura correctament");
-            
-            
-            
-            //horari.generarClasseGrup(null);
-            
-            horari.printHorari();
-
             reader.close();
             break;
         }
+
+        horari.generaTot();
     }
     
  
@@ -143,7 +129,7 @@ public class TestDriver {
             System.out.println(i+1 + ". " + vassig.get(i).getNomAssig());
         }
         int assigIndex = readInput();
-        for (int i = 0; i<vassig.get(assigIndex).getGrups().size(); ++i){
+        for (int i = 0; i<vassig.get(assigIndex-1).getGrups().size(); ++i){
             System.out.println(i+1 + ". " + vassig.get(assigIndex-1).getGrups().get(i).getNumero());
         }
         int grup = readInput();
@@ -296,7 +282,7 @@ public class TestDriver {
         System.out.println("Que vols testejar?");
         System.out.println("1. getNom()");
         System.out.println("2. getGrups()");
-        System.out.println("3. getBloc()");
+        System.out.println("3. getQuatri()");
         System.out.println("4. Torna enrere");
 
         switch (readInput()){
@@ -316,7 +302,7 @@ public class TestDriver {
                 testAssig();
                 break;
             case 3:
-                    for (Assignatura assig: vassig) System.out.println(assig.getNomAssig() + ": " + assig.getCodiBloc());
+                    for (Assignatura assig: vassig) System.out.println(assig.getNomAssig() + ": " + assig.getCodiQuatri());
                 testAssig();
                 break;
             case 4:

@@ -1,11 +1,11 @@
-public class Bloc
+public class Quatrimestre
 {
 
     ///ATRIBUTS///
     private String codi;
 
     ///CREADORES///
-    public Bloc(String codi)
+    public Quatrimestre(String codi)
     {
         this.codi = codi;
     }

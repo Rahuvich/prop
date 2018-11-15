@@ -31,8 +31,8 @@ public class Grup
         return this.assig.getNomAssig();
     }
 
-    public String getCodiBloc()
+    public String getCodiQuatri()
     {
-        return this.assig.getCodiBloc();
+        return this.assig.getCodiQuatri();
     }
 }

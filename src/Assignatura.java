@@ -3,20 +3,20 @@ import java.util.ArrayList;
 public class Assignatura
 {
     private String nomAssig;
-    private Bloc bloc;
+    private Quatrimestre quatri;
     private ArrayList<Grup> grupsAssig;
 
     ///CREADORES///
-    public Assignatura(String nomAssig, String codiBloc)
+    public Assignatura(String nomAssig, String codiQ)
     {
         this.nomAssig = nomAssig;
-        this.bloc = new Bloc(codiBloc);
+        this.quatri = new Quatrimestre(codiQ);
     }
 
     public Assignatura(String nomAssig, String codiBloc, int alumnes)
     {
         this.nomAssig = nomAssig;
-        this.bloc = new Bloc(codiBloc);
+        this.quatri = new Quatrimestre(codiBloc);
         grupsAssig = new ArrayList<Grup>();
         assignarAlumnes(alumnes);
     }
@@ -50,8 +50,8 @@ public class Assignatura
         return this.nomAssig;
     }
 
-    public String getCodiBloc() {
-        return bloc.getCodi();
+    public String getCodiQuatri() {
+        return quatri.getCodi();
     }
     
     public ArrayList<Grup> getGrups(){
