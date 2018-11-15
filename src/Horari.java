@@ -1,9 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
+
 
 public class Horari {
 	
@@ -12,6 +10,7 @@ public class Horari {
 	private int horaFiDia;
 
 	private Classe[][][] horari;
+	
 	
 	private HashMap<Grup, ArrayList<Restriccions>> restGrups;
 	private HashMap<Assignatura, ArrayList<Restriccions>> restAssig;
@@ -42,27 +41,76 @@ public class Horari {
 	}
 	///FUNCIONS AUXILIAR DE LES CREADORES///
 	
-	//
-	void backtrackingClasseGrup(Assignatura assig, int i, ArrayList<Grup> grupsAssig, boolean solucio[])
+/*	void backtrackingClasseGrup(Assignatura assig, int i, ArrayList<Grup> grupsAssig, boolean solucio[])
 	{
 		if(i == grupsAssig.size() && solucio[i-1]) printHorari();
 		else if(i == grupsAssig.size() && !solucio[i-1]);//Si no encontramos solucion
 		else
 		{
 			//Miramos si podemos generar el grupo
-			if(generarClasseGrup(grupsAssig.get(i)) && !solucio[i])
+			boolean found = false;
+			int fila = 0;
+			generarClasseGrup(grupsAssig.get(i), mirades,fila,found);
+			if(!found && !solucio[i]) //Quiere decir que no ha encontrado solucion
 			{
-				solucio[i] = true;
-				backtrackingClasseGrup(assig, i+1, grupsAssig ,solucio);	
+				vuelta_atras();
 			}
-			//Si no podemos generar el grupo, hemos de volver para atras
+			else//Si se ha encontrado solución seguimos
 			solucio[i] =false;
 			backtrackingClasseGrup(assig, i, grupsAssig,solucio);
 		}
 	}
+*/
+	void backtrackingClasseAssig(Assignatura assig, int i, ArrayList<Grup> grupsAssig, boolean solucio[], boolean foundAssig, boolean marcadesAnt[][][],int filaAnt, int colAnt, int aulaAnt, boolean vueltaAtras)
+	{
+		if(i == grupsAssig.size() && solucio[i-1] && !vueltaAtras) foundAssig = true;
+		else if(i == grupsAssig.size() && !solucio[i-1] && !vueltaAtras) foundAssig = false;//Si no encontramos solucion
+		else if(i == -1 && vueltaAtras) foundAssig = false; // Quiere decir que hemos seguido tirando para atras pero no hay solucion de esta assignatura  			
+		else
+		{
+			//Miramos si podemos generar el grupo
+			int fila = 0;
+			boolean found = false; // diu si el grup te solucio o no, found diu 
+			boolean[][][] marcades;
+			marcades = new boolean[5][horaFiDia][vaules.size()];
+			Arrays.fill(marcades, false); // todas empiezana false
+			int col = 0; // Queremos saber la ultima posicion que fue valida
+			int aula =0;
+			
+			if(!vueltaAtras)
+			{
+				backtrackinggenerarClasseGrup(grupsAssig.get(i), marcades,fila,found,col, aula);
+				// Si no hemos encontrado solucion volvemos para atràs
+				if(!found) backtrackingClasseAssig(assig, i-1,grupsAssig,solucio, foundAssig, marcadesAnt, filaAnt,colAnt,aulaAnt, true);
+				else//Si se ha encontrado solución seguimos, hemos podido colocar el grupo
+				{
+						solucio[i] =true;
+						backtrackingClasseAssig(assig, i+1, grupsAssig,solucio, foundAssig, marcades,fila,col,aula,vueltaAtras);
+				}
+			}
+			else // Si es vueltaAtras
+			{
+				solucio[i] = false;
+				marcadesAnt[filaAnt][colAnt][aulaAnt] = true;
+				foundAssig = false;
+				backtrackinggenerarClasseGrup(grupsAssig.get(i), marcadesAnt,filaAnt,found,colAnt, aulaAnt);
+				if(found) // Si el grup a trobat una solució
+				{
+					solucio[i] = true;
+					backtrackingClasseAssig(assig, i+1,grupsAssig,solucio, foundAssig, marcadesAnt, filaAnt,colAnt,aulaAnt, false);
+				}
+				else // Si no ha trobat solució hem de tornar enrere
+				{
+					backtrackingClasseAssig(assig, i-1,grupsAssig,solucio, foundAssig, marcadesAnt, filaAnt,colAnt,aulaAnt, true);
+				}
+				
+			}
+	}
+}
 
-	private boolean comprovarRestriccio(Classe aux) {
+	private boolean comprovarRestriccio(Classe aux, Grup g) {
 		// Buscar dintre del vector de grup o assignatura si te alguna restriccio y cridar res.esCompleix()
+		//Restriccio restGrup[] = restGrups.get(g);
 		return true;
 	}
 	/**
@@ -99,20 +147,23 @@ public class Horari {
 		ArrayList<Grup> grupsAssig = assig.getGrups();
 		boolean solucio[] = new boolean[grupsAssig.size()]; 
 		Arrays.fill(solucio, false);
-		backtrackingClasseGrup(assig,0,grupsAssig, solucio);
+		boolean foundAssig = false;
+		boolean marcades[][][] = new boolean[5][horaFiDia][vaules.size()];
+		Arrays.fill(marcades, false);
+		backtrackingClasseAssig(assig, 0,grupsAssig,solucio, foundAssig, marcades, 0,0,0, false);
 		
 		
 	}
 	
-	public boolean generarClasseGrup(Grup g) 
+	/*public boolean generarClasseGrup(Grup g, boolean[][][] mirades) 
 	{
 		System.out.println("GENERA GRUP");
-		boolean found = false;
 
 		for (int i = 0; i < 5 && !found; ++i){
 			for (int j = horaIniDia; j < horaFiDia && !found; ++j){
 				for (int k = 0; k < vaules.size() && !found; ++k){
-					if(horari[i][j][k].isEmpty()) { // Cal afegir la segona condicio del if: && vaules.get(k).getCapacitat() >= g.getNumeroAlumnes()
+					if(!mirades[i][j][k] && horari[i][j][k].isEmpty()) { // Cal afegir la segona condicio del if: && vaules.get(k).getCapacitat() >= g.getNumeroAlumnes()
+						mirades[i][j][k] = true;
 						Classe aux = new Classe(vaules.get(k), g, Dia.values()[i], j, 2);
 						if(comprovarRestriccio(aux)){
 							found = true;
@@ -125,7 +176,35 @@ public class Horari {
 		}
 		return found;
 	}
+	*/
+	public void backtrackinggenerarClasseGrup(Grup g, boolean[][][] marcadas, int i,boolean found, int j, int k) 
+	{
+		System.out.println("GENERA GRUP");
+		if(i == 5 ) found = false;
+		else
+		{
+			for (j = horaIniDia; j < horaFiDia && !found; ++j){
+				for (k = 0; k < vaules.size() && !found; ++k){
+					if(!marcadas[i][j][k] && horari[i][j][k].isEmpty()) { // Cal afegir la segona condicio del if: && vaules.get(k).getCapacitat() >= g.getNumeroAlumnes()
+						marcadas[i][j][k] = true;
+						Classe aux = new Classe(vaules.get(k), g, Dia.values()[i], j, 2);
+						if(comprovarRestriccio(aux, g)){
+							found = true;
+							horari[i][j][k] = aux;
+							System.out.println("Classe creada");
+						}
+					}
+				}
+			}
+			if(!found) backtrackinggenerarClasseGrup(g, marcadas,i+1,found, 0,0);
+		}
+	}
 	
+	public void generarClasseGrup(Grup g)
+	{
+		boolean marcadas[][][] = new boolean[5][horaFiDia][vaules.size()];
+		backtrackinggenerarClasseGrup(g, marcadas,0,false, 0,0);
+	}
 	
 	
 	/** 

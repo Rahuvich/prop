@@ -1,0 +1,48 @@
+{
+  "Assignatures": [
+
+    {
+      "codiAssig":"F",
+      "alumnes": 200,
+      "bloc": "1"
+    },
+    {
+      "codiAssig":"FM",
+      "alumnes": 200,
+      "bloc": "1"
+    },
+    {
+      "codiAssig":"PRO1",
+      "alumnes": 200,
+      "bloc": "1"
+    },
+    {
+      "codiAssig":"IC",
+      "alumnes": 200,
+      "bloc": "1"
+    },
+
+
+
+    {
+      "codiAssig":"M2",
+      "alumnes": 50,
+      "bloc": "2"
+    },
+    {
+      "codiAssig":"M1",
+      "alumnes": 50,
+      "bloc": "2"
+    },
+    {
+      "codiAssig":"EC",
+      "alumnes": 50,
+      "bloc": "2"
+    },
+    {
+      "codiAssig":"PRO2",
+      "alumnes": 50,
+      "bloc": "2"
+    }
+  ]
+}

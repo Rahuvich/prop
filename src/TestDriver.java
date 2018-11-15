@@ -24,7 +24,9 @@ public class TestDriver {
 
         crearRestriccions();
         
-        horari.generarClasseGrup(null);
+        
+        
+        //horari.generarClasseGrup(null);
         
         //horari.printHorari();
 
@@ -51,7 +53,7 @@ public class TestDriver {
 
             crearRestriccions();
             
-            horari.generarClasseGrup(null);
+            //horari.generarClasseAssig(Assignatura assig, int i, ArrayList<Grup> grupsAssig, boolean solucio[], boolean foundAssig, boolean marcadesAnt[][][],int filaAnt, int colAnt, int aulaAnt, boolean vueltaAtras);
             
             //horari.printHorari();
 
@@ -73,16 +75,29 @@ public class TestDriver {
 
             crearRestriccions();
             
-            horari.generarClasseGrup(null);
+            horari.generarClasseGrup(vassig.get(0).getGrups().get(0));
             
-            //horari.printHorari();
+            System.out.println("Ha generat l'horari del grup correctament");
+            
+            
+            horari.generarClassesAssig(vassig.get(0));
+            
+            System.out.println("Ha generat l'horari de l'assignatura correctament");
+            
+            
+            
+            //horari.generarClasseGrup(null);
+            
+            horari.printHorari();
 
             reader.close();
             break;
         }
     }
     
-    private static void creaHorari(int ini, int fi) {
+ 
+
+	private static void creaHorari(int ini, int fi) {
 
     	horari = new Horari(ini, fi, vassig, vaules);
     	
@@ -317,4 +332,6 @@ public class TestDriver {
         int x = Integer.parseInt(aux);
         return x;
     }
+    
+    private void printAssignatura() {};
 }
