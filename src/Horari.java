@@ -12,10 +12,12 @@ public class Horari {
 	
 	
 	private HashMap<Grup, ArrayList<Restriccions>> restGrups;
-	private HashMap<Assignatura, ArrayList<Restriccions>> restAssig;
+	private HashMap<String, ArrayList<Restriccions>> restAssig;
 
 	private ArrayList<Assignatura> vassigs;
 	private ArrayList<Aula> vaules;
+
+	long startAlgorithm, endAlgorithm;
 	
 	///CONSTRUCTORA///
 	public Horari(int horaIniDia, int horaFiDia, ArrayList<Assignatura> vassigs, ArrayList<Aula> vaules) {
@@ -74,7 +76,7 @@ public class Horari {
 	public void generaTot()
 	{
 		System.out.println("Starting algorithm");
-		final long start = System.nanoTime();
+		startAlgorithm = System.nanoTime();
 
 
 		ArrayList<String> quatriFet = new ArrayList<>();
@@ -85,9 +87,9 @@ public class Horari {
 			generaQuatri(vassigs.get(i).getCodiQuatri());
 		}
 
-		final long end = System.nanoTime();
+		endAlgorithm = System.nanoTime();
 		printHorari();
-		System.out.println("Ha tardat " + ((end - start) / 1000000) + "ms");
+		System.out.println("Ha tardat " + ((endAlgorithm - startAlgorithm) / 1000000) + "ms");
     }
 
     private void generaQuatri (String codiQ){
@@ -109,6 +111,10 @@ public class Horari {
 	{
 		if(!backtrackingDia(0, g)) {
 			System.out.println("No s'ha pogut generar el grup " + g.getNumero() + "" + g.getNomAssig());
+			System.exit(0);
+		}
+		if( ((System.nanoTime() - startAlgorithm) / 1000000) > 3000 ){
+			System.out.println("Es possible que hi hagi alguna inconsistencia (3s)");
 			System.exit(0);
 		}
 	}
@@ -141,11 +147,35 @@ public class Horari {
 
 	private boolean comprobarAssignacio(int dia, int hora, int aula, Grup g){
 		// RESTRICCIONS COMUNS
+		boolean b = true;
 		if(vaules.get(aula).getCapacitat() < g.getNumeroAlumnes()) return false;
 
 		// RESTRICCIONS INDIVIDUALS
-		if(!g.esSubgrup()) return grupPosible(dia, hora, aula, g);
-		else return subgrupPosible(dia, hora, aula, g);
+		if(!g.esSubgrup()) b = grupPosible(dia, hora, aula, g);
+		else b = subgrupPosible(dia, hora, aula, g);
+
+		if(!b) return false;
+		return compleixRestriccions(dia, hora, aula, g);
+	}
+
+	private boolean compleixRestriccions(int dia, int hora, int aula, Grup g) {
+		if (restGrups.containsKey(g)){
+			// CAL CANVIAR:
+			for(int i = 0; i < restGrups.get(g).size(); ++i) {
+				if(!restGrups.get(g).get(i).esCompleix(new Classe(vaules.get(aula), g, Dia.values()[dia], hora+horaIniDia, 2)))
+					return false;
+
+			}
+		}
+		if (restAssig.containsKey(g.getNomAssig())){
+			// CAL CANVIAR:
+			for(int i = 0; i < restAssig.get(g.getNomAssig()).size(); ++i) {
+				if(!restAssig.get(g.getNomAssig()).get(i).esCompleix(new Classe(vaules.get(aula), g, Dia.values()[dia], hora+horaIniDia, 2)))
+					return false;
+
+			}
+		}
+		return true;
 	}
 
 	private boolean subgrupPosible(int dia, int hora, int aula, Grup g) {
@@ -158,7 +188,6 @@ public class Horari {
 				if(horari[dia][hora][i].getGrup().etsFamilia(g)) return false;
 				if(horari[dia][hora][i].getCodiQuatri().equals(g.getCodiQuatri()) &&
 						horari[dia][hora][i].getGrup().getNumero() == g.getNumero()) return false;
-				//f(horari[dia][hora][i].getCodiQuatri().equals(g.getCodiQuatri()) && aula == i) return false;
 			}
 		}
 		return true;
@@ -174,7 +203,6 @@ public class Horari {
 					if(horari[dia][hora][i].getAssig().equals(g.getNomAssig())) return false;
 					if(horari[dia][hora][i].getCodiQuatri().equals(g.getCodiQuatri()) &&
 							horari[dia][hora][i].getGrup().getNumero() == g.getNumero()) return false;
-					//if(horari[dia][hora][i].getCodiQuatri().equals(g.getCodiQuatri()) && aula == i) return false;
 				}
 			}
 		}
@@ -198,10 +226,10 @@ public class Horari {
 		else if(res instanceof ResAssig)
 		{
 			Assignatura assig = ((ResAssig) res).getAssig();
-			restAssig.putIfAbsent(assig, new ArrayList<>());
-			auxV = restAssig.get(assig);
+			restAssig.putIfAbsent(assig.getNomAssig(), new ArrayList<>());
+			auxV = restAssig.get(assig.getNomAssig());
 			auxV.add(res);
-			restAssig.put(assig, auxV);
+			restAssig.put(assig.getNomAssig(), auxV);
 		}
 	}
 	

@@ -13,6 +13,8 @@ public class TestDriver {
     
     private static Horari horari;
 
+    private static int horaIni, horaFi;
+
     public static void execute(){
     	chooseMode();
     	
@@ -41,14 +43,16 @@ public class TestDriver {
         switch (readInput()){
         case 1:
             try {
-                vaules = Fabrica.carregaAules("/src/dades/microAules.json");
-                vassig = Fabrica.carregaAssig("/src/dades/microAssig.json");
+                vaules = Fabrica.carregaAules("/src/dades/miniAules.json");
+                vassig = Fabrica.carregaAssig("/src/dades/miniAssig.json");
                 System.out.println("Assignatures y aules de la miniFIB creades");
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (ParseException e) {
                 e.printStackTrace();
             }
+            horaIni = 8;
+            horaFi = 20;
         	creaHorari(8, 20);
 
             crearRestriccions();
@@ -60,10 +64,10 @@ public class TestDriver {
         	loader();
         	
         	System.out.println("Insereix l'hora en que vulguis que comencin les classes");
-        	int horaIni = readInput();
+        	horaIni = readInput();
 
         	System.out.println("Insereix l'hora en que vulguis que acabin les classes");
-        	int horaFi = readInput();
+        	horaFi = readInput();
         	
         	creaHorari(horaIni, horaFi);
 
@@ -103,7 +107,9 @@ public class TestDriver {
         System.out.println("Escolleix restriccio");
         System.out.println("1. Restringir el torn mati/tarda d'una assignatura");
         System.out.println("2. Restringir el torn mati/tarda d'un grup");
-        System.out.println("3. Torna enrere");
+        System.out.println("3. Restringir l'hora d'inici d'un grup");
+        System.out.println("4. Restringir l'hora d'inici d'una assignatura");
+        System.out.println("5. Torna enrere");
 
         switch (readInput()){
             case 1:
@@ -115,8 +121,65 @@ public class TestDriver {
                 llistaRestriccions();
                 break;
             case 3:
+                crearRestHoraGrup();
+                llistaRestriccions();
+                break;
+            case 4:
+                crearRestHoraAssig();
+                llistaRestriccions();
+            case 5:
             default:
         }
+    }
+
+    private static void crearRestHoraAssig() {
+        System.out.println("Escolleix assignatura");
+        for (int i = 0; i<vassig.size(); ++i){
+            System.out.println(i+1 + ". " + vassig.get(i).getNomAssig());
+        }
+
+        int assigIndex = readInput();
+
+        System.out.println("Escolleix hora entre " + horaIni + " y " + horaFi);
+        int hora = readInput();
+        if(hora < horaIni || hora > horaFi){
+            System.out.println("Hora invalida");
+            llistaRestriccions();
+            return;
+        }
+
+        System.out.println("L'assignatura " + vassig.get(assigIndex-1).getNomAssig() + " no podra ser a les " + hora);
+
+
+
+        RestHoraAssig res = new RestHoraAssig(vassig.get(assigIndex-1), hora);
+        horari.afegirRestriccio(res);
+    }
+
+    private static void crearRestHoraGrup() {
+        System.out.println("Escolleix assignatura");
+        for (int i = 0; i<vassig.size(); ++i){
+            System.out.println(i+1 + ". " + vassig.get(i).getNomAssig());
+        }
+        int assigIndex = readInput();
+        for (int i = 0; i<vassig.get(assigIndex-1).getGrups().size(); ++i){
+            System.out.println(i+1 + ". " + vassig.get(assigIndex-1).getGrups().get(i).getNumero());
+        }
+        int grup = readInput();
+
+        System.out.println("Escolleix hora entre " + horaIni + " y " + horaFi);
+        int hora = readInput();
+        if(hora < horaIni || hora > horaFi){
+            System.out.println("Hora invalida");
+            llistaRestriccions();
+            return;
+        }
+
+        System.out.println("El grup " + vassig.get(assigIndex-1).getGrups().get(grup-1).getNumero() +
+                " de l'assignatura " + vassig.get(assigIndex-1).getNomAssig() + " no podra ser a les " + hora);
+
+        RestHoraGrup res = new RestHoraGrup(vassig.get(assigIndex-1).getGrups().get(grup-1), hora);
+        horari.afegirRestriccio(res);
     }
 
     private static void crearRestTornGrup() {

@@ -14,7 +14,6 @@ public class RestHoraAssig extends ResAssig{
     @Override
     public boolean esCompleix(Classe classe)
 	{
-	    System.out.println("Soc el net: restHoraAssig");
 	    boolean ans = false;
 	    if (classe.getHoraIni()!=hora) ans=true;
 		return ans;

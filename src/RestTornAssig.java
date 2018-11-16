@@ -12,7 +12,6 @@ public class RestTornAssig extends ResAssig{
     @Override
     public boolean esCompleix(Classe classe)
 	{
-	    System.out.println("Soc el net: restTornAssig");
 	    boolean ans = false;
 	    if (mati) {
 	    	if (classe.getHoraIni()<14) ans=true;

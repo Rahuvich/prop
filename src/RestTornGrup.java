@@ -12,7 +12,6 @@ public class RestTornGrup extends ResGrup{
     @Override
     public boolean esCompleix(Classe classe)
 	{
-	    System.out.println("Soc el net: restTornGrup");
 	    boolean ans = false;
 	    if (mati) {
 	    	if (classe.getHoraIni()<14) ans=true;

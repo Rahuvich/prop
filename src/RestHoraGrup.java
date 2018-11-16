@@ -14,7 +14,6 @@ public class RestHoraGrup extends ResGrup{
     @Override
     public boolean esCompleix(Classe classe)
 	{
-	    System.out.println("Soc el net: restHoraGrup");
 	    boolean ans = false;
 	    if (classe.getHoraIni()!=hora) ans=true;
 		return ans;
