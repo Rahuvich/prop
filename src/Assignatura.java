@@ -7,12 +7,6 @@ public class Assignatura
     private ArrayList<Grup> grupsAssig;
 
     ///CREADORES///
-    public Assignatura(String nomAssig, String codiQ)
-    {
-        this.nomAssig = nomAssig;
-        this.quatri = new Quatrimestre(codiQ);
-    }
-
     public Assignatura(String nomAssig, String codiBloc, int alumnes)
     {
         this.nomAssig = nomAssig;
