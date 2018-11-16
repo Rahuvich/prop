@@ -41,8 +41,8 @@ public class TestDriver {
         switch (readInput()){
         case 1:
             try {
-                vaules = Fabrica.carregaAules("/src/dades/miniAules.json");
-                vassig = Fabrica.carregaAssig("/src/dades/miniAssig.json");
+                vaules = Fabrica.carregaAules("/src/dades/fibAules.json");
+                vassig = Fabrica.carregaAssig("/src/dades/fibAssig.json");
                 System.out.println("Assignatures y aules de la miniFIB creades");
             } catch (IOException e) {
                 e.printStackTrace();
@@ -52,10 +52,6 @@ public class TestDriver {
         	creaHorari(8, 20);
 
             crearRestriccions();
-            
-            //horari.generarClasseAssig(Assignatura assig, int i, ArrayList<Grup> grupsAssig, boolean solucio[], boolean foundAssig, boolean marcadesAnt[][][],int filaAnt, int colAnt, int aulaAnt, boolean vueltaAtras);
-            
-            //horari.printHorari();
 
             reader.close();
             break;

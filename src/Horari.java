@@ -41,32 +41,30 @@ public class Horari {
 	/**
 	 * Printeja un horari
 	 */
-	public void printHorari() {
-
-		horari[0][0][0] = new Classe(vaules.get(0), vassigs.get(0).getGrups().get(0), Dia.values()[0], 2, 2);
-		horari[0][0][1] = new Classe(vaules.get(1), vassigs.get(0).getGrups().get(1), Dia.values()[0], 2, 2);
-		horari[0][0][2] = new Classe(vaules.get(2), vassigs.get(0).getGrups().get(2), Dia.values()[0], 2, 2);
-
-
-		horari[1][0][1] = new Classe(vaules.get(1), vassigs.get(1).getGrups().get(1), Dia.values()[1], 2, 2);
-		horari[1][0][2] = new Classe(vaules.get(2), vassigs.get(1).getGrups().get(2), Dia.values()[1], 2, 2);
-
+	private void printHorari() {
 		System.out.printf("%2s", " ");
 		for(int i = 0; i < 5; ++i) {
 			System.out.printf("%20s", Dia.values()[i].toString());
 		}
 		System.out.println();
+		boolean row = false;
 		for(int j = 0; j < horaFiDia - horaIniDia; j++) {
 			System.out.printf("%2d", j+horaIniDia);
-			for (int i = 0; i<5;++i){
-				for (int k = 0; k < vaules.size(); ++k){
+			for (int k = 0; k < vaules.size(); ++k) {
+				for (int i = 0; i<5;++i){
 					if(!horari[i][j][k].isEmpty()){
-						String s = String.valueOf(horari[i][j][k].getGrup());
+						row = true;
+						String s = String.valueOf(horari[i][j][k].getGrup().getNumero());
 						s = s.concat(horari[i][j][k].getAssig());
 						s = s.concat(" ");
 						s = s.concat(horari[i][j][k].getAula());
 						System.out.printf("%20s", s);
 					}
+				}
+				if(row){
+					System.out.println();
+					System.out.printf("%2s", "");
+					row = false;
 				}
 			}
 			System.out.println();
@@ -87,27 +85,97 @@ public class Horari {
 		printHorari();
     }
 
-    public void generaQuatri (String codiQ){
-		System.out.println("	Algorithm: Quatrimestre " + codiQ);
+    private void generaQuatri (String codiQ){
+		//System.out.println("	Algorithm: Quatrimestre " + codiQ);
 		for(int i = 0; i < vassigs.size(); ++i){
 			if(vassigs.get(i).getCodiQuatri().equals(codiQ)) generaAssig(vassigs.get(i));
 		}
 	}
 	
-	public void generaAssig(Assignatura assig)
+	private void generaAssig(Assignatura assig)
 	{
-		System.out.println("		Algorithm: Assignatura " + assig.getNomAssig());
+		//System.out.println("		Algorithm: Assignatura " + assig.getNomAssig());
 		for(int i = 0; i < assig.getGrups().size(); ++i){
 			generaGrup(assig.getGrups().get(i));
 		}
 	}
 	
-	public void generaGrup(Grup g)
+	private void generaGrup(Grup g)
 	{
-		System.out.println("			Algorithm: Grup " + g.getNumero());
+		if(!backtrackingDia(0, g)) {
+			System.out.println("No s'ha pogut generar el grup " + g.getNumero() + "" + g.getNomAssig());
+			System.exit(0);
+		}
 	}
-	
-	
+
+	private boolean backtrackingDia(int dia, Grup g){
+		if(dia == 5) return false;
+		else{
+			if(backtrackingHora(dia, 0, g)) return true;
+			else return backtrackingDia(dia+1, g);
+		}
+	}
+
+	private boolean backtrackingHora(int dia, int hora, Grup g){
+		if(hora == horaFiDia-horaIniDia) return false;
+		else{
+			if(backtrackingAula(dia, hora, 0, g)) return true;
+			else return backtrackingHora(dia, hora+1, g);
+		}
+	}
+
+	private boolean backtrackingAula(int dia, int hora, int aula, Grup g){
+		if(aula == vaules.size()) return false;
+		else{
+			if(comprobarAssignacio(dia, hora, aula, g)) {
+				horari[dia][hora][aula] = new Classe(vaules.get(aula), g, Dia.values()[dia], hora+horaIniDia, 2);
+				return true;
+			} else return backtrackingAula(dia, hora, aula+1, g);
+		}
+	}
+
+	private boolean comprobarAssignacio(int dia, int hora, int aula, Grup g){
+		// RESTRICCIONS COMUNS
+		if(vaules.get(aula).getCapacitat() < g.getNumeroAlumnes()) return false;
+
+		// RESTRICCIONS INDIVIDUALS
+		if(!g.esSubgrup()) return grupPosible(dia, hora, aula, g);
+		else return subgrupPosible(dia, hora, aula, g);
+	}
+
+	private boolean subgrupPosible(int dia, int hora, int aula, Grup g) {
+		if(vaules.get(aula).esGran()) return false; // No hauria pero si es necesari hauriem de fer que es fiqui
+
+		for(int i = 0; i < vaules.size(); ++i){
+			if(!horari[dia][hora][i].isEmpty()) {
+				if(aula == i) return false;
+				if(horari[dia][hora][i].getGrup().etsMeuPare(g)) return false;
+				if(horari[dia][hora][i].getGrup().etsFamilia(g)) return false;
+				if(horari[dia][hora][i].getCodiQuatri().equals(g.getCodiQuatri()) &&
+						horari[dia][hora][i].getGrup().getNumero() == g.getNumero()) return false;
+				//f(horari[dia][hora][i].getCodiQuatri().equals(g.getCodiQuatri()) && aula == i) return false;
+			}
+		}
+		return true;
+	}
+
+	private boolean grupPosible(int dia, int hora, int aula, Grup g) {
+		if(!vaules.get(aula).esGran()) return false;
+
+		for(int i = 0; i < vaules.size(); ++i){
+			if(!horari[dia][hora][i].isEmpty()) {
+				if(aula == i) return false;
+				if(!horari[dia][hora][i].getGrup().esSubgrup()){
+					if(horari[dia][hora][i].getAssig().equals(g.getNomAssig())) return false;
+					if(horari[dia][hora][i].getCodiQuatri().equals(g.getCodiQuatri()) &&
+							horari[dia][hora][i].getGrup().getNumero() == g.getNumero()) return false;
+					//if(horari[dia][hora][i].getCodiQuatri().equals(g.getCodiQuatri()) && aula == i) return false;
+				}
+			}
+		}
+		return true;
+	}
+
 	/** 
 	 * 
 	 * De moment es pot crear la mateixa restriccio de la mateixa assig/grup

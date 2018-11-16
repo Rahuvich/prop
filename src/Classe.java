@@ -10,7 +10,7 @@ public class Classe
     private boolean empty;
 
     ///CONTRUCTORA///
-    public Classe(Aula a, Grup g, Dia d, int h, int duracio)
+    public Classe(Aula a, Grup g, Dia dia, int h, int duracio)
     {
         this.aula = a;
         this.grup = g;
@@ -34,8 +34,12 @@ public class Classe
 
     public boolean isEmpty(){return empty;}
 
-    public int getGrup(){
-        return grup.getNumero();
+    public Grup getGrup(){
+        return grup;
+    }
+
+    public String getCodiQuatri(){
+        return grup.getCodiQuatri();
     }
 
     public String getAula(){ return aula.getAula();}
@@ -45,7 +49,8 @@ public class Classe
     }
     
     public void printClasse() {
-    	System.out.println("El " + dia + " a les " + horaIni + "tindra classe el grup " + grup.getNumero() + " de " + grup.getNomAssig());
+    	System.out.println("El " + dia.toString() + " a les " + horaIni + " tindra classe el grup " + grup.getNumero() + " de " + grup.getNomAssig()
+         + " a l'aula " + aula.getAula());
     }
 
 }
