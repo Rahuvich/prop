@@ -74,6 +74,9 @@ public class Horari {
 	public void generaTot()
 	{
 		System.out.println("Starting algorithm");
+		final long start = System.nanoTime();
+
+
 		ArrayList<String> quatriFet = new ArrayList<>();
 
 		for(int i = 0; i < vassigs.size(); ++i){
@@ -82,7 +85,9 @@ public class Horari {
 			generaQuatri(vassigs.get(i).getCodiQuatri());
 		}
 
+		final long end = System.nanoTime();
 		printHorari();
+		System.out.println("Ha tardat " + ((end - start) / 1000000) + "ms");
     }
 
     private void generaQuatri (String codiQ){

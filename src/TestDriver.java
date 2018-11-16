@@ -41,8 +41,8 @@ public class TestDriver {
         switch (readInput()){
         case 1:
             try {
-                vaules = Fabrica.carregaAules("/src/dades/fibAules.json");
-                vassig = Fabrica.carregaAssig("/src/dades/fibAssig.json");
+                vaules = Fabrica.carregaAules("/src/dades/microAules.json");
+                vassig = Fabrica.carregaAssig("/src/dades/microAssig.json");
                 System.out.println("Assignatures y aules de la miniFIB creades");
             } catch (IOException e) {
                 e.printStackTrace();
