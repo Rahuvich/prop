@@ -1,3 +1,5 @@
+import utils.Vector5;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -9,6 +11,8 @@ public class Horari {
 	private int horaFiDia;
 
 	private Classe[][][] horari;
+
+	private ArrayList<Vector5> fullClasses;
 	
 	
 	private HashMap<Grup, ArrayList<Restriccions>> restGrups;
@@ -38,6 +42,8 @@ public class Horari {
 		restAssig = new HashMap<>();
 		this.vassigs = vassigs;
 		this.vaules = vaules;
+		
+		fullClasses = new ArrayList<>();
 	}
 
 	/**
@@ -78,70 +84,90 @@ public class Horari {
 		System.out.println("Starting algorithm");
 		startAlgorithm = System.nanoTime();
 
-
-		ArrayList<String> quatriFet = new ArrayList<>();
-
-		for(int i = 0; i < vassigs.size(); ++i){
-			if(quatriFet.contains(vassigs.get(i).getCodiQuatri())) continue;
-			quatriFet.add(vassigs.get(i).getCodiQuatri());
-			generaQuatri(vassigs.get(i).getCodiQuatri());
-		}
+		if(!generaGrup(0,0,0,0,0))
+			System.out.println("No ha sigut possible");
+		else printHorari();
 
 		endAlgorithm = System.nanoTime();
-		printHorari();
 		System.out.println("Ha tardat " + ((endAlgorithm - startAlgorithm) / 1000000) + "ms");
-    }
 
-    private void generaQuatri (String codiQ){
-		//System.out.println("	Algorithm: Quatrimestre " + codiQ);
-		for(int i = 0; i < vassigs.size(); ++i){
-			if(vassigs.get(i).getCodiQuatri().equals(codiQ)) generaAssig(vassigs.get(i));
-		}
-	}
+    }
 	
-	private void generaAssig(Assignatura assig)
+	private boolean generaGrup(int dia, int hora, int aula, int g, int assig)
 	{
-		//System.out.println("		Algorithm: Assignatura " + assig.getNomAssig());
-		for(int i = 0; i < assig.getGrups().size(); ++i){
-			generaGrup(assig.getGrups().get(i));
+		if(assig == vassigs.size()) return true;
+		else if(g == vassigs.get(assig).getGrups().size()) return generaGrup(0, 0, 0, 0, assig+1);
+		else if(aula == vaules.size()) return generaGrup(dia, hora+1, 0, g, assig);
+		else if(hora == horaFiDia-horaIniDia) return generaGrup(dia+1, 0, 0, g, assig);
+		else if(dia == 5) {
+			if(!fullClasses.isEmpty()){
+				Vector5 aux = new Vector5(getLastOneAndRemove());
+				return generaGrup(aux.dia, aux.hora, aux.aula+1,aux.grup, aux.assig);
+			} else return false;
 		}
-	}
-	
-	private void generaGrup(Grup g)
-	{
-		if(!backtrackingDia(0, g)) {
-			System.out.println("No s'ha pogut generar el grup " + g.getNumero() + "" + g.getNomAssig());
-			System.exit(0);
+		else{
+			if(backtrackingDia(dia,hora,aula,g,assig)){
+				return generaGrup(0, 0, 0, g+1, assig);
+			}
+			else if(!fullClasses.isEmpty()){
+				System.out.println("He intentat pero esta ocupada: " + vassigs.get(assig).getGrups().get(g).getNumero() + "" +
+						vassigs.get(assig).getNomAssig() + " a la posicio " +
+						dia + "" +
+						hora + "" +
+						aula);
+				Vector5 aux = new Vector5(getLastOneAndRemove());
+				return generaGrup(aux.dia, aux.hora, aux.aula+1,aux.grup, aux.assig);
+			} else return false;
+
 		}
-		if( ((System.nanoTime() - startAlgorithm) / 1000000) > 3000 ){
+		
+		
+		/*if( ((System.nanoTime() - startAlgorithm) / 1000000) > 3000 ){
 			System.out.println("Es possible que hi hagi alguna inconsistencia (3s)");
 			System.exit(0);
-		}
+		}*/
 	}
 
-	private boolean backtrackingDia(int dia, Grup g){
+	private Vector5 getLastOneAndRemove(){
+		int auxDia = fullClasses.get(fullClasses.size()-1).dia;
+		int auxHora = fullClasses.get(fullClasses.size()-1).hora;
+		int auxAula = fullClasses.get(fullClasses.size()-1).aula;
+		horari[auxDia][auxHora][auxAula].setEmpty();
+		System.out.println("Estic treient: " +
+				vassigs.get(fullClasses.get(fullClasses.size()-1).assig).getGrups().get(fullClasses.get(fullClasses.size()-1).grup).getNumero() + "" +
+				vassigs.get(fullClasses.get(fullClasses.size()-1).assig).getNomAssig());
+		return fullClasses.remove(fullClasses.size()-1);
+	}
+
+	private boolean backtrackingDia(int dia, int hora, int aula, int g, int assig){
 		if(dia == 5) return false;
 		else{
-			if(backtrackingHora(dia, 0, g)) return true;
-			else return backtrackingDia(dia+1, g);
+			if(backtrackingHora(dia, hora, aula, g, assig)) return true;
+			else return backtrackingDia(dia+1, hora , aula,  g, assig);
 		}
 	}
 
-	private boolean backtrackingHora(int dia, int hora, Grup g){
+	private boolean backtrackingHora(int dia, int hora, int aula, int g, int assig){
 		if(hora == horaFiDia-horaIniDia) return false;
 		else{
-			if(backtrackingAula(dia, hora, 0, g)) return true;
-			else return backtrackingHora(dia, hora+1, g);
+			if(backtrackingAula(dia, hora, aula, g, assig)) return true;
+			else return backtrackingHora(dia, hora+1, aula, g, assig);
 		}
 	}
 
-	private boolean backtrackingAula(int dia, int hora, int aula, Grup g){
+	private boolean backtrackingAula(int dia, int hora, int aula, int g, int assig){
 		if(aula == vaules.size()) return false;
 		else{
-			if(comprobarAssignacio(dia, hora, aula, g)) {
-				horari[dia][hora][aula] = new Classe(vaules.get(aula), g, Dia.values()[dia], hora+horaIniDia, 2);
+			if(comprobarAssignacio(dia, hora, aula, vassigs.get(assig).getGrups().get(g))) {
+				horari[dia][hora][aula] = new Classe(vaules.get(aula), vassigs.get(assig).getGrups().get(g), Dia.values()[dia], hora+horaIniDia, 2);
+				fullClasses.add(new Vector5(dia, hora, aula, g, assig));
+				System.out.println("He ficat: " + vassigs.get(assig).getGrups().get(g).getNumero() + "" +
+						vassigs.get(assig).getNomAssig() + " a la posicio " +
+						dia + "" +
+						hora + "" +
+						aula);
 				return true;
-			} else return backtrackingAula(dia, hora, aula+1, g);
+			} else return backtrackingAula(dia, hora, aula+1, g, assig);
 		}
 	}
 
@@ -209,8 +235,7 @@ public class Horari {
 		return true;
 	}
 
-	/** 
-	 * 
+	/**
 	 * De moment es pot crear la mateixa restriccio de la mateixa assig/grup
 	 * diferents cops i les segueix guardant.
 	 */

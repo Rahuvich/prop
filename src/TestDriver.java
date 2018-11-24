@@ -253,11 +253,23 @@ public class TestDriver {
 
     private static void loader(){
         System.out.println("Que vols crear?");
-        System.out.println("1. miniFIB?");
-        System.out.println("2. FIB (beta)?");
+        System.out.println("1. microFIB?");
+        System.out.println("2. miniFIB?");
+        System.out.println("3. FIB (beta)?");
 
         switch (readInput()){
             case 1:
+                try {
+                    vaules = Fabrica.carregaAules("/src/dades/microAules.json");
+                    vassig = Fabrica.carregaAssig("/src/dades/microAssig.json");
+                    System.out.println("Assignatures y aules de la miniFIB creades");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case 2:
                 try {
                     vaules = Fabrica.carregaAules("/src/dades/miniAules.json");
                     vassig = Fabrica.carregaAssig("/src/dades/miniAssig.json");
@@ -268,7 +280,7 @@ public class TestDriver {
                     e.printStackTrace();
                 }
                 break;
-            case 2:
+            case 3:
             default:
                 try {
                     vaules = Fabrica.carregaAules("/src/dades/fibAules.json");
