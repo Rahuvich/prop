@@ -23,4 +23,24 @@ public class Vector5 {
         this.grup = vec.grup;
         this.assig = vec.assig;
     }
+
+    public boolean esMesPetitaQue(int auxDia, int auxHora, int auxAula){
+        if(dia > auxDia) return false;
+        if(dia >= auxDia && hora > auxHora) return false;
+        if(dia >= auxDia && hora >= auxHora && aula > auxAula) return false;
+        return true;
+    }
+
+    public boolean equalsClasse(int auxDia, int auxHora, int auxAula) {
+        return dia == auxDia && hora == auxHora && aula == auxAula;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(!(obj instanceof Vector5)) return false;
+        else {
+            Vector5 vec = new Vector5((Vector5) obj);
+            return dia == vec.dia && hora == vec.hora && aula == vec.aula;
+        }
+    }
 }

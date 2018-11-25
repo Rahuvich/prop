@@ -45,6 +45,11 @@ public class Classe
     public String getAula(){ return aula.getAula();}
 
     public void setEmpty(){
+        aula = null;
+        grup = null;
+        dia = null;
+        horaIni = 0;
+        duracio = 0;
         empty = true;
     }
     

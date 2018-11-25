@@ -13,10 +13,13 @@ public class Horari {
 	private Classe[][][] horari;
 
 	private ArrayList<Vector5> fullClasses;
-	
-	
+	private Vector5 firstEmptyClass;
+
+	private ArrayList<Vector5> alreadyTried;
+
 	private HashMap<Grup, ArrayList<Restriccions>> restGrups;
 	private HashMap<String, ArrayList<Restriccions>> restAssig;
+
 
 	private ArrayList<Assignatura> vassigs;
 	private ArrayList<Aula> vaules;
@@ -42,8 +45,10 @@ public class Horari {
 		restAssig = new HashMap<>();
 		this.vassigs = vassigs;
 		this.vaules = vaules;
-		
+
 		fullClasses = new ArrayList<>();
+		firstEmptyClass = new Vector5(0,0,0,0,0);
+		alreadyTried = new ArrayList<>();
 	}
 
 	/**
@@ -84,7 +89,7 @@ public class Horari {
 		System.out.println("Starting algorithm");
 		startAlgorithm = System.nanoTime();
 
-		if(!generaGrup(0,0,0,0,0))
+		if(!backtracking(0,0,0,0,0))
 			System.out.println("No ha sigut possible");
 		else printHorari();
 
@@ -93,32 +98,37 @@ public class Horari {
 
     }
 	
-	private boolean generaGrup(int dia, int hora, int aula, int g, int assig)
+	private boolean backtracking(int dia, int hora, int aula, int g, int assig)
 	{
 		if(assig == vassigs.size()) return true;
-		else if(g == vassigs.get(assig).getGrups().size()) return generaGrup(0, 0, 0, 0, assig+1);
-		else if(aula == vaules.size()) return generaGrup(dia, hora+1, 0, g, assig);
-		else if(hora == horaFiDia-horaIniDia) return generaGrup(dia+1, 0, 0, g, assig);
+		else if(g == vassigs.get(assig).getGrups().size()) return backtracking(firstEmptyClass.dia,firstEmptyClass.hora,firstEmptyClass.aula,0, assig+1);
+		else if(aula == vaules.size()) return backtracking(dia, hora+1, 0, g, assig);
+		else if(hora == horaFiDia-horaIniDia) return backtracking(dia+1, 0, 0, g, assig);
 		else if(dia == 5) {
-			if(!fullClasses.isEmpty()){
+			if(!fullClasses.isEmpty()){   // TORNA ENRERE
 				Vector5 aux = new Vector5(getLastOneAndRemove());
-				return generaGrup(aux.dia, aux.hora, aux.aula+1,aux.grup, aux.assig);
-			} else return false;
+				return backtracking(aux.dia, aux.hora, aux.aula+1,aux.grup, aux.assig);
+			} else return false;   // No es possible generar horari
 		}
-		else{
-			if(backtrackingDia(dia,hora,aula,g,assig)){
-				return generaGrup(0, 0, 0, g+1, assig);
-			}
-			else if(!fullClasses.isEmpty()){
-				System.out.println("He intentat pero esta ocupada: " + vassigs.get(assig).getGrups().get(g).getNumero() + "" +
+		else{ // Els parametres son correctes
+			Vector5 vec = new Vector5(dia, hora, aula, g, assig);
+			if(comprobarAssignacio(dia, hora, aula, vassigs.get(assig).getGrups().get(g))) {
+				horari[dia][hora][aula] = new Classe(vaules.get(aula), vassigs.get(assig).getGrups().get(g), Dia.values()[dia], hora+horaIniDia, 2);
+				fullClasses.add(vec);
+				alreadyTried.add(vec);
+				if(firstEmptyClass.equalsClasse(dia, hora, aula)) updateFirstEmptyClass(dia, hora, aula);
+				System.out.println("He ficat: " + vassigs.get(assig).getGrups().get(g).getNumero() + "" +
 						vassigs.get(assig).getNomAssig() + " a la posicio " +
 						dia + "" +
 						hora + "" +
 						aula);
-				Vector5 aux = new Vector5(getLastOneAndRemove());
-				return generaGrup(aux.dia, aux.hora, aux.aula+1,aux.grup, aux.assig);
-			} else return false;
-
+				return backtracking(firstEmptyClass.dia,firstEmptyClass.hora,firstEmptyClass.aula,g+1,assig);
+			} else if(horari[dia][hora][aula].isEmpty() && !firstEmptyClass.esMesPetitaQue(dia,hora,aula)){
+				System.out.println("First empty class updated: " + dia + " " + hora + " " + aula);
+				firstEmptyClass = new Vector5(dia, hora, aula, 0,0);
+				return backtracking(dia, hora, aula+1, g, assig);
+			}
+			else return backtracking(dia, hora, aula+1, g, assig);
 		}
 		
 		
@@ -133,48 +143,34 @@ public class Horari {
 		int auxHora = fullClasses.get(fullClasses.size()-1).hora;
 		int auxAula = fullClasses.get(fullClasses.size()-1).aula;
 		horari[auxDia][auxHora][auxAula].setEmpty();
+		if(!firstEmptyClass.esMesPetitaQue(auxDia,auxHora,auxAula)){
+			System.out.println("First empty class updated: " + auxDia + " " + auxHora + " " + auxAula);
+			firstEmptyClass = new Vector5(auxDia, auxHora, auxAula, 0,0);
+		}
 		System.out.println("Estic treient: " +
 				vassigs.get(fullClasses.get(fullClasses.size()-1).assig).getGrups().get(fullClasses.get(fullClasses.size()-1).grup).getNumero() + "" +
 				vassigs.get(fullClasses.get(fullClasses.size()-1).assig).getNomAssig());
 		return fullClasses.remove(fullClasses.size()-1);
 	}
 
-	private boolean backtrackingDia(int dia, int hora, int aula, int g, int assig){
-		if(dia == 5) return false;
-		else{
-			if(backtrackingHora(dia, hora, aula, g, assig)) return true;
-			else return backtrackingDia(dia+1, hora , aula,  g, assig);
-		}
-	}
-
-	private boolean backtrackingHora(int dia, int hora, int aula, int g, int assig){
-		if(hora == horaFiDia-horaIniDia) return false;
-		else{
-			if(backtrackingAula(dia, hora, aula, g, assig)) return true;
-			else return backtrackingHora(dia, hora+1, aula, g, assig);
-		}
-	}
-
-	private boolean backtrackingAula(int dia, int hora, int aula, int g, int assig){
-		if(aula == vaules.size()) return false;
-		else{
-			if(comprobarAssignacio(dia, hora, aula, vassigs.get(assig).getGrups().get(g))) {
-				horari[dia][hora][aula] = new Classe(vaules.get(aula), vassigs.get(assig).getGrups().get(g), Dia.values()[dia], hora+horaIniDia, 2);
-				fullClasses.add(new Vector5(dia, hora, aula, g, assig));
-				System.out.println("He ficat: " + vassigs.get(assig).getGrups().get(g).getNumero() + "" +
-						vassigs.get(assig).getNomAssig() + " a la posicio " +
-						dia + "" +
-						hora + "" +
-						aula);
-				return true;
-			} else return backtrackingAula(dia, hora, aula+1, g, assig);
+	private void updateFirstEmptyClass(int dia, int hora, int aula){
+		for (int i = dia; i < 5; ++i){
+			for (int j = hora; j < horaFiDia-horaIniDia; j++) {
+				for (int k = aula; k < vaules.size(); k++) {
+					if(horari[i][j][k].isEmpty()) {
+						System.out.println("First empty class updated: " + i + " " + j + " " + k);
+						firstEmptyClass = new Vector5(i, j, k, 0, 0);
+						return;
+					}
+				}
+			}
 		}
 	}
 
 	private boolean comprobarAssignacio(int dia, int hora, int aula, Grup g){
 		// RESTRICCIONS COMUNS
 		boolean b = true;
-		if(vaules.get(aula).getCapacitat() < g.getNumeroAlumnes()) return false;
+		if(vaules.get(aula).getCapacitat() < g.getNumeroAlumnes() || !horari[dia][hora][aula].isEmpty()) return false;
 
 		// RESTRICCIONS INDIVIDUALS
 		if(!g.esSubgrup()) b = grupPosible(dia, hora, aula, g);
@@ -209,7 +205,6 @@ public class Horari {
 
 		for(int i = 0; i < vaules.size(); ++i){
 			if(!horari[dia][hora][i].isEmpty()) {
-				if(aula == i) return false;
 				if(horari[dia][hora][i].getGrup().etsMeuPare(g)) return false;
 				if(horari[dia][hora][i].getGrup().etsFamilia(g)) return false;
 				if(horari[dia][hora][i].getCodiQuatri().equals(g.getCodiQuatri()) &&
@@ -224,7 +219,6 @@ public class Horari {
 
 		for(int i = 0; i < vaules.size(); ++i){
 			if(!horari[dia][hora][i].isEmpty()) {
-				if(aula == i) return false;
 				if(!horari[dia][hora][i].getGrup().esSubgrup()){
 					if(horari[dia][hora][i].getAssig().equals(g.getNomAssig())) return false;
 					if(horari[dia][hora][i].getCodiQuatri().equals(g.getCodiQuatri()) &&
