@@ -1,0 +1,24 @@
+{
+    "Aules": [
+
+      {
+        "aulari":"A5",
+        "pis": "E",
+        "numero": 1,
+        "capacitat": 140
+      },
+      
+      {
+        "aulari":"A5",
+        "pis": "S",
+        "numero": 112,
+        "capacitat": 14
+      },
+      {
+        "aulari":"A5",
+        "pis": "S",
+        "numero": 113,
+        "capacitat": 25
+      }
+    ]
+  }

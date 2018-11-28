@@ -1,0 +1,143 @@
+{
+  "Aules": [
+
+    {
+      "aulari":"A5",
+      "pis": "2",
+      "numero": 1,
+      "capacitat": 40
+    },
+    {
+      "aulari":"A5",
+      "pis": "2",
+      "numero": 2,
+      "capacitat": 64
+    },
+    {
+      "aulari":"A5",
+      "pis": "2",
+      "numero": 3,
+      "capacitat": 40
+    },
+    {
+      "aulari":"A5",
+      "pis": "2",
+      "numero": 4,
+      "capacitat": 40
+    },
+    {
+      "aulari":"A5",
+      "pis": "1",
+      "numero": 1,
+      "capacitat": 46
+    },
+    {
+      "aulari":"A5",
+      "pis": "1",
+      "numero": 2,
+      "capacitat": 76
+    },
+    {
+      "aulari":"A5",
+      "pis": "1",
+      "numero": 3,
+      "capacitat": 50
+    },
+    {
+      "aulari":"A5",
+      "pis": "1",
+      "numero": 4,
+      "capacitat": 40
+    },
+    {
+      "aulari":"A5",
+      "pis": "1",
+      "numero": 5,
+      "capacitat": 40
+    },
+    {
+      "aulari":"A5",
+      "pis": "1",
+      "numero": 6,
+      "capacitat": 40
+    },
+    {
+      "aulari":"A5",
+      "pis": "E",
+      "numero": 1,
+      "capacitat": 140
+    },
+    {
+      "aulari":"A5",
+      "pis": "E",
+      "numero": 2,
+      "capacitat": 140
+    },
+    {
+      "aulari":"A5",
+      "pis": "0",
+      "numero": 1,
+      "capacitat": 120
+    },
+    {
+      "aulari":"A5",
+      "pis": "0",
+      "numero": 2,
+      "capacitat": 120
+    },
+    {
+      "aulari":"A5",
+      "pis": "S",
+      "numero": 102,
+      "capacitat": 25
+    },
+    {
+      "aulari":"A5",
+      "pis": "S",
+      "numero": 103,
+      "capacitat": 14
+    },
+    {
+      "aulari":"A5",
+      "pis": "S",
+      "numero": 104,
+      "capacitat": 21
+    },
+    {
+      "aulari":"A5",
+      "pis": "S",
+      "numero": 105,
+      "capacitat": 14
+    },
+    {
+      "aulari":"A5",
+      "pis": "S",
+      "numero": 108,
+      "capacitat": 23
+    },
+    {
+      "aulari":"A5",
+      "pis": "S",
+      "numero": 109,
+      "capacitat": 25
+    },
+    {
+      "aulari":"A5",
+      "pis": "S",
+      "numero": 111,
+      "capacitat": 14
+    },
+    {
+      "aulari":"A5",
+      "pis": "S",
+      "numero": 112,
+      "capacitat": 14
+    },
+    {
+      "aulari":"A5",
+      "pis": "S",
+      "numero": 113,
+      "capacitat": 25
+    }
+  ]
+}

@@ -1,0 +1,277 @@
+{
+    "Assignatures": [
+  
+      {
+        "codiAssig":"F",
+        "alumnes": 420,
+        "quatri": "1"
+      },
+      {
+        "codiAssig":"FM",
+        "alumnes": 420,
+        "quatri": "1"
+      },
+      {
+        "codiAssig":"PRO1",
+        "alumnes": 420,
+        "quatri": "1"
+      },
+      {
+        "codiAssig":"IC",
+        "alumnes": 420,
+        "quatri": "1"
+      },
+  
+  
+  
+      {
+        "codiAssig":"M2",
+        "alumnes": 333,
+        "quatri": "2"
+      },
+      {
+        "codiAssig":"M1",
+        "alumnes": 333,
+        "quatri": "2"
+      },
+      {
+        "codiAssig":"EC",
+        "alumnes": 333,
+        "quatri": "2"
+      },
+      {
+        "codiAssig":"PRO2",
+        "alumnes": 333,
+        "quatri": "2"
+      },
+  
+  
+  
+      {
+        "codiAssig":"BD",
+        "alumnes": 270,
+        "quatri": "3"
+      },
+      {
+        "codiAssig":"CI",
+        "alumnes": 270,
+        "quatri": "3"
+      },
+      {
+        "codiAssig":"EDA",
+        "alumnes": 270,
+        "quatri": "3"
+      },
+      {
+        "codiAssig":"PE",
+        "alumnes": 270,
+        "quatri": "3"
+      },
+      {
+        "codiAssig":"SO",
+        "alumnes": 270,
+        "quatri": "3"
+      },
+  
+  
+  
+      {
+        "codiAssig":"AC",
+        "alumnes": 201,
+        "quatri": "4"
+      },
+      {
+        "codiAssig":"EEE",
+        "alumnes": 201,
+        "quatri": "4"
+      },
+      {
+        "codiAssig":"IDI",
+        "alumnes": 201,
+        "quatri": "4"
+      },
+      {
+        "codiAssig":"IES",
+        "alumnes": 201,
+        "quatri": "4"
+      },
+      {
+        "codiAssig":"XC",
+        "alumnes": 201,
+        "quatri": "4"
+      },
+  
+  
+  
+      {
+        "codiAssig":"PAR",
+        "alumnes": 201,
+        "quatri": "5"
+      },
+      {
+        "codiAssig":"PROP",
+        "alumnes": 201,
+        "quatri": "5"
+      },
+  
+  
+  
+      {
+        "codiAssig":"A",
+        "alumnes": 50,
+        "quatri": "Computacio"
+      },
+      {
+        "codiAssig":"G",
+        "alumnes": 50,
+        "quatri": "Computacio"
+      },
+      {
+        "codiAssig":"IA",
+        "alumnes": 50,
+        "quatri": "Computacio"
+      },
+      {
+        "codiAssig":"LI",
+        "alumnes": 50,
+        "quatri": "Computacio"
+      },
+      {
+        "codiAssig":"LP",
+        "alumnes": 50,
+        "quatri": "Computacio"
+      },
+      {
+        "codiAssig":"TC",
+        "alumnes": 50,
+        "quatri": "Computacio"
+      },
+  
+  
+  
+      {
+        "codiAssig":"AC2",
+        "alumnes": 50,
+        "quatri": "Enginyeria de computadors"
+      },
+      {
+        "codiAssig":"DSBM",
+        "alumnes": 50,
+        "quatri": "Enginyeria de computadors"
+      },
+      {
+        "codiAssig":"MP",
+        "alumnes": 50,
+        "quatri": "Enginyeria de computadors"
+      },
+      {
+        "codiAssig":"PEC",
+        "alumnes": 50,
+        "quatri": "Enginyeria de computadors"
+      },
+      {
+        "codiAssig":"SO2",
+        "alumnes": 50,
+        "quatri": "Enginyeria de computadors"
+      },
+      {
+        "codiAssig":"XC2",
+        "alumnes": 50,
+        "quatri": "Enginyeria de computadors"
+      },
+  
+  
+  
+      {
+        "codiAssig":"AS",
+        "alumnes": 50,
+        "quatri": "Enginyeria de software"
+      },
+      {
+        "codiAssig":"ASW",
+        "alumnes": 50,
+        "quatri": "Enginyeria de software"
+      },
+      {
+        "codiAssig":"DBD",
+        "alumnes": 50,
+        "quatri": "Enginyeria de software"
+      },
+      {
+        "codiAssig":"ER",
+        "alumnes": 50,
+        "quatri": "Enginyeria de software"
+      },
+      {
+        "codiAssig":"GPS",
+        "alumnes": 50,
+        "quatri": "Enginyeria de software"
+      },
+      {
+        "codiAssig":"PES",
+        "alumnes": 50,
+        "quatri": "Enginyeria de software"
+      },
+  
+  
+  
+      {
+        "codiAssig":"ADEI",
+        "alumnes": 50,
+        "quatri": "Sistemes de informacio"
+      },
+      {
+        "codiAssig":"DSI",
+        "alumnes": 50,
+        "quatri": "Sistemes de informacio"
+      },
+      {
+        "codiAssig":"NE",
+        "alumnes": 50,
+        "quatri": "Sistemes de informacio"
+      },
+      {
+        "codiAssig":"PSI",
+        "alumnes": 50,
+        "quatri": "Sistemes de informacio"
+      },
+      {
+        "codiAssig":"SIO",
+        "alumnes": 50,
+        "quatri": "Sistemes de informacio"
+      },
+  
+  
+  
+      {
+        "codiAssig":"ASO",
+        "alumnes": 50,
+        "quatri": "Tecnologies de la informacio"
+      },
+      {
+        "codiAssig":"PI",
+        "alumnes": 50,
+        "quatri": "Tecnologies de la informacio"
+      },
+      {
+        "codiAssig":"PTI",
+        "alumnes": 50,
+        "quatri": "Tecnologies de la informacio"
+      },
+      {
+        "codiAssig":"SI",
+        "alumnes": 50,
+        "quatri": "Tecnologies de la informacio"
+      },
+      {
+        "codiAssig":"SOA",
+        "alumnes": 50,
+        "quatri": "Tecnologies de la informacio"
+      },
+      {
+        "codiAssig":"TXC",
+        "alumnes": 50,
+        "quatri": "Tecnologies de la informacio"
+      }
+    ]
+  }
