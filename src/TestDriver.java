@@ -84,7 +84,7 @@ public class TestDriver {
     
  
 
-	private static void creaHorari(int ini, int fi) {
+	public static void creaHorari(int ini, int fi) {
 
     	horari = new Horari(ini, fi, vassig, vaules);
     	
