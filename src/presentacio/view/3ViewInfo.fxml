@@ -33,7 +33,7 @@
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="genera" layoutX="673.0" layoutY="37.0" mnemonicParsing="false" text="Genera Horari">
+                  <Button fx:id="genera" layoutX="673.0" layoutY="37.0" mnemonicParsing="false" text="Genera domini.Horari">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -41,7 +41,7 @@
                         <Insets />
                      </opaqueInsets>
                   </Button>
-                  <Button fx:id="rest" layoutX="328.0" layoutY="37.0" mnemonicParsing="false" text="Afegir Restriccions">
+                  <Button fx:id="rest" layoutX="328.0" layoutY="37.0" mnemonicParsing="false" text="Afegir domini.Restriccions">
                      <font>
                         <Font size="15.0" />
                      </font>

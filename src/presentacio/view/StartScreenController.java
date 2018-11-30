@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import presentacio.ControladorPresentacio;
 
 public class StartScreenController {
@@ -12,6 +13,9 @@ public class StartScreenController {
     private RadioButton miniFib;
     @FXML
     private RadioButton fib;
+
+    @FXML
+    private ToggleGroup g1;
     @FXML
     private Button next;
     @FXML
@@ -34,7 +38,7 @@ public class StartScreenController {
         next.setOnAction((event) -> {
 
             //You can also use getText() to get the text of the name of the radiobutton if we want to have more options or something
-            cP.creaHorari_showInfoOrRest(fib.isSelected(), Integer.parseInt(hI.getText()), Integer.parseInt(hF.getText()));
+            cP.creaHorari_showInfoOrRest(((RadioButton) g1.getSelectedToggle()).getText(), Integer.parseInt(hI.getText()), Integer.parseInt(hF.getText()));
 
         });
 

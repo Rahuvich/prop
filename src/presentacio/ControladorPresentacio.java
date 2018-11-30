@@ -1,5 +1,7 @@
 package presentacio;
 
+import domini.TestDriver;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -18,20 +20,28 @@ public class ControladorPresentacio extends Application {
 
     private Stage primaryStage;
     private BorderPane rootLayout;
+    private TestDriver td = new TestDriver();
 
     public static void main(String[] args) {
 
-        //TestDriver.execute();
+        //RAUL SI VOLS EXECUTAR EN FORMATO TERMINAL DESCOMENTA LO DE tESTdRIVER.EXECUTE()
+
+//        TestDriver.execute();
         launch(args);
     }
 
     //Crida a generaHorari del ControladorModel
     public void generaHorari() {}
 
-    public void creaHorari_showInfoOrRest(boolean volFib, int horaIni, int horaFi) {
+    public void creaHorari_showInfoOrRest(String uD, int horaIni, int horaFi) {
         //Cal cridar al controladorModel pq ens crei un horari amb horaIni i horaFi i cargui les assignatures de la
         //FIB si el bool Fib es true i minifib si es fals. Tambe podem posar la microfib pero no esta implementat
         System.out.println("crea horari i doncs show info or rest");
+
+        td.loader(uD);
+
+        td.creaHorari(horaIni, horaFi);
+
         showInfoOrRest();
     }
 
