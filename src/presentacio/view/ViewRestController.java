@@ -4,30 +4,29 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import presentacio.ControladorPresentacio;
 
-public class ViewInfoController {
+public class ViewRestController {
 
     @FXML
     private Button genera;
     @FXML
     private Button quit;
     @FXML
-    private Button rest;
+    private Button info;
 
 
     private ControladorPresentacio cP;
 
-    public ViewInfoController() {};
+    public ViewRestController() {};
 
     public void setMainApp(ControladorPresentacio contPres) {this.cP = contPres;}
 
     @FXML
     public void initialize() {
 
-        rest.setOnAction((event) -> {
+        info.setOnAction((event) -> {
             //Aqui
             System.out.println("rest button works");
-            if(cP == null) System.out.println("nulll");
-            cP.showViewRest();
+            cP.showViewInfo();
         });
         //Button next
         genera.setOnAction((event) -> {

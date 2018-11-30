@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacio.view.ViewInfoController">
    <children>
       <BorderPane prefHeight="600.0" prefWidth="800.0">
@@ -29,12 +28,12 @@
          <bottom>
             <AnchorPane prefHeight="99.0" prefWidth="800.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button layoutX="14.0" layoutY="37.0" mnemonicParsing="false" text="Quit">
+                  <Button fx:id="quit" layoutX="14.0" layoutY="37.0" mnemonicParsing="false" text="Quit">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button layoutX="673.0" layoutY="37.0" mnemonicParsing="false" text="Genera Horari">
+                  <Button fx:id="genera" layoutX="673.0" layoutY="37.0" mnemonicParsing="false" text="Genera Horari">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -42,7 +41,7 @@
                         <Insets />
                      </opaqueInsets>
                   </Button>
-                  <Button layoutX="328.0" layoutY="37.0" mnemonicParsing="false" text="Afegir Restriccions">
+                  <Button fx:id="rest" layoutX="328.0" layoutY="37.0" mnemonicParsing="false" text="Afegir Restriccions">
                      <font>
                         <Font size="15.0" />
                      </font>

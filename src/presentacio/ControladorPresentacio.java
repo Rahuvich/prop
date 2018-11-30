@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import presentacio.view.InfoOrRestController;
 import presentacio.view.StartScreenController;
 import presentacio.view.ViewInfoController;
+import presentacio.view.ViewRestController;
 
 import java.io.IOException;
 
@@ -93,6 +94,7 @@ public class ControladorPresentacio extends Application {
             FXMLLoader loader = new FXMLLoader();
             System.out.println("viewinfo from cp");
             loader.setLocation(getClass().getResource("view/3ViewInfo.fxml"));
+            System.out.println("loader set loaction for viewinfo from cp");
             AnchorPane ViewInfo = loader.load();
             System.out.println("after loading info from cp");
 
@@ -109,13 +111,15 @@ public class ControladorPresentacio extends Application {
     public void showViewRest() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("view/3ViewInfo.fxml"));
+            loader.setLocation(getClass().getResource("view/3ViewRest.fxml"));
             AnchorPane ViewRest = loader.load();
+
+            System.out.println("cp showViewRest after load");
 
             rootLayout.setCenter(ViewRest);
 
-//            StartScreenController controller = loader.getController();
-//            controller.setMainApp(this);
+            ViewRestController controller = loader.getController();
+            controller.setMainApp(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
