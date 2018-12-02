@@ -5,14 +5,14 @@ import java.util.ArrayList;
 public class Assignatura
 {
     private String nomAssig;
-    private Quatrimestre quatri;
+    private String quatri;
     private ArrayList<Grup> grupsAssig;
 
     ///CREADORES///
     public Assignatura(String nomAssig, String codiBloc, int alumnes)
     {
         this.nomAssig = nomAssig;
-        this.quatri = new Quatrimestre(codiBloc);
+        this.quatri = codiBloc;
         grupsAssig = new ArrayList<Grup>();
         assignarAlumnes(alumnes);
     }
@@ -47,7 +47,7 @@ public class Assignatura
     }
 
     public String getCodiQuatri() {
-        return quatri.getCodi();
+        return quatri;
     }
     
     public ArrayList<Grup> getGrups(){
