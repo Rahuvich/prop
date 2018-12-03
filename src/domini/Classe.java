@@ -46,18 +46,17 @@ public class Classe
 
     public String getAula(){ return aula.getAula();}
 
-    public void setEmpty(){
-        aula = null;
-        grup = null;
-        dia = null;
-        horaIni = 0;
-        duracio = 0;
-        empty = true;
+    public void setEmpty(boolean b){
+        empty = b;
     }
+
+    public int getDia(){return dia.ordinal();}
     
     public void printClasse() {
     	System.out.println("El " + dia.toString() + " a les " + horaIni + " tindra classe el grup " + grup.getNumero() + " de " + grup.getNomAssig()
          + " a l'aula " + aula.getAula());
     }
+
+    public int getDuracio(){return duracio;}
 
 }
