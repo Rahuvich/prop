@@ -90,6 +90,7 @@
                         <Insets />
                      </opaqueInsets>
                   </Button>
+                  <Button fx:id="devMode" layoutX="374.0" layoutY="43.0" mnemonicParsing="false" text="DevMode" />
                </children>
             </AnchorPane>
          </bottom>

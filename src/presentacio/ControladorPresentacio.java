@@ -15,18 +15,21 @@ import presentacio.view.ViewInfoController;
 import presentacio.view.ViewRestController;
 
 import java.io.IOException;
+import java.sql.SQLOutput;
+import java.util.ArrayList;
 
 public class ControladorPresentacio extends Application {
 
     private Stage primaryStage;
     private BorderPane rootLayout;
-    private TestDriver td = new TestDriver();
+    private TestDriver td = new TestDriver();;
 
     public static void main(String[] args) {
 
         //RAUL SI VOLS EXECUTAR EN FORMATO TERMINAL DESCOMENTA LO DE tESTdRIVER.EXECUTE()
 
 //        TestDriver.execute();
+
         launch(args);
     }
 
@@ -37,18 +40,44 @@ public class ControladorPresentacio extends Application {
         //Cal cridar al controladorModel pq ens crei un horari amb horaIni i horaFi i cargui les assignatures de la
         //FIB si el bool Fib es true i minifib si es fals. Tambe podem posar la microfib pero no esta implementat
         System.out.println("crea horari i doncs show info or rest");
-
         td.loader(uD);
-
         td.creaHorari(horaIni, horaFi);
-
         showInfoOrRest();
     }
+
+    public void devMode_viewInfo() {
+        td.devMode();
+        showViewInfo();
+    }
+
+    public ArrayList<String> getAules() {
+        return td.getAules();
+    }
+
+    public ArrayList<String> getAssigs() {
+        System.out.println("getAssigs from cP");
+        return td.getAssigs();
+    }
+
+    public ArrayList<String> getHores() {
+        return td.getHores();
+    }
+
+    public ArrayList<String> getDies() {
+        return td.getDies();
+    }
+
+    public void createRest1 (String assig, String torn, String dia) {
+        td.
+
+    }
+
 
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Schedule creator RAP");
+
 
         iniRootLayout();
 
@@ -105,14 +134,23 @@ public class ControladorPresentacio extends Application {
             System.out.println("viewinfo from cp");
             loader.setLocation(getClass().getResource("view/3ViewInfo.fxml"));
             System.out.println("loader set loaction for viewinfo from cp");
+
+
+
+            System.out.println("after setting viewinfo cp from cp");
+
             AnchorPane ViewInfo = loader.load();
             System.out.println("after loading info from cp");
+
+            ViewInfoController controller = loader.getController();
+            if(controller == null) System.out.println("NULL");
+            controller.setMainApp(this);
 
             rootLayout.setCenter(ViewInfo);
             System.out.println("after setting viewinfo from cp");
 
-            ViewInfoController controller = loader.getController();
-            controller.setMainApp(this);
+//            ViewInfoController controller = loader.getController();
+//            controller.setMainApp(this);
         } catch (IOException e) {
             e.printStackTrace();
         }

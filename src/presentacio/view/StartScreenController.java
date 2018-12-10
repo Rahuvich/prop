@@ -21,6 +21,8 @@ public class StartScreenController {
     @FXML
     private Button quit;
     @FXML
+    private Button devMode;
+    @FXML
     private TextField hI;
     @FXML
     private TextField hF;
@@ -46,6 +48,10 @@ public class StartScreenController {
         quit.setOnAction((event) -> {
             System.out.println("About to exit");
             System.exit(0);
+
+        });
+        devMode.setOnAction((event) -> {
+            cP.devMode_viewInfo();
 
         });
     }

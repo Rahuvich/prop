@@ -2,56 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f14adbca-0409-4f3e-9fa7-c5b5980f6128" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/prop/Assignatura.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/prop/Aula.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/prop/Classe.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/prop/Dia.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/prop/Fabrica.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/prop/Grup.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/prop/Horari.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/prop/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/prop/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/prop/Quatrimestre.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/prop/ResAssig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/prop/ResGrup.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/prop/RestHoraAssig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/prop/RestHoraGrup.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/prop/RestTornAssig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/prop/RestTornGrup.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/prop/Restriccions.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/prop/TestDriver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/production/prop/domini/Fabrica.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/prop/domini/Fabrica.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/production/prop/domini/Horari.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/prop/domini/Horari.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/production/prop/domini/TestDriver.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/prop/domini/TestDriver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/production/prop/domini/program.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/prop/domini/program.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/production/prop/presentacio/ControladorPresentacio.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/prop/presentacio/ControladorPresentacio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/prop/presentacio/view/2InfoOrRest.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/prop/presentacio/view/2InfoOrRest.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/production/prop/presentacio/view/1StartScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/prop/presentacio/view/1StartScreen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/production/prop/presentacio/view/3ViewInfo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/prop/presentacio/view/3ViewInfo.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/production/prop/presentacio/view/3ViewRest.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/prop/presentacio/view/3ViewRest.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/production/prop/presentacio/view/StartScreenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/prop/presentacio/view/StartScreenController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/prop/program.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/prop/program/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/prop/program/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/prop/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/prop/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/prop/program/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/prop/program/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/production/prop/presentacio/view/ViewInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/prop/presentacio/view/ViewInfoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/production/prop/presentacio/view/ViewRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/prop/presentacio/view/ViewRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/production/prop/utils/Vector5.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/prop/utils/Vector5.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/prop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/prop.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Assignatura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domini/Assignatura.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Aula.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domini/Aula.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Classe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domini/Classe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domini/Dia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Fabrica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domini/Fabrica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Grup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domini/Grup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Horari.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domini/Horari.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quatrimestre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domini/Quatrimestre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ResAssig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domini/ResAssig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ResGrup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domini/ResGrup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RestHoraAssig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domini/RestHoraAssig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RestHoraGrup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domini/RestHoraGrup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RestTornAssig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domini/RestTornAssig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RestTornGrup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domini/RestTornGrup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restriccions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domini/Restriccions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TestDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domini/TestDriver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domini/Horari.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domini/Horari.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domini/TestDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domini/TestDriver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domini/program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domini/program.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/presentacio/ControladorPresentacio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentacio/ControladorPresentacio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentacio/view/2InfoOrRest.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentacio/view/2InfoOrRest.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentacio/view/1StartScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentacio/view/1StartScreen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/presentacio/view/3ViewInfo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentacio/view/3ViewInfo.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentacio/view/3ViewRest.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentacio/view/3ViewRest.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/presentacio/view/StartScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentacio/view/StartScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domini/program.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/program/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/program/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentacio/view/ViewInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentacio/view/ViewInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentacio/view/ViewRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentacio/view/ViewRestController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,36 +35,41 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="prop" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/domini/TestDriver.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/presentacio/view/ViewRestController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="49" selection-start-line="49" selection-end-line="49" />
+            <state relative-caret-position="986">
+              <caret line="65" selection-start-line="65" selection-end-line="65" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#481#482#0" expanded="true" />
-                <element signature="e#508#509#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/domini/Aula.java">
+        <entry file="file://$PROJECT_DIR$/src/presentacio/view/ViewInfoController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-51">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="85">
+              <caret line="41" column="12" selection-start-line="41" selection-start-column="12" selection-end-line="49" selection-end-column="50" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/domini/Horari.java">
+        <entry file="file://$PROJECT_DIR$/src/presentacio/view/3ViewInfo.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-68">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="255">
+              <caret line="15" column="262" selection-start-line="15" selection-start-column="211" selection-end-line="15" selection-end-column="262" />
             </state>
           </provider>
         </entry>
@@ -97,32 +77,79 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/presentacio/ControladorPresentacio.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
+            <state relative-caret-position="816">
+              <caret line="70" column="11" selection-start-line="70" selection-start-column="11" selection-end-line="70" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1817#1818#0" expanded="true" />
+                <element signature="e#1853#1854#0" expanded="true" />
+                <element signature="e#1895#1896#0" expanded="true" />
+                <element signature="e#1930#1931#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/presentacio/view/StartScreenController.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/domini/TestDriver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+            <state relative-caret-position="6800">
+              <caret line="400" column="42" selection-start-line="400" selection-start-column="35" selection-end-line="400" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#506#507#0" expanded="true" />
+                <element signature="e#531#532#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/domini/program.java">
+        <entry file="file://$PROJECT_DIR$/src/domini/Fabrica.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/domini/RestTornAssig.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
               <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/domini/Dia.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/domini/Horari.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="287" column="16" selection-start-line="287" selection-start-column="16" selection-end-line="287" selection-end-column="16" />
+              <folding>
+                <element signature="e#8492#8493#0" expanded="true" />
+                <element signature="e#8521#8522#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/presentacio/view/3ViewRest.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="629">
+              <caret line="37" column="39" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -146,6 +173,17 @@
       <find>quit</find>
       <find>genera</find>
       <find>loader</find>
+      <find>lista</find>
+      <find>getAul</find>
+      <find>devMo</find>
+      <find>getAules</find>
+      <find>creaHorari</find>
+      <find>dev</find>
+      <find>borr</find>
+      <find>info</find>
+      <find>static</find>
+      <find>showinfo</find>
+      <find>restricc</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -168,20 +206,21 @@
         <option value="$PROJECT_DIR$/src/presentacio/view/2InfoOrRest.fxml" />
         <option value="$PROJECT_DIR$/src/presentacio/view/InfoOrRestController.java" />
         <option value="$PROJECT_DIR$/src/presentacio/view/3ViewInfo.fxml" />
+        <option value="$PROJECT_DIR$/src/presentacio/view/StartScreenController.java" />
+        <option value="$PROJECT_DIR$/src/domini/program.java" />
+        <option value="$PROJECT_DIR$/src/presentacio/view/ViewInfoController.java" />
         <option value="$PROJECT_DIR$/src/presentacio/view/3ViewRest.fxml" />
         <option value="$PROJECT_DIR$/src/presentacio/view/ViewRestController.java" />
-        <option value="$PROJECT_DIR$/src/presentacio/view/ViewInfoController.java" />
-        <option value="$PROJECT_DIR$/src/domini/program.java" />
         <option value="$PROJECT_DIR$/src/presentacio/ControladorPresentacio.java" />
-        <option value="$PROJECT_DIR$/src/presentacio/view/StartScreenController.java" />
+        <option value="$PROJECT_DIR$/src/domini/Horari.java" />
         <option value="$PROJECT_DIR$/src/domini/TestDriver.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="272" />
+    <option name="x" value="270" />
     <option name="y" value="-20" />
-    <option name="width" value="1099" />
+    <option name="width" value="1100" />
     <option name="height" value="980" />
   </component>
   <component name="ProjectView">
@@ -202,6 +241,12 @@
               <item name="prop" type="b2602c69:ProjectViewProjectNode" />
               <item name="prop" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="prop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="dades" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="prop" type="b2602c69:ProjectViewProjectNode" />
@@ -229,10 +274,10 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543597070407" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543959870060" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Java/openjfx-11.0.1_windows-x64_bin-sdk/javafx-sdk-11.0.1/lib" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
@@ -249,7 +294,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Run_prop">
+  <component name="RunManager" selected="Application.controladorPresentacio">
     <configuration name="Run_prop" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="domini.program" />
       <module name="prop" />
@@ -282,27 +327,36 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15369128" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49337262" visible="true" weight="0.16107382" />
+      <window_info active="true" id="Structure" order="1" sideWeight="0.5066274" side_tool="true" visible="true" weight="0.16107382" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Learn" order="6" weight="0.3295302" />
-      <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info id="Favorites" order="7" sideWeight="0.5022831" side_tool="true" weight="0.15503356" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.71610737" weight="0.3796034" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.71610737" visible="true" weight="0.3796034" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.038243625" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.038243625" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.28389263" side_tool="true" weight="0.29745042" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49463087" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -315,23 +369,23 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15369128" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4977169" visible="true" weight="0.1590604" />
+      <window_info id="Structure" order="1" sideWeight="0.5022831" side_tool="true" visible="true" weight="0.1590604" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Learn" order="6" weight="0.3295302" />
-      <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info id="Favorites" order="7" sideWeight="0.5022831" side_tool="true" weight="0.15503356" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.71610737" weight="0.18130311" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.71610737" visible="true" weight="0.3796034" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.038243625" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.28389263" side_tool="true" weight="0.29745042" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49463087" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -392,59 +446,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentacio/PantallaInici.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentacio/IniciPresentacio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-283">
-          <caret line="31" column="33" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1652#1653#0" expanded="true" />
-            <element signature="e#1749#1750#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentacio/test.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="43" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="43" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentacio/1StartScreen.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-299" />
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentacio/ControladorPresentacio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="20" column="36" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2293#2294#0" expanded="true" />
-            <element signature="e#2329#2330#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentacio/RootLayout.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="49" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="49" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentacio/PantallaInici.java" />
+    <entry file="file://$PROJECT_DIR$/src/presentacio/IniciPresentacio.java" />
+    <entry file="file://$PROJECT_DIR$/src/presentacio/test.fxml" />
+    <entry file="file://$PROJECT_DIR$/src/presentacio/1StartScreen.fxml" />
+    <entry file="file://$PROJECT_DIR$/src/presentacio/RootLayout.fxml" />
     <entry file="jar://C:/Program Files/Java/jdk-9.0.1/lib/src.zip!/javafx.fxml/javafx/fxml/FXMLLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="73">
@@ -464,14 +470,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentacio/view/1StartScreen.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="265" lean-forward="true" selection-start-line="16" selection-start-column="211" selection-end-line="16" selection-end-column="265" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-9.0.1/lib/src.zip!/javafx.base/javafx/event/EventHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
@@ -479,37 +477,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentacio/view/3ViewInfo.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="31" column="90" selection-start-line="31" selection-start-column="86" selection-end-line="31" selection-end-column="90" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/presentacio/view/2InfoOrRest.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="264" selection-start-line="13" selection-start-column="211" selection-end-line="13" selection-end-column="264" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentacio/view/3ViewRest.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="261" selection-start-line="10" selection-start-column="261" selection-end-line="10" selection-end-column="261" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentacio/view/ViewInfoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -530,16 +502,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentacio/view/ViewRestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="24" lean-forward="true" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/domini/Assignatura.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -551,20 +513,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domini/Dia.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domini/Fabrica.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -582,31 +530,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/domini/Quatrimestre.java">
+    <entry file="file://$PROJECT_DIR$/src/domini/Quatrimestre.java" />
+    <entry file="file://$PROJECT_DIR$/src/presentacio/view/1StartScreen.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="204">
+          <caret line="12" column="35" lean-forward="true" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/domini/program.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/dades/miniAssig.json">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/domini/Horari.java">
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.1/lib/src.zip!/java.base/java/lang/reflect/Method.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-68">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="137">
+          <caret line="556" selection-start-line="556" selection-end-line="556" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/presentacio/view/StartScreenController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+        <state relative-caret-position="577">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -615,29 +561,112 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/domini/Aula.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="386">
+          <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+          <folding>
+            <element signature="e#630#631#0" expanded="true" />
+            <element signature="e#697#698#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentacio/ControladorPresentacio.java">
+    <entry file="file://$PROJECT_DIR$/src/domini/program.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
+        <state relative-caret-position="68">
+          <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentacio/view/ViewRestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/domini/TestDriver.java">
+    <entry file="file://$PROJECT_DIR$/src/presentacio/view/3ViewInfo.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        <state relative-caret-position="255">
+          <caret line="15" column="262" selection-start-line="15" selection-start-column="211" selection-end-line="15" selection-end-column="262" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentacio/ControladorPresentacio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="70" column="11" selection-start-line="70" selection-start-column="11" selection-end-line="70" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#481#482#0" expanded="true" />
-            <element signature="e#508#509#0" expanded="true" />
+            <element signature="e#1817#1818#0" expanded="true" />
+            <element signature="e#1853#1854#0" expanded="true" />
+            <element signature="e#1895#1896#0" expanded="true" />
+            <element signature="e#1930#1931#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domini/Dia.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentacio/view/3ViewRest.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="37" column="39" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domini/Horari.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="287" column="16" selection-start-line="287" selection-start-column="16" selection-end-line="287" selection-end-column="16" />
+          <folding>
+            <element signature="e#8492#8493#0" expanded="true" />
+            <element signature="e#8521#8522#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentacio/view/ViewInfoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="41" column="12" selection-start-line="41" selection-start-column="12" selection-end-line="49" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domini/RestTornAssig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domini/Fabrica.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domini/TestDriver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6800">
+          <caret line="400" column="42" selection-start-line="400" selection-start-column="35" selection-end-line="400" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#506#507#0" expanded="true" />
+            <element signature="e#531#532#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -707,7 +736,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>json-simple-1.1</last-edited>
+          <last-edited>lib</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

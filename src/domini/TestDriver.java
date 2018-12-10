@@ -3,6 +3,7 @@ package domini;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -17,29 +18,18 @@ public class TestDriver {
 
     private static int horaIni, horaFi;
 
-    public static void execute(){
+    public void execute(){
     	chooseMode();
     }
     
-    private static void chooseMode() {
+    private void chooseMode() {
     	System.out.println("Qui ets?");
         System.out.println("1. Dev team (cargara automaticament la miniFIB amb horaIni 8 i horaFi 20, es saltara els testers i anira directament a restriccions");
         System.out.println("2. Horacio");
 
         switch (readInput()){
         case 1:
-            try {
-                vaules = Fabrica.carregaAules("/src/dades/miniAules.json");
-                vassig = Fabrica.carregaAssig("/src/dades/miniAssig.json");
-                System.out.println("Assignatures y aules de la miniFIB creades");
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-            horaIni = 8;
-            horaFi = 20;
-        	creaHorari(8, 20);
+            devMode();
 
             crearRestriccions();
 
@@ -69,8 +59,24 @@ public class TestDriver {
 
         horari.generaTot();
     }
+
+    public void devMode() {
+        System.out.println("before try of devmode");
+        try {
+        vaules = Fabrica.carregaAules("/src/dades/miniAules.json");
+        vassig = Fabrica.carregaAssig("/src/dades/miniAssig.json");
+        System.out.println("Assignatures y aules de la miniFIB creades");
+    } catch (IOException e) {
+        e.printStackTrace();
+    } catch (ParseException e) {
+        e.printStackTrace();
+    }
+        horaIni = 8;
+        horaFi = 20;
+        creaHorari(8, 20);
+    }
     
-    private static String getUnitatDocent () {
+    private String getUnitatDocent () {
         System.out.println("Que vols crear?");
         System.out.println("1. microFIB?");
         System.out.println("2. miniFIB?");
@@ -87,7 +93,7 @@ public class TestDriver {
         }
     }
 
-	public static void creaHorari(int ini, int fi) {
+	public void creaHorari(int ini, int fi) {
 
     	horari = new Horari(ini, fi, vassig, vaules);
     	
@@ -349,10 +355,53 @@ public class TestDriver {
         }
     }
 
-    public void getAules(){
-
-        for (Aula aula: vaules) System.out.println(aula.getAula());
+    public ArrayList<String> getAules(){
+        ArrayList<String> listAules = new ArrayList<>();
+        for (Aula aula: vaules) {
+            listAules.add(aula.getAula());
+        }
+    return listAules;
     }
+
+    public ArrayList<String> getAssigs(){
+        ArrayList<String> listAssigs = new ArrayList<>();
+        for (Assignatura assig: vassig) {
+            listAssigs.add(assig.getNomAssig());
+        }
+    return listAssigs;
+    }
+    public ArrayList<String> getHores(){
+        ArrayList<String> list = new ArrayList<>();
+        for (int i = horari.getHoraIni(); i < horari.getHoraFi(); ++i) {
+            list.add(Integer.toString(i));
+        }
+    return list;
+    }
+
+    public ArrayList<String> getDies(){
+        ArrayList<String> list = new ArrayList<>();
+        for (int i = 0; i < 5; ++i) {
+            list.add(Dia.values()[i].toString());
+        }
+    return list;
+    }
+
+    public void createRest1 (String assig, String torn) {
+        boolean x = false;
+        if (torn=="Mati") x = true;
+
+        Assignatura aux = getAssigFromName(assig);
+        RestTornAssig res = new RestTornAssig(, x);
+        horari.afegirRestriccio(res);
+
+    }
+
+    private Assignatura getAssigFromName(String assig) {
+
+        for (int i = 0; i < vassig.getSize();
+        )
+    }
+
 
     private static void testAssig() {
         System.out.println("Que vols testejar?");

@@ -285,7 +285,7 @@ public class Horari {
 		}
 	}
 	
-	public int getHoraIni () {
+	public int 	getHoraIni () {
 		return this.horaIniDia;
 	}
 	
