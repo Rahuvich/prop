@@ -122,7 +122,8 @@ public class TestDriver {
         System.out.println("2. Restringir el torn mati/tarda d'un grup");
         System.out.println("3. Restringir l'hora d'inici d'un grup");
         System.out.println("4. Restringir l'hora d'inici d'una assignatura");
-        System.out.println("5. Torna enrere");
+        System.out.println("5. Restringir el dia en que s'imparteix un grup");
+        System.out.println("6. Torna enrere");
 
         switch (readInput()){
             case 1:
@@ -141,6 +142,10 @@ public class TestDriver {
                 crearRestHoraAssig();
                 llistaRestriccions();
             case 5:
+                crearRestDiaGrup();
+                llistaRestriccions();
+            case 6:
+
             default:
         }
     }
@@ -261,6 +266,44 @@ public class TestDriver {
         
         
         RestTornAssig res = new RestTornAssig(vassig.get(assigIndex-1), mati);
+        horari.afegirRestriccio(res);
+    }
+
+    public static void crearRestDiaGrup()
+    {
+        System.out.println("Escolleix assignatura");
+        for (int i = 0; i<vassig.size(); ++i){
+            System.out.println(i+1 + ". " + vassig.get(i).getNomAssig());
+        }
+        int assigIndex = readInput();
+        for (int i = 0; i<vassig.get(assigIndex-1).getGrups().size(); ++i){
+            System.out.println(i+1 + ". " + vassig.get(assigIndex-1).getGrups().get(i).getNumero());
+        }
+        int grup = readInput();
+        System.out.println("Escolleix dia:");
+        System.out.println(1 + ". DILLUNS");
+        System.out.println(2 + ". DIMARTS");
+        System.out.println(3 + ". DIMECRES");
+        System.out.println(4 + ". DIJOUS");
+        System.out.println(5 + ". DIVENDRES");
+        int dia = readInput();
+        String nomdia;
+        if(dia == 1) nomdia = "dilluns";
+        else if(dia == 2) nomdia = "dimarts";
+        else if(dia == 3) nomdia = "dimecres";
+        else if(dia == 4) nomdia = "dijous";
+        else if(dia == 5) nomdia = "divendres";
+        else
+        {
+            System.out.println("Dia invalid");
+            llistaRestriccions();
+            return;
+        }
+
+        System.out.println("El grup " + vassig.get(assigIndex-1).getGrups().get(grup-1).getNumero() +
+                " de l'assignatura " + vassig.get(assigIndex-1).getNomAssig() + " tindra clase els " + nomdia);
+
+        RestDiaGrup res = new RestDiaGrup(vassig.get(assigIndex-1).getGrups().get(grup-1), dia-1);
         horari.afegirRestriccio(res);
     }
 
