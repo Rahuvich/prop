@@ -12,7 +12,7 @@ public class Horari {
 	private int horaIniDia;
 	private int horaFiDia;
 
-	private Classe[][][] horari;
+    private Classe[][][] horari;
 
 	private Vector5 firstEmptyClass;
 
@@ -267,6 +267,16 @@ public class Horari {
 			restAssig.put(assig.getNomAssig(), auxV);
 		}
 	}
+
+	public void deleteRest(Restriccions res){
+        if(res instanceof ResGrup) {
+            restGrups.remove(((ResGrup) res).getGrup(), res);
+        }
+        else if(res instanceof ResAssig)
+        {
+            restAssig.remove(((ResAssig) res).assig, res);
+        }
+    }
 	
 	public int 	getHoraIni () {
 		return this.horaIniDia;
@@ -275,6 +285,10 @@ public class Horari {
 	public int getHoraFi () {
 		return this.horaFiDia;
 	}
+
+    public Classe[][][] getHorari() {
+        return horari;
+    }
 
 }
 

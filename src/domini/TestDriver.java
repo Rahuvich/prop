@@ -269,8 +269,7 @@ public class TestDriver {
         horari.afegirRestriccio(res);
     }
 
-    public static void crearRestDiaGrup()
-    {
+    public static void crearRestDiaGrup() {
         System.out.println("Escolleix assignatura");
         for (int i = 0; i<vassig.size(); ++i){
             System.out.println(i+1 + ". " + vassig.get(i).getNomAssig());
@@ -305,6 +304,83 @@ public class TestDriver {
 
         RestDiaGrup res = new RestDiaGrup(vassig.get(assigIndex-1).getGrups().get(grup-1), dia-1);
         horari.afegirRestriccio(res);
+    }
+
+    /**
+     * Borra la restriccio
+     * @param nomAssig Nom de l'assignatura
+     * @param hora Hora entre HoraIni i HoraFi
+     */
+    public static void deleteRestHoraAssig(String nomAssig, int hora){
+        int indexAssig = -1;
+        for (int i = 0; i < vassig.size(); i++) {
+            if(nomAssig.equals(vassig.get(i).getNomAssig())) indexAssig = i;
+        }
+        RestHoraAssig res = new RestHoraAssig(vassig.get(indexAssig), hora);
+        horari.deleteRest(res);
+    }
+
+    /**
+     * Borra la restriccio
+     * @param nomAssig Nom de l'assignatura
+     * @param grup Index del grup dintre de la array de grups de Assig (NO EL NUMERO DE GRUP)
+     * @param hora Hora entre HoraIni i HoraFi
+     */
+    public static void deleteRestHoraGrup(String nomAssig, int grup, int hora){
+        int indexAssig = -1;
+        for (int i = 0; i < vassig.size(); i++) {
+            if(nomAssig.equals(vassig.get(i).getNomAssig())) indexAssig = i;
+        }
+        RestHoraGrup res = new RestHoraGrup(vassig.get(indexAssig).getGrups().get(grup), hora);
+        horari.deleteRest(res);
+    }
+
+    /**
+     * Borra la restriccio
+     * @param nomAssig Nom de l'assignatura
+     * @param grup Index del grup dintre de la array de grups de Assig (NO EL NUMERO DE GRUP)
+     * @param mati true == mati, false == tarda
+     */
+    public static void deleteRestTornGrup(String nomAssig, int grup, boolean mati){
+        int indexAssig = -1;
+        for (int i = 0; i < vassig.size(); i++) {
+            if(nomAssig.equals(vassig.get(i).getNomAssig())) indexAssig = i;
+        }
+        RestTornGrup res = new RestTornGrup(vassig.get(indexAssig).getGrups().get(grup), mati);
+        horari.deleteRest(res);
+    }
+
+    /**
+     * Borra la restriccio
+     * @param nomAssig Nom de l'assignatura
+     * @param mati true == mati, false == tarda
+     */
+    public static void deleteRestTornGrup(String nomAssig, boolean mati){
+        int indexAssig = -1;
+        for (int i = 0; i < vassig.size(); i++) {
+            if(nomAssig.equals(vassig.get(i).getNomAssig())) indexAssig = i;
+        }
+        RestTornAssig res = new RestTornAssig(vassig.get(indexAssig), mati);
+        horari.deleteRest(res);
+    }
+
+    /**
+     * Borra la restriccio
+     * @param nomAssig Nom de l'assignatura
+     * @param grup Index del grup dintre de la array de grups de Assig (NO EL NUMERO DE GRUP)
+     * @param dia Between 0 and 4
+     */
+    public static void deleteRestDiaGrup(String nomAssig, int grup, int dia) {
+        int indexAssig = -1;
+        for (int i = 0; i < vassig.size(); i++) {
+            if(nomAssig.equals(vassig.get(i).getNomAssig())) indexAssig = i;
+        }
+        RestDiaGrup res = new RestDiaGrup(vassig.get(indexAssig).getGrups().get(grup), dia);
+        horari.afegirRestriccio(res);
+    }
+
+    public static Classe[][][] getHorari(){
+        return horari.getHorari();
     }
 
     public static void loader(String unitatD){
