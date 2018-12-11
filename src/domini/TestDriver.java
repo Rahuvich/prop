@@ -323,30 +323,34 @@ public class TestDriver {
     /**
      * Borra la restriccio
      * @param nomAssig Nom de l'assignatura
-     * @param grup Index del grup dintre de la array de grups de Assig (NO EL NUMERO DE GRUP)
+     * @param grup String del numero del grup (10, 11, 20, 21)
      * @param hora Hora entre HoraIni i HoraFi
      */
-    public static void deleteRestHoraGrup(String nomAssig, int grup, int hora){
+    public static void deleteRestHoraGrup(String nomAssig, String grup, int hora){
         int indexAssig = -1;
         for (int i = 0; i < vassig.size(); i++) {
             if(nomAssig.equals(vassig.get(i).getNomAssig())) indexAssig = i;
         }
-        RestHoraGrup res = new RestHoraGrup(vassig.get(indexAssig).getGrups().get(grup), hora);
+
+        int indexGrup = getIndexGrup(vassig.get(indexAssig), grup);
+        RestHoraGrup res = new RestHoraGrup(vassig.get(indexAssig).getGrups().get(indexGrup), hora);
         horari.deleteRest(res);
     }
 
     /**
      * Borra la restriccio
      * @param nomAssig Nom de l'assignatura
-     * @param grup Index del grup dintre de la array de grups de Assig (NO EL NUMERO DE GRUP)
+     * @param grup String del numero del grup (10, 11, 20, 21)
      * @param mati true == mati, false == tarda
      */
-    public static void deleteRestTornGrup(String nomAssig, int grup, boolean mati){
+    public static void deleteRestTornGrup(String nomAssig, String grup, boolean mati){
         int indexAssig = -1;
         for (int i = 0; i < vassig.size(); i++) {
             if(nomAssig.equals(vassig.get(i).getNomAssig())) indexAssig = i;
         }
-        RestTornGrup res = new RestTornGrup(vassig.get(indexAssig).getGrups().get(grup), mati);
+
+        int indexGrup = getIndexGrup(vassig.get(indexAssig), grup);
+        RestTornGrup res = new RestTornGrup(vassig.get(indexAssig).getGrups().get(indexGrup), mati);
         horari.deleteRest(res);
     }
 
@@ -355,7 +359,7 @@ public class TestDriver {
      * @param nomAssig Nom de l'assignatura
      * @param mati true == mati, false == tarda
      */
-    public static void deleteRestTornGrup(String nomAssig, boolean mati){
+    public static void deleteRestTornAssig(String nomAssig, boolean mati){
         int indexAssig = -1;
         for (int i = 0; i < vassig.size(); i++) {
             if(nomAssig.equals(vassig.get(i).getNomAssig())) indexAssig = i;
@@ -367,20 +371,118 @@ public class TestDriver {
     /**
      * Borra la restriccio
      * @param nomAssig Nom de l'assignatura
-     * @param grup Index del grup dintre de la array de grups de Assig (NO EL NUMERO DE GRUP)
+     * @param grup String del numero del grup (10, 11, 20, 21)
      * @param dia Between 0 and 4
      */
-    public static void deleteRestDiaGrup(String nomAssig, int grup, int dia) {
+    public static void deleteRestDiaGrup(String nomAssig, String grup, int dia) {
         int indexAssig = -1;
         for (int i = 0; i < vassig.size(); i++) {
             if(nomAssig.equals(vassig.get(i).getNomAssig())) indexAssig = i;
         }
-        RestDiaGrup res = new RestDiaGrup(vassig.get(indexAssig).getGrups().get(grup), dia);
+
+        int indexGrup = getIndexGrup(vassig.get(indexAssig), grup);
+        RestDiaGrup res = new RestDiaGrup(vassig.get(indexAssig).getGrups().get(indexGrup), dia);
         horari.afegirRestriccio(res);
+    }
+
+    private static int getIndexGrup(Assignatura assig, String grup){
+        for (int i = 0; i < assig.getGrups().size(); i++) {
+            if(grup.equals(String.valueOf(assig.getGrups().get(i).getNumero()))) return i;
+        }
+        return -1;
     }
 
     public static Classe[][][] getHorari(){
         return horari.getHorari();
+    }
+
+
+    /**
+     * Cada Array conte nom de la assignatura i l'hora
+     * @return
+     */
+    public static ArrayList<ArrayList<String>> getAllRestHoraAssig(){
+        ArrayList<ArrayList<String>> result = new ArrayList<>();
+        for (Restriccions rest : horari.getAllRestAssig()) {
+            if(rest instanceof RestHoraAssig){
+                ArrayList<String> restString = new ArrayList<>();
+                restString.add(((RestHoraAssig) rest).getAssig().getNomAssig());
+                restString.add(String.valueOf(((RestHoraAssig) rest).getHora()));
+                result.add(restString);
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Cada Array conte nom de la assignatura, numero del grup (10, 11, 20, 21) i l'hora
+     * @return
+     */
+    public static ArrayList<ArrayList<String>> getAllRestHoraGrup(){
+        ArrayList<ArrayList<String>> result = new ArrayList<>();
+        for (Restriccions rest : horari.getAllRestGrup()) {
+            if(rest instanceof RestHoraGrup){
+                ArrayList<String> restString = new ArrayList<>();
+                restString.add(((RestHoraGrup) rest).getGrup().getNomAssig());
+                restString.add(String.valueOf(((RestHoraGrup) rest).getGrup().getNumero()));
+                restString.add(String.valueOf(((RestHoraGrup) rest).getHora()));
+                result.add(restString);
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Cada Array conte nom de la assignatura i true si es mati, false si es tarda
+     * @return
+     */
+    public static ArrayList<ArrayList<String>> getAllRestTornAssig(){
+        ArrayList<ArrayList<String>> result = new ArrayList<>();
+        for (Restriccions rest : horari.getAllRestAssig()) {
+            if(rest instanceof RestTornAssig){
+                ArrayList<String> restString = new ArrayList<>();
+                restString.add(((RestTornAssig) rest).getAssig().getNomAssig());
+                restString.add(String.valueOf(((RestTornAssig) rest).getMati()));
+                result.add(restString);
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Cada Array conte nom de la assignatura, el numero del grup (10, 11, 20, 21) i true si es mati, false si es tarda
+     * @return
+     */
+    public static ArrayList<ArrayList<String>> getAllRestTornGrup(){
+        ArrayList<ArrayList<String>> result = new ArrayList<>();
+        for (Restriccions rest : horari.getAllRestGrup()) {
+            if(rest instanceof RestTornGrup){
+                ArrayList<String> restString = new ArrayList<>();
+                restString.add(((RestTornGrup) rest).getGrup().getNomAssig());
+                restString.add(String.valueOf(((RestTornGrup) rest).getGrup().getNumero()));
+                restString.add(String.valueOf(((RestTornGrup) rest).getMati()));
+                result.add(restString);
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Cada Array conte nom de la assignatura, el numero del grup (10, 11, 20, 21) i dia (0-4)
+     * @return
+     */
+    public static ArrayList<ArrayList<String>> getAllRestDiaGrup(){
+        ArrayList<ArrayList<String>> result = new ArrayList<>();
+        for (Restriccions rest : horari.getAllRestGrup()) {
+            if(rest instanceof RestDiaGrup){
+                ArrayList<String> restString = new ArrayList<>();
+                restString.add(((RestDiaGrup) rest).getGrup().getNomAssig());
+                restString.add(String.valueOf(((RestDiaGrup) rest).getGrup().getNumero()));
+                restString.add(String.valueOf(((RestDiaGrup) rest).getDia()));
+                result.add(restString);
+            }
+        }
+        return result;
     }
 
     public static void loader(String unitatD){

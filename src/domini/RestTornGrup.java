@@ -23,5 +23,7 @@ public class RestTornGrup extends ResGrup{
 	    }
 		return ans;
 	}
-    
+
+
+	public boolean getMati(){return mati;}
 }

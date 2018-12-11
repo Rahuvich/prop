@@ -23,5 +23,7 @@ public class RestTornAssig extends ResAssig{
 	    }
 		return ans;
 	}
+
+	public boolean getMati(){return mati;}
     
 }

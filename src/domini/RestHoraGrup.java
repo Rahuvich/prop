@@ -20,5 +20,7 @@ public class RestHoraGrup extends ResGrup{
 	    if (classe.getHoraIni()!=hora) ans=true;
 		return ans;
 	}
-    
+
+
+    public int getHora(){return hora;}
 }

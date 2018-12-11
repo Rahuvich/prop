@@ -20,5 +20,7 @@ public class RestHoraAssig extends ResAssig{
 	    if (classe.getHoraIni()!=hora) ans=true;
 		return ans;
 	}
+
+	public int getHora(){return hora;}
     
 }

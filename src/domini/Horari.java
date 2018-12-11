@@ -286,9 +286,25 @@ public class Horari {
 		return this.horaFiDia;
 	}
 
-    public Classe[][][] getHorari() {
-        return horari;
-    }
+	public Classe[][][] getHorari() {
+		return horari;
+	}
+
+	public ArrayList<Restriccions> getAllRestAssig() {
+		ArrayList<Restriccions> result = new ArrayList<>();
+		for (ArrayList<Restriccions> rests: restAssig.values()){
+			result.addAll(rests);
+		}
+		return result;
+	}
+
+	public ArrayList<Restriccions> getAllRestGrup() {
+		ArrayList<Restriccions> result = new ArrayList<>();
+		for (ArrayList<Restriccions> rests: restGrups.values()){
+			result.addAll(rests);
+		}
+		return result;
+	}
 
 }
 

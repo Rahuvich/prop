@@ -14,4 +14,6 @@ public class RestDiaGrup extends ResGrup
     {
         return Dia.values()[classe.getDia()].equals(Dia.values()[dia]);
     }
+
+    public int getDia(){return dia;}
 }
