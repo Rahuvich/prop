@@ -9,12 +9,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import presentacio.view.InfoOrRestController;
-import presentacio.view.StartScreenController;
-import presentacio.view.ViewInfoController;
-import presentacio.view.ViewRestController;
+import presentacio.view.*;
 
 import java.io.IOException;
+import java.sql.Array;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 
@@ -33,9 +31,6 @@ public class ControladorPresentacio extends Application {
         launch(args);
     }
 
-    //Crida a generaHorari del ControladorModel
-    public void generaHorari() {}
-
     public void creaHorari_showInfoOrRest(String uD, int horaIni, int horaFi) {
         //Cal cridar al controladorModel pq ens crei un horari amb horaIni i horaFi i cargui les assignatures de la
         //FIB si el bool Fib es true i minifib si es fals. Tambe podem posar la microfib pero no esta implementat
@@ -47,7 +42,15 @@ public class ControladorPresentacio extends Application {
 
     public void devMode_viewInfo() {
         td.devMode();
+        System.out.println("before showViewInfo");
         showViewInfo();
+    }
+
+    public void generaHorari() {
+        System.out.println("generaHorari from cP abans de generar");
+        td.generaHorari();
+        System.out.println("generaHorari from cP despres de generar");
+        showViewHorari();
     }
 
     public ArrayList<String> getAules() {
@@ -67,9 +70,14 @@ public class ControladorPresentacio extends Application {
         return td.getDies();
     }
 
-    public void createRest1 (String assig, String torn, String dia) {
-        td.
+    public void createRestTornAssig (String assig, String torn) {
+        System.out.println("before createRestTornAssig from cp");
+        td.createRestTornAssig(assig, torn);
+        System.out.println("after createRestTornAssig from cp");
+    }
 
+    public void createRestHoraAssig (String assig, int hora) {
+        td.createRestHoraAssig(assig, hora);
     }
 
 
@@ -131,19 +139,14 @@ public class ControladorPresentacio extends Application {
     public void showViewInfo() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            System.out.println("viewinfo from cp");
             loader.setLocation(getClass().getResource("view/3ViewInfo.fxml"));
-            System.out.println("loader set loaction for viewinfo from cp");
-
-
-
-            System.out.println("after setting viewinfo cp from cp");
 
             AnchorPane ViewInfo = loader.load();
             System.out.println("after loading info from cp");
 
             ViewInfoController controller = loader.getController();
-            if(controller == null) System.out.println("NULL");
+            controller.setAssigs(td.getAssigs());
+            controller.setAules(td.getAules());
             controller.setMainApp(this);
 
             rootLayout.setCenter(ViewInfo);
@@ -162,12 +165,36 @@ public class ControladorPresentacio extends Application {
             loader.setLocation(getClass().getResource("view/3ViewRest.fxml"));
             AnchorPane ViewRest = loader.load();
 
-            System.out.println("cp showViewRest after load");
+            ViewRestController controller = loader.getController();
+            controller.setAssigs(getAssigs());
+            controller.setHores(getHores());
+            controller.setTorns();
+
+            controller.setMainApp(this);
 
             rootLayout.setCenter(ViewRest);
 
-            ViewRestController controller = loader.getController();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void showViewHorari() {
+        try {
+            System.out.println("show viewHorari beginning");
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("view/4ViewHorari.fxml"));
+            System.out.println("after setting location");
+            AnchorPane ViewHorari = loader.load();
+            System.out.println("after loading");
+            ViewHorariController controller = loader.getController();
+//            controller.setHorari(getAules());
             controller.setMainApp(this);
+
+            rootLayout.setCenter(ViewHorari);
+
+            System.out.println("show viewHorari end");
+
         } catch (IOException e) {
             e.printStackTrace();
         }

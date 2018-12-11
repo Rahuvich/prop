@@ -19,8 +19,6 @@ public class ViewInfoController {
     @FXML
     private Button rest;
     @FXML
-    private Button getinfo;
-    @FXML
     private ListView<String> aules;
     @FXML
     private ListView<String> assigs;
@@ -31,24 +29,20 @@ public class ViewInfoController {
     public ViewInfoController() {};
 
     public void setMainApp(ControladorPresentacio contPres) {
-        System.out.println("sets main app");
-        this.cP = contPres;}
+        this.cP = contPres;
+    }
+
+    public void setAssigs(ArrayList<String> ass) {
+        ObservableList<String> observableListAssigs = FXCollections.observableList(ass);
+        assigs.setItems(observableListAssigs);
+    }
+    public void setAules(ArrayList<String> aul) {
+        ObservableList<String> observableListAules = FXCollections.observableList(aul);
+        aules.setItems(observableListAules);
+    }
 
     @FXML
     public void initialize() {
-
-
-        getinfo.setOnAction((event) -> {
-            ArrayList<String> listAules = new ArrayList<>();
-            listAules.addAll(cP.getAules());
-            ObservableList<String> observableListAules = FXCollections.observableList(listAules);
-            aules.setItems(observableListAules);
-
-            ArrayList<String> listAssigs = new ArrayList<>();
-            listAssigs.addAll(cP.getAssigs());
-            ObservableList<String> observableListAssigs = FXCollections.observableList(listAssigs);
-            assigs.setItems(observableListAssigs);
-        });
 
         rest.setOnAction((event) -> {
             //Aqui
@@ -59,7 +53,8 @@ public class ViewInfoController {
         //Button next
         genera.setOnAction((event) -> {
             //Aqui sha de cridar al genera horari del controladorPresentacio
-            //cP.generaHorari;
+            System.out.println("genera horari from view info");
+            cP.generaHorari();
         });
 
         //Quit button

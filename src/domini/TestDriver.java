@@ -56,7 +56,10 @@ public class TestDriver {
             reader.close();
             break;
         }
+        generaHorari();
+    }
 
+    public void generaHorari() {
         horari.generaTot();
     }
 
@@ -386,20 +389,28 @@ public class TestDriver {
     return list;
     }
 
-    public void createRest1 (String assig, String torn) {
+    public void createRestTornAssig (String assig, String torn) {
+        System.out.println("before createRestTornAssig from td");
         boolean x = false;
         if (torn=="Mati") x = true;
-
         Assignatura aux = getAssigFromName(assig);
-        RestTornAssig res = new RestTornAssig(, x);
+        RestTornAssig res = new RestTornAssig(aux, x);
+        horari.afegirRestriccio(res);
+        System.out.println("after createRestTornAssig from td");
+    }
+
+    public void createRestHoraAssig (String assig, int hora) {
+        Assignatura aux = getAssigFromName(assig);
+        RestHoraAssig res = new RestHoraAssig(aux, hora);
         horari.afegirRestriccio(res);
 
     }
 
     private Assignatura getAssigFromName(String assig) {
-
-        for (int i = 0; i < vassig.getSize();
-        )
+        for (int i = 0; i < vassig.size(); ++i) {
+            if (vassig.get(i).getNomAssig()==assig) return vassig.get(i);
+        }
+        return null;
     }
 
 
