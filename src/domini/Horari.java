@@ -60,25 +60,22 @@ public class Horari {
 			System.out.printf("%20s", Dia.values()[i].toString());
 		}
 		System.out.println();
-		boolean row = false;
 		for(int j = 0; j < horaFiDia - horaIniDia; j++) {
 			System.out.printf("%2d", j+horaIniDia);
 			for (int k = 0; k < vaules.size(); ++k) {
 				for (int i = 0; i<5;++i){
+				    String s = "-";
 					if(!horari[i][j][k].isEmpty()){
-						row = true;
-						String s = String.valueOf(horari[i][j][k].getGrup().getNumero());
+						s = String.valueOf(horari[i][j][k].getGrup().getNumero());
 						s = s.concat(horari[i][j][k].getAssig());
 						s = s.concat(" ");
 						s = s.concat(horari[i][j][k].getAula());
-						System.out.printf("%20s", s);
 					}
+                    System.out.printf("%20s", s);
 				}
-				if(row){
-					System.out.println();
-					System.out.printf("%2s", "");
-					row = false;
-				}
+				System.out.println();
+				System.out.printf("%2s", "");
+
 			}
 			System.out.println();
 		}
@@ -121,20 +118,6 @@ public class Horari {
 			}
 		}
 		return false;
-	}
-
-	private void updateFirstEmptyClass(int dia, int hora, int aula){
-		for (int i = dia; i < 5; ++i){
-			for (int j = hora; j < horaFiDia-horaIniDia; j++) {
-				for (int k = aula; k < vaules.size(); k++) {
-					if(horari[i][j][k].isEmpty()) {
-						System.out.println("First empty class updated: " + i + " " + j + " " + k);
-						firstEmptyClass = new Vector5(i, j, k, 0, 0);
-						return;
-					}
-				}
-			}
-		}
 	}
 
 	private boolean comprobarAssignacio(int dia, int hora, int aula, Grup g){

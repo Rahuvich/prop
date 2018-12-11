@@ -301,7 +301,7 @@ public class TestDriver {
         }
 
         System.out.println("El grup " + vassig.get(assigIndex-1).getGrups().get(grup-1).getNumero() +
-                " de l'assignatura " + vassig.get(assigIndex-1).getNomAssig() + " tindra clase els " + nomdia);
+                " de l'assignatura " + vassig.get(assigIndex-1).getNomAssig() + " tindra clase els " + Dia.values()[dia-1]);
 
         RestDiaGrup res = new RestDiaGrup(vassig.get(assigIndex-1).getGrups().get(grup-1), dia-1);
         horari.afegirRestriccio(res);
