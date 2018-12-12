@@ -87,23 +87,27 @@ public class ViewHorariController {
                         text = "Classe disponible";
                     }
 
-                    classes[i][j][k] = new Button(text);
+                    Button auxB = new Button(text);
+
+
                     //Assings button even
 
-                    classes[i][j][k].setOnAction(new EventHandler<ActionEvent>() {
+                    auxB.setOnAction(new EventHandler<ActionEvent>() {
                         @Override public void handle(ActionEvent e) {
                             if (!classSelected) {
                                 classSelected=true;
-                                classOrigin.setText(((Button)e.getSource()).getText());
+                                classOrigin.setText(auxB.getText());
                             }
                             else {
                                 classSelected=false;
-                                classDestination.setText(((Button)e.getSource()).getText());
+                                //getrowindex and col no van
+                                classDestination.setText(auxB.getText() + horariGrid.getRowIndex(auxB) + horariGrid.getColumnIndex(auxB));
                             }
 
                         }
                     });
 
+                    classes[i][j][k] = auxB;
 
                     //Assigns button to list
 
