@@ -28,52 +28,67 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/domini/RestDiaGrup.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+            <state relative-caret-position="238">
+              <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/domini/Restriccions.java">
+        <entry file="file://$PROJECT_DIR$/src/domini/RestFranjaHoraria.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+            <state relative-caret-position="507">
+              <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="23" />
+              <folding>
+                <element signature="e#642#643#0" expanded="true" />
+                <element signature="e#671#672#0" expanded="true" />
+                <element signature="e#698#699#0" expanded="true" />
+                <element signature="e#724#725#0" expanded="true" />
+                <element signature="e#755#756#0" expanded="true" />
+                <element signature="e#785#786#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/domini/TestDriver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="303" column="13" selection-start-line="303" selection-start-column="13" selection-end-line="303" selection-end-column="13" />
+            <state relative-caret-position="827">
+              <caret line="154" column="19" selection-start-line="154" selection-start-column="19" selection-end-line="154" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#506#507#0" expanded="true" />
                 <element signature="e#531#532#0" expanded="true" />
+                <element signature="e#10115#11655#0" />
+                <element signature="e#13343#13344#0" expanded="true" />
+                <element signature="e#13384#13385#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/domini/RestHoraGrup.java">
+        <entry file="file://$PROJECT_DIR$/src/domini/RestTornAssig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="340">
+              <caret line="20" column="14" lean-forward="true" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/domini/Horari.java">
+        <entry file="file://$PROJECT_DIR$/src/domini/RestSeparat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="21" column="63" selection-start-line="21" selection-start-column="63" selection-end-line="21" selection-end-column="63" />
+            <state relative-caret-position="391">
+              <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+              <folding>
+                <element signature="e#188#189#0" expanded="true" />
+                <element signature="e#230#231#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -139,8 +154,10 @@
         <option value="$PROJECT_DIR$/src/presentacio/view/ViewInfoController.java" />
         <option value="$PROJECT_DIR$/src/presentacio/ControladorPresentacio.java" />
         <option value="$PROJECT_DIR$/src/presentacio/view/ViewHorariController.java" />
-        <option value="$PROJECT_DIR$/src/domini/TestDriver.java" />
         <option value="$PROJECT_DIR$/src/domini/RestDiaGrup.java" />
+        <option value="$PROJECT_DIR$/src/domini/RestFranjaHoraria.java" />
+        <option value="$PROJECT_DIR$/src/domini/RestSeparat.java" />
+        <option value="$PROJECT_DIR$/src/domini/TestDriver.java" />
       </list>
     </option>
   </component>
@@ -155,7 +172,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -191,12 +208,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544523926875" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Java/openjfx-11.0.1_windows-x64_bin-sdk/javafx-sdk-11.0.1/lib" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544574093251" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../prop 1" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -259,15 +276,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="55" y="-7" width="1233" height="735" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.46268657" visible="true" weight="0.23614663" />
-      <window_info id="Structure" order="1" sideWeight="0.53731346" side_tool="true" weight="0.23614663" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Learn" order="6" weight="0.3295302" />
-      <window_info id="Favorites" order="7" sideWeight="0.5022831" side_tool="true" weight="0.15503356" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.47761193" visible="true" weight="0.24040921" />
+      <window_info active="true" id="Favorites" order="1" sideWeight="0.52238804" side_tool="true" visible="true" weight="0.24040921" />
+      <window_info id="Structure" order="2" sideWeight="0.53731346" side_tool="true" weight="0.23614663" />
+      <window_info id="Designer" order="3" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="UI Designer" order="6" />
+      <window_info id="Learn" order="7" weight="0.3295302" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.71610737" weight="0.7711443" />
@@ -276,9 +294,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.41127694" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.41127694" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.28389263" side_tool="true" weight="0.29745042" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49463087" weight="0.3286119" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49463087" weight="0.3283582" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -490,13 +508,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/domini/RestTornAssig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/presentacio/view/ViewInfoController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -535,10 +546,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/domini/Restriccions.java">
+    <entry file="file://$PROJECT_DIR$/src/domini/RestHoraGrup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -549,29 +560,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/domini/RestHoraGrup.java">
+    <entry file="file://$PROJECT_DIR$/src/domini/Restriccions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domini/TestDriver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="303" column="13" selection-start-line="303" selection-start-column="13" selection-end-line="303" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#506#507#0" expanded="true" />
-            <element signature="e#531#532#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="102">
+          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/domini/RestDiaGrup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+        <state relative-caret-position="238">
+          <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domini/RestFranjaHoraria.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="23" />
+          <folding>
+            <element signature="e#642#643#0" expanded="true" />
+            <element signature="e#671#672#0" expanded="true" />
+            <element signature="e#698#699#0" expanded="true" />
+            <element signature="e#724#725#0" expanded="true" />
+            <element signature="e#755#756#0" expanded="true" />
+            <element signature="e#785#786#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domini/RestTornAssig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="14" lean-forward="true" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domini/RestSeparat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+          <folding>
+            <element signature="e#188#189#0" expanded="true" />
+            <element signature="e#230#231#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domini/TestDriver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="827">
+          <caret line="154" column="19" selection-start-line="154" selection-start-column="19" selection-end-line="154" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#506#507#0" expanded="true" />
+            <element signature="e#531#532#0" expanded="true" />
+            <element signature="e#10115#11655#0" />
+            <element signature="e#13343#13344#0" expanded="true" />
+            <element signature="e#13384#13385#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
