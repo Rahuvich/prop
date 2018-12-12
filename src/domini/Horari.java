@@ -286,8 +286,21 @@ public class Horari {
 		return this.horaFiDia;
 	}
 
-	public Classe[][][] getHorari() {
-		return horari;
+	public String[][][][] getHorari() {
+		String[][][][] hs = new String[5][horaFiDia-horaIniDia][vaules.size()][3];
+		for (int i = 0; i < 5; ++i) {
+			for (int j = 0; j < horaFiDia - horaIniDia; ++j) {
+				for (int k = 0; k < vaules.size(); ++k) {
+					if (!horari[i][j][k].isEmpty()) {
+						hs[i][j][k][0] = Integer.toString(horari[i][j][k].getGrup().getNumero());
+						hs[i][j][k][1] = horari[i][j][k].getAssig();
+						hs[i][j][k][2] = horari[i][j][k].getAula();
+						System.out.println(hs[i][j][k][0] + " " + hs[i][j][k][1] + " " + hs[i][j][k][2]);
+					}
+				}
+			}
+		}
+		return hs;
 	}
 
 	public ArrayList<Restriccions> getAllRestAssig() {

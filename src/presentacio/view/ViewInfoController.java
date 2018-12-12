@@ -45,9 +45,7 @@ public class ViewInfoController {
     public void initialize() {
 
         rest.setOnAction((event) -> {
-            //Aqui
-            System.out.println("rest button works");
-            if(cP == null) System.out.println("nulll");
+
             cP.showViewRest();
         });
         //Button next

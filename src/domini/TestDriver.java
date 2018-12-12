@@ -458,7 +458,7 @@ public class TestDriver {
         return -1;
     }
 
-    public static Classe[][][] getHorari(){
+    public static String[][][][] getHorari(){
         return horari.getHorari();
     }
 

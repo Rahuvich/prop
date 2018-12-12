@@ -188,7 +188,7 @@ public class ControladorPresentacio extends Application {
             AnchorPane ViewHorari = loader.load();
             System.out.println("after loading");
             ViewHorariController controller = loader.getController();
-//            controller.setHorari(getAules());
+            controller.setHorari(td.getHorari(), td.getDies(), td.getHores());
             controller.setMainApp(this);
 
             rootLayout.setCenter(ViewHorari);
