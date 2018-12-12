@@ -47,10 +47,13 @@ public class ControladorPresentacio extends Application {
     }
 
     public void generaHorari() {
-        System.out.println("generaHorari from cP abans de generar");
         td.generaHorari();
-        System.out.println("generaHorari from cP despres de generar");
         showViewHorari();
+    }
+
+    public void swap (String origin, String destination) {
+
+
     }
 
     public ArrayList<String> getAules() {

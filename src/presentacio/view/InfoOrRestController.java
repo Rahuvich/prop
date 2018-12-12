@@ -41,7 +41,7 @@ public class InfoOrRestController {
         //Button next
         genera.setOnAction((event) -> {
             //Aqui sha de cridar al genera horari del controladorPresentacio
-            //cP.generaHorari;
+            cP.generaHorari();
         });
 
         //Quit button
