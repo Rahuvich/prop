@@ -2,9 +2,13 @@ package presentacio.view;
 
         import javafx.collections.FXCollections;
         import javafx.collections.ObservableList;
+        import javafx.event.ActionEvent;
+        import javafx.event.EventHandler;
         import javafx.fxml.FXML;
+        import javafx.geometry.Insets;
         import javafx.scene.control.*;
         import javafx.scene.layout.BorderPane;
+        import javafx.scene.layout.ColumnConstraints;
         import javafx.scene.layout.GridPane;
         import presentacio.ControladorPresentacio;
 
@@ -21,15 +25,42 @@ public class ViewHorariController {
     private BorderPane borderPaneViewHorari;
 
 
+    @FXML
+    private Label classOrigin;
+    @FXML
+    private Label classDestination;
+
+    private boolean classSelected = false;
+
+//    public Classe(Aula a, Grup g, Dia dia, int h, int duracio)
+//    {
+//        this.aula = a;
+//        this.grup = g;
+//        this.dia = dia;
+//        this.horaIni = h;
+//        this.duracio = duracio;
+//        empty = false;
+//    }
+
+
     private ControladorPresentacio cP;
 
     public void setMainApp(ControladorPresentacio contPres) {this.cP = contPres;}
+
+    public void setClassOrigin() {
+        classOrigin.setText("No sha seleccionat res");
+    }
 
     //hs[dia][hora][aula]
 
     public void setHorari (String[][][][] hs, ArrayList<String> dies, ArrayList<String> hores) {
 
         GridPane horariGrid = new GridPane();
+        ColumnConstraints c0 = new ColumnConstraints();
+        c0.setPercentWidth(3);
+        horariGrid.getColumnConstraints().addAll(c0);
+        horariGrid.setGridLinesVisible(true);
+        horariGrid.setPadding(new Insets(10, 10, 10, 10));
         //set days
         for (int i = 1; i <= hs.length; ++i) horariGrid.add(new Label(dies.get(i-1)), i, 0);
         //set hours
@@ -37,6 +68,8 @@ public class ViewHorariController {
 
 
         ScrollPane horariScroll = new ScrollPane(horariGrid);
+
+        horariScroll.setFitToWidth(true);
 
 
         Button[][][] classes = new Button[hs.length][hs[0].length][hs[0][0].length];
@@ -54,10 +87,26 @@ public class ViewHorariController {
                         text = "Classe disponible";
                     }
 
-                    //Assings button event
+                    classes[i][j][k] = new Button(text);
+                    //Assings button even
+
+                    classes[i][j][k].setOnAction(new EventHandler<ActionEvent>() {
+                        @Override public void handle(ActionEvent e) {
+                            if (!classSelected) {
+                                classSelected=true;
+                                classOrigin.setText(((Button)e.getSource()).getText());
+                            }
+                            else {
+                                classSelected=false;
+                                classDestination.setText(((Button)e.getSource()).getText());
+                            }
+
+                        }
+                    });
+
 
                     //Assigns button to list
-                    classes[i][j][k] = new Button(text);
+
                     listHora.getItems().add(classes[i][j][k]);
 
 
