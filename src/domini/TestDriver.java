@@ -647,6 +647,16 @@ public class TestDriver {
 
     public void swap(String[] origin, String hora, String dia) {
         horari.moveClasse(origin, Integer.parseInt(hora), getIndexDia(dia));
+        horari.printHorari();
+
+    }
+
+    public ArrayList<String> getUnitatsDocents() {
+        ArrayList<String> uds = new ArrayList<>();
+        uds.add("FIB");
+        uds.add("miniFIB");
+        uds.add("microFIB");
+        return uds;
 
     }
 

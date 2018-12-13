@@ -1,11 +1,12 @@
 package presentacio.view;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import presentacio.ControladorPresentacio;
+
+import java.util.ArrayList;
 
 public class StartScreenController {
 
@@ -13,6 +14,8 @@ public class StartScreenController {
     private RadioButton miniFib;
     @FXML
     private RadioButton fib;
+    @FXML
+    private ComboBox<String> unitatDocent;
 
     @FXML
     private ToggleGroup g1;
@@ -33,14 +36,23 @@ public class StartScreenController {
 
     public void setMainApp(ControladorPresentacio contPres) {this.cP = contPres;}
 
+    public void setUnitatDocent (ArrayList<String> unitatDocent) {
+        ObservableList<String> observableListunitatDocent = FXCollections.observableList(unitatDocent);
+        this.unitatDocent.setItems(observableListunitatDocent);
+        this.unitatDocent.getSelectionModel().selectFirst();
+
+    }
+
     @FXML
     public void initialize() {
+
+
 
         //Button next
         next.setOnAction((event) -> {
 
             //You can also use getText() to get the text of the name of the radiobutton if we want to have more options or something
-            cP.creaHorari_showInfoOrRest(((RadioButton) g1.getSelectedToggle()).getText(), Integer.parseInt(hI.getText()), Integer.parseInt(hF.getText()));
+            cP.creaHorari_showInfoOrRest(unitatDocent.getSelectionModel().getSelectedItem(), Integer.parseInt(hI.getText()), Integer.parseInt(hF.getText()));
 
         });
 

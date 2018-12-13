@@ -6,6 +6,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import presentacio.ControladorPresentacio;
 
 import java.util.ArrayList;
@@ -30,6 +32,8 @@ public class ViewRestController {
     private ComboBox<String> assigRestHoraAssig;
     @FXML
     private ComboBox<String> horaRestHoraAssig;
+    @FXML
+    private ListView<Label> listRestHoraAssig;
 
     @FXML
     private Button afegirRestTornAssig;
@@ -80,6 +84,10 @@ public class ViewRestController {
             String torn = tornRestTornAssig.getValue();
             cP.createRestTornAssig(assig, torn);
 
+            Label auxL = new Label("L'assignatura " + assig + " no fara classe durant " + torn);
+
+
+            listRestHoraAssig.getItems().add(auxL);
         });
 
         afegirRestHoraAssig.setOnAction((event) -> {

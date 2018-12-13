@@ -52,9 +52,12 @@ public class ControladorPresentacio extends Application {
     }
 
     public void swap(String[] origin, String hora, String dia ) {
-        for (int i = 0; i < origin.length; ++i) System.out.println(origin[i] + " ");
+
+
         td.swap(origin, hora, dia);
         System.out.println("Swap completed");
+        showViewHorari();
+
 
     }
 
@@ -115,11 +118,12 @@ public class ControladorPresentacio extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("view/1StartScreen.fxml"));
             AnchorPane startScreen = loader.load();
-
+            StartScreenController controller = loader.getController();
+            controller.setUnitatDocent(td.getUnitatsDocents());
+            controller.setMainApp(this);
             rootLayout.setCenter(startScreen);
 
-            StartScreenController controller = loader.getController();
-            controller.setMainApp(this);
+
         } catch (IOException e) {
             e.printStackTrace();
         }

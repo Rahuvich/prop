@@ -55,7 +55,7 @@ public class Horari {
 	/**
 	 * Printeja un horari
 	 */
-	private void printHorari() {
+	public void printHorari() {
 		System.out.printf("%2s", " ");
 		for(int i = 0; i < 5; ++i) {
 			System.out.printf("%20s", Dia.values()[i].toString());

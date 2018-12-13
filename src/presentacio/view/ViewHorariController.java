@@ -87,7 +87,6 @@ public class ViewHorariController {
 
         */
         classes = new String[hs.length][hs[0].length][hs[0][0].length][hs[0][0][0].length];
-        //classes = hs;
         this.hores = hores;
         this.dies = dies;
         isClass = new boolean[hs.length][hs[0].length][hs[0][0].length];
@@ -184,6 +183,8 @@ public class ViewHorariController {
     public void initialize() {
 
         swapButton.setOnAction((event) -> {
+
+            for (int i = 0; i < 3; ++i) System.out.println(classes[rowSelected-1][columnSelected-1][indexSelected][i] + " ");
 
             cP.swap(classes[rowSelected-1][columnSelected-1][indexSelected], hores.get(rowSelected), hores.get(columnSelected));
 

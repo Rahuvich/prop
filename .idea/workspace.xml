@@ -6,14 +6,16 @@
       <change beforePath="$PROJECT_DIR$/classes/production/prop/domini/Horari.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/prop/domini/Horari.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/production/prop/domini/TestDriver.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/prop/domini/TestDriver.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/production/prop/presentacio/ControladorPresentacio.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/prop/presentacio/ControladorPresentacio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/prop/presentacio/view/4ViewHorari.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/prop/presentacio/view/4ViewHorari.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/production/prop/presentacio/view/ViewHorariController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/prop/presentacio/view/ViewHorariController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/production/prop/presentacio/view/ViewHorariController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/prop/presentacio/view/ViewHorariController$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/production/prop/presentacio/view/ViewHorariController.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/prop/presentacio/view/ViewHorariController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/domini/Horari.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domini/Horari.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/domini/TestDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domini/TestDriver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/presentacio/ControladorPresentacio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentacio/ControladorPresentacio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentacio/view/1StartScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentacio/view/1StartScreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentacio/view/StartScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentacio/view/StartScreenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/presentacio/view/ViewHorariController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentacio/view/ViewHorariController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentacio/view/ViewRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentacio/view/ViewRestController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,11 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/presentacio/view/ViewRestController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="767">
-              <caret line="69" column="26" selection-start-line="69" selection-start-column="26" selection-end-line="69" selection-end-column="26" />
+            <state relative-caret-position="127">
+              <caret line="84" column="106" selection-start-line="84" selection-start-column="106" selection-end-line="84" selection-end-column="106" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -42,8 +44,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/presentacio/view/ViewHorariController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="187" column="59" selection-start-line="187" selection-start-column="59" selection-end-line="187" selection-end-column="59" />
+            <state relative-caret-position="-414">
+              <caret line="89" selection-start-line="89" selection-end-line="89" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1155#1156#0" expanded="true" />
@@ -54,10 +56,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/presentacio/view/StartScreenController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="178">
+              <caret line="56" column="11" lean-forward="true" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/presentacio/ControladorPresentacio.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="54" column="78" selection-start-line="54" selection-start-column="78" selection-end-line="54" selection-end-column="78" />
+            <state relative-caret-position="280">
+              <caret line="121" column="47" selection-start-line="121" selection-start-column="47" selection-end-line="121" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -68,8 +82,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/domini/TestDriver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="647" column="61" selection-start-line="647" selection-start-column="61" selection-end-line="647" selection-end-column="61" />
+            <state relative-caret-position="136">
+              <caret line="653" column="39" selection-start-line="653" selection-start-column="39" selection-end-line="653" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#506#507#0" expanded="true" />
@@ -99,11 +113,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/domini/Horari.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="193" column="116" selection-start-line="193" selection-start-column="116" selection-end-line="193" selection-end-column="116" />
+            <state relative-caret-position="134">
+              <caret line="57" column="10" selection-start-line="57" selection-start-column="10" selection-end-line="57" selection-end-column="10" />
               <folding>
                 <element signature="e#8314#8315#0" expanded="true" />
                 <element signature="e#8343#8344#0" expanded="true" />
@@ -150,7 +164,6 @@
       <find>hI</find>
       <find>quit</find>
       <find>genera</find>
-      <find>loader</find>
       <find>lista</find>
       <find>getAul</find>
       <find>devMo</find>
@@ -168,8 +181,14 @@
       <find>horari</find>
       <find>getDies</find>
       <find>getHorari</find>
+      <find>print</find>
       <find>swap</find>
+      <find>crea</find>
+      <find>loader</find>
     </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
@@ -190,19 +209,19 @@
         <option value="$PROJECT_DIR$/src/presentacio/view/1StartScreen.fxml" />
         <option value="$PROJECT_DIR$/src/presentacio/view/2InfoOrRest.fxml" />
         <option value="$PROJECT_DIR$/src/presentacio/view/3ViewInfo.fxml" />
-        <option value="$PROJECT_DIR$/src/presentacio/view/StartScreenController.java" />
         <option value="$PROJECT_DIR$/src/domini/program.java" />
         <option value="$PROJECT_DIR$/src/presentacio/view/3ViewRest.fxml" />
-        <option value="$PROJECT_DIR$/src/presentacio/view/ViewRestController.java" />
         <option value="$PROJECT_DIR$/src/domini/RestDiaGrup.java" />
         <option value="$PROJECT_DIR$/src/domini/RestFranjaHoraria.java" />
         <option value="$PROJECT_DIR$/src/domini/RestSeparat.java" />
         <option value="$PROJECT_DIR$/src/presentacio/view/ViewInfoController.java" />
         <option value="$PROJECT_DIR$/src/presentacio/view/InfoOrRestController.java" />
-        <option value="$PROJECT_DIR$/src/domini/TestDriver.java" />
-        <option value="$PROJECT_DIR$/src/presentacio/ControladorPresentacio.java" />
-        <option value="$PROJECT_DIR$/src/presentacio/view/ViewHorariController.java" />
         <option value="$PROJECT_DIR$/src/domini/Horari.java" />
+        <option value="$PROJECT_DIR$/src/presentacio/view/ViewHorariController.java" />
+        <option value="$PROJECT_DIR$/src/presentacio/ControladorPresentacio.java" />
+        <option value="$PROJECT_DIR$/src/domini/TestDriver.java" />
+        <option value="$PROJECT_DIR$/src/presentacio/view/StartScreenController.java" />
+        <option value="$PROJECT_DIR$/src/presentacio/view/ViewRestController.java" />
       </list>
     </option>
   </component>
@@ -263,7 +282,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544711616813" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544716132765" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../prop 1" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -339,15 +358,15 @@
       <window_info id="Learn" order="7" weight="0.3295302" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.6865772" visible="true" weight="0.3186969" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.6825503" visible="true" weight="0.3186969" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49932885" weight="0.41076487" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.31342283" side_tool="true" visible="true" weight="0.3186969" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.46510068" weight="0.32719547" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.31744966" side_tool="true" visible="true" weight="0.3186969" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.46107382" weight="0.32719547" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -472,16 +491,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk-9.0.1/lib/src.zip!/java.base/java/lang/reflect/Method.java" />
-    <entry file="file://$PROJECT_DIR$/src/presentacio/view/StartScreenController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="577">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/domini/Aula.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="386">
@@ -654,20 +663,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentacio/view/ViewRestController.java">
+    <entry file="file://$PROJECT_DIR$/src/domini/Horari.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="767">
-          <caret line="69" column="26" selection-start-line="69" selection-start-column="26" selection-end-line="69" selection-end-column="26" />
+        <state relative-caret-position="134">
+          <caret line="57" column="10" selection-start-line="57" selection-start-column="10" selection-end-line="57" selection-end-column="10" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#8314#8315#0" expanded="true" />
+            <element signature="e#8343#8344#0" expanded="true" />
+            <element signature="e#8372#8373#0" expanded="true" />
+            <element signature="e#8400#8401#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/presentacio/ControladorPresentacio.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="54" column="78" selection-start-line="54" selection-start-column="78" selection-end-line="54" selection-end-column="78" />
+        <state relative-caret-position="280">
+          <caret line="121" column="47" selection-start-line="121" selection-start-column="47" selection-end-line="121" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -676,8 +688,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/domini/TestDriver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="647" column="61" selection-start-line="647" selection-start-column="61" selection-end-line="647" selection-end-column="61" />
+        <state relative-caret-position="136">
+          <caret line="653" column="39" selection-start-line="653" selection-start-column="39" selection-end-line="653" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#506#507#0" expanded="true" />
@@ -688,10 +700,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentacio/view/StartScreenController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="56" column="11" lean-forward="true" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/presentacio/view/ViewHorariController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="187" column="59" selection-start-line="187" selection-start-column="59" selection-end-line="187" selection-end-column="59" />
+        <state relative-caret-position="-414">
+          <caret line="89" selection-start-line="89" selection-end-line="89" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1155#1156#0" expanded="true" />
@@ -700,15 +722,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/domini/Horari.java">
+    <entry file="file://$PROJECT_DIR$/src/presentacio/view/ViewRestController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="193" column="116" selection-start-line="193" selection-start-column="116" selection-end-line="193" selection-end-column="116" />
+        <state relative-caret-position="127">
+          <caret line="84" column="106" selection-start-line="84" selection-start-column="106" selection-end-line="84" selection-end-column="106" />
           <folding>
-            <element signature="e#8314#8315#0" expanded="true" />
-            <element signature="e#8343#8344#0" expanded="true" />
-            <element signature="e#8372#8373#0" expanded="true" />
-            <element signature="e#8400#8401#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
