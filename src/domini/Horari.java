@@ -2,12 +2,13 @@ package domini;
 
 import utils.Vector5;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 
 public class Horari {
-	
+
 	///ATRIBUTS///
 	private int horaIniDia;
 	private int horaFiDia;
@@ -26,7 +27,7 @@ public class Horari {
 	private ArrayList<Aula> vaules;
 
 	long startAlgorithm, endAlgorithm;
-	
+
 	///CONSTRUCTORA///
 	public Horari(int horaIniDia, int horaFiDia, ArrayList<Assignatura> vassigs, ArrayList<Aula> vaules) {
 		this.horaIniDia = horaIniDia;
@@ -182,14 +183,31 @@ public class Horari {
 		return true;
 	}
 
+
+	private Classe getClassFromString (String[] classe) {
+		for (int i = 0; i < horari.length; ++i) {
+			for (int j = 0; j < horari[0].length; ++j) {
+				for (int k = 0; k < horari[0][0].length; ++k) {
+					if (!horari[i][j][k].isEmpty()) {
+						//System.out.println("class from string " + horari[i][j][k].getGrup().getNumero());
+						if ((horari[i][j][k].getGrup().getNumero()==Integer.parseInt(classe[0])) &&
+								(horari[i][j][k].getGrup().getNomAssig().equals(classe[1]))) return horari[i][j][k];
+					}
+				}
+			}
+		}
+		return null;
+	}
+
 	/**
 	 * Mou la classe a la hora.
-	 * @param classe Classe per cambiar l'hora
+	 * @param c String[] on c[0] = numGrup c[1] = nomAssig c[2] = aula
 	 * @param hora Hora lectiva (ha de ser entre horaIni i horaFi)
 	 * @param dia Dia de la setmana (0-4)
 	 * @return return false si no s'ha pogut fer l'operacio, else return true
 	 */
-	public boolean moveClasse(Classe classe, int hora, int dia){
+	public boolean moveClasse(String[] c, int hora, int dia){
+		Classe classe = getClassFromString(c);
 		int auxDia = classe.getDia();
 		int auxHora = classe.getHoraIni() - horaIniDia;
 		int auxAula = -1;
@@ -277,14 +295,19 @@ public class Horari {
             restAssig.remove(((ResAssig) res).assig, res);
         }
     }
-	
+
 	public int 	getHoraIni () {
 		return this.horaIniDia;
 	}
-	
+
 	public int getHoraFi () {
 		return this.horaFiDia;
 	}
+
+
+
+
+
 
 	public String[][][][] getHorari() {
 		String[][][][] hs = new String[5][horaFiDia-horaIniDia][vaules.size()][3];

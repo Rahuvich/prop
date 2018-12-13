@@ -39,6 +39,11 @@ public class ViewHorariController {
 
     private boolean isClass[][][];
 
+    private String classes[][][][];
+
+    private ArrayList<String> hores;
+    private ArrayList<String> dies;
+
     private int rowSelected;
     private int columnSelected;
     private int indexSelected;
@@ -81,7 +86,10 @@ public class ViewHorariController {
         Idea3: depends on what label is selected, it knows automatically
 
         */
-
+        classes = new String[hs.length][hs[0].length][hs[0][0].length][hs[0][0][0].length];
+        //classes = hs;
+        this.hores = hores;
+        this.dies = dies;
         isClass = new boolean[hs.length][hs[0].length][hs[0][0].length];
 
         GridPane horariGrid = new GridPane();
@@ -107,6 +115,7 @@ public class ViewHorariController {
                     String text;
                     if (hs[i][j][k][0] != null) {
                         isClass[i][j][k] = true;
+                        classes[i][j][k] = hs[i][j][k];
                         text = hs[i][j][k][0] + " " + hs[i][j][k][1] + " " + hs[i][j][k][2];
                     } else {
                         text = dies.get(i) + " a les " + hores.get(j);
@@ -175,7 +184,8 @@ public class ViewHorariController {
     public void initialize() {
 
         swapButton.setOnAction((event) -> {
-            cP.swap(classOrigin.getText(), classDestination.getText());
+
+            cP.swap(classes[rowSelected-1][columnSelected-1][indexSelected], hores.get(rowSelected), hores.get(columnSelected));
 
         });
 

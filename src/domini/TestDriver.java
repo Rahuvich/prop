@@ -645,6 +645,11 @@ public class TestDriver {
         }
     }
 
+    public void swap(String[] origin, String hora, String dia) {
+        horari.moveClasse(origin, Integer.parseInt(hora), getIndexDia(dia));
+
+    }
+
     public ArrayList<String> getAules(){
         ArrayList<String> listAules = new ArrayList<>();
         for (Aula aula: vaules) {
@@ -667,13 +672,19 @@ public class TestDriver {
         }
     return list;
     }
-
     public ArrayList<String> getDies(){
         ArrayList<String> list = new ArrayList<>();
         for (int i = 0; i < 5; ++i) {
             list.add(Dia.values()[i].toString());
         }
     return list;
+    }
+
+    public int getIndexDia(String dia){
+        for (int i = 0; i < 5; ++i) {
+            if (Dia.values()[i].toString().equals(dia)) return i;
+        }
+    return -1;
     }
 
     public void createRestTornAssig (String assig, String torn) {

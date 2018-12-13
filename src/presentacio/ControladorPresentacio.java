@@ -51,8 +51,10 @@ public class ControladorPresentacio extends Application {
         showViewHorari();
     }
 
-    public void swap (String origin, String destination) {
-
+    public void swap(String[] origin, String hora, String dia ) {
+        for (int i = 0; i < origin.length; ++i) System.out.println(origin[i] + " ");
+        td.swap(origin, hora, dia);
+        System.out.println("Swap completed");
 
     }
 
