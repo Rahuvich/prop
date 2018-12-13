@@ -6,7 +6,9 @@ package presentacio.view;
         import javafx.event.EventHandler;
         import javafx.fxml.FXML;
         import javafx.geometry.Insets;
+        import javafx.scene.Node;
         import javafx.scene.control.*;
+        import javafx.scene.input.MouseEvent;
         import javafx.scene.layout.BorderPane;
         import javafx.scene.layout.ColumnConstraints;
         import javafx.scene.layout.GridPane;
@@ -14,6 +16,7 @@ package presentacio.view;
 
         import java.lang.reflect.Array;
         import java.util.ArrayList;
+        import java.util.Arrays;
 
 public class ViewHorariController {
 
@@ -33,6 +36,12 @@ public class ViewHorariController {
     private Button[][][] classes;
 
     private boolean classSelected = false;
+
+    private boolean isClass[][][];
+
+    private int rowSelected;
+    private int columnSelected;
+    private int indexSelected;
 
 //    public Classe(Aula a, Grup g, Dia dia, int h, int duracio)
 //    {
@@ -55,11 +64,14 @@ public class ViewHorariController {
 
     //hs[dia][hora][aula]
 
+
+
+
     public void setHorari (String[][][][] hs, ArrayList<String> dies, ArrayList<String> hores) {
 
 
-        /*
-        Idea1:
+
+        /*Idea1:
         array per guardar si hi ha boto de classe disponible
         array per guardar valors importants per tornar a fer referencia al domini
 
@@ -69,6 +81,111 @@ public class ViewHorariController {
         Idea3: depends on what label is selected, it knows automatically
 
         */
+
+        isClass = new boolean[hs.length][hs[0].length][hs[0][0].length];
+
+        GridPane horariGrid = new GridPane();
+        ColumnConstraints c0 = new ColumnConstraints();
+        c0.setPercentWidth(3);
+        horariGrid.getColumnConstraints().addAll(c0);
+        horariGrid.setGridLinesVisible(true);
+        horariGrid.setPadding(new Insets(10, 10, 10, 10));
+        //set days
+        for (int i = 1; i <= hs.length; ++i) horariGrid.add(new Label(dies.get(i-1)), i, 0);
+        //set hours
+        for (int i = 1; i <= hs[0].length; ++i) horariGrid.add(new Label(hores.get(i-1)), 0, i);
+
+
+
+        for (int i = 0; i < hs.length; ++i) {
+            for (int j = 0; j < hs[0].length; ++j) {
+                ListView<Label> listHora = new ListView<>();
+                for (int k = 0; k < hs[0][0].length; ++k) {
+
+
+                    //Declares button text
+                    String text;
+                    if (hs[i][j][k][0] != null) {
+                        isClass[i][j][k] = true;
+                        text = hs[i][j][k][0] + " " + hs[i][j][k][1] + " " + hs[i][j][k][2];
+                    } else {
+                        text = dies.get(i) + " a les " + hores.get(j);
+                    }
+
+                    Label auxL = new Label(text);
+
+                    auxL.setMouseTransparent(true);
+
+
+
+
+                    //classes[i][j][k] = auxL;
+
+                    //Assigns button to list
+                    listHora.getItems().add(auxL);
+
+                }
+                listHora.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+                    @Override
+                    public void handle(MouseEvent event) {
+
+                        System.out.println("at " + listHora.getSelectionModel().getSelectedIndex() + " theres " + listHora.getSelectionModel().getSelectedItem());
+                        indexSelected = listHora.getSelectionModel().getSelectedIndex();
+
+                        System.out.println (isClass[columnSelected-1][rowSelected-1][indexSelected]);
+                        if (isClass[columnSelected-1][rowSelected-1][indexSelected]){
+                            System.out.println("is class");
+                        }
+
+                    }
+                });
+
+                horariGrid.add(listHora, i+1, j+1);
+            }
+        }
+
+        horariGrid.addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                System.out.println("event filter start");
+
+                for (Node node : horariGrid.getChildren()) {
+
+                    if (node instanceof ListView) {
+                        if( node.getBoundsInParent().contains(e.getSceneX(),  e.getSceneY())) {
+                            System.out.println( "Node: " + node + " at " + GridPane.getRowIndex(node) + "/" + GridPane.getColumnIndex(node)
+                                            //+   " with element selected " + ((ListView) node).getSelectionModel().getSelectedIndex()
+                            );
+                            columnSelected = GridPane.getRowIndex(node);
+                            rowSelected = GridPane.getColumnIndex(node);
+
+                        }
+                    }
+                }
+            }
+        });
+
+        ScrollPane horariScroll = new ScrollPane(horariGrid);
+
+        horariScroll.setFitToWidth(true);
+
+        borderPaneViewHorari.setCenter(horariScroll);
+    }
+/*    public void setHorari (String[][][][] hs, ArrayList<String> dies, ArrayList<String> hores) {
+
+
+*//*
+        Idea1:
+        array per guardar si hi ha boto de classe disponible
+        array per guardar valors importants per tornar a fer referencia al domini
+
+        Idea2:
+        label selected,  2 buttons, select class, select hueco
+
+        Idea3: depends on what label is selected, it knows automatically
+*//*
+
         GridPane horariGrid = new GridPane();
         ColumnConstraints c0 = new ColumnConstraints();
         c0.setPercentWidth(3);
@@ -116,8 +233,9 @@ public class ViewHorariController {
                             else {
                                 classSelected=false;
                                 //getrowindex and col no van
-                                System.out.println("row: " + GridPane.getRowIndex(auxB));
-                                System.out.println("col: " + GridPane.getColumnIndex(auxB));
+                                Node parent = auxB.getParent();
+                                System.out.println("row: " + GridPane.getRowIndex(parent));
+                                System.out.println("col: " + GridPane.getColumnIndex(parent));
                                 classDestination.setText(auxB.getText());
                                 cP.swap(classOrigin.getText(), classDestination.getText());
                             }
@@ -137,8 +255,7 @@ public class ViewHorariController {
         }
 
         borderPaneViewHorari.setCenter(horariScroll);
-    }
-
+    }*/
     @FXML
     public void initialize() {
 
