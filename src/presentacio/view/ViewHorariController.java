@@ -116,6 +116,8 @@ public class ViewHorariController {
                             else {
                                 classSelected=false;
                                 //getrowindex and col no van
+                                System.out.println("row: " + GridPane.getRowIndex(auxB));
+                                System.out.println("col: " + GridPane.getColumnIndex(auxB));
                                 classDestination.setText(auxB.getText());
                                 cP.swap(classOrigin.getText(), classDestination.getText());
                             }
