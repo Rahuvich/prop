@@ -353,7 +353,8 @@ public class TestDriver {
         }
     }
 
-    private static void crearRestSeparat() {
+    private static void crearRestSeparat()
+    {
         System.out.println("Escolleix assignatura");
         for (int i = 0; i<vassig.size(); ++i){
             System.out.println(i+1 + ". " + vassig.get(i).getNomAssig());
@@ -447,7 +448,32 @@ public class TestDriver {
         RestDiaGrup res = new RestDiaGrup(vassig.get(indexAssig).getGrups().get(indexGrup), dia);
         horari.afegirRestriccio(res);
     }
+    /**
+     * Borra la restriccio
+     * @param nomAssig Nom de l'assignatura
+     * @param grup String del numero del grup (10, 11, 20, 21)
+     * @param dia Between 0 and 4
+     */
+    public static void deleteRestFranjaHoraria(String nomAssig, String grup, int horaIni, int horaFi, int dia) {
+        int indexAssig = -1;
+        for (int i = 0; i < vassig.size(); i++) {
+            if(nomAssig.equals(vassig.get(i).getNomAssig())) indexAssig = i;
+        }
 
+        int indexGrup = getIndexGrup(vassig.get(indexAssig), grup);
+        RestFranjaHoraria res = new RestFranjaHoraria(vassig.get(indexAssig).getGrups().get(indexGrup),horaIni, horaFi, dia );
+        horari.deleteRest(res);
+
+    }
+
+    public static void deleteRestSeparat(String nomAssig){
+        int indexAssig = -1;
+        for (int i = 0; i < vassig.size(); i++) {
+            if( nomAssig.equals(vassig.get(i).getNomAssig())) indexAssig = i;
+        }
+        RestSeparat res = new RestSeparat(vassig.get(indexAssig));
+        horari.deleteRest(res);
+    }
 
 
 
