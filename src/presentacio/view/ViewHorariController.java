@@ -32,6 +32,8 @@ public class ViewHorariController {
     private Label classOrigin;
     @FXML
     private Label classDestination;
+    @FXML
+    private Button swapButton;
 
     private boolean classSelected = false;
 
@@ -171,6 +173,12 @@ public class ViewHorariController {
 
     @FXML
     public void initialize() {
+
+        swapButton.setOnAction((event) -> {
+            cP.swap(classOrigin.getText(), classDestination.getText());
+
+        });
+
 
         rest.setOnAction((event) -> { 
             cP.showViewRest();
