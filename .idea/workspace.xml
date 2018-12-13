@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f14adbca-0409-4f3e-9fa7-c5b5980f6128" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/production/prop/presentacio/view/ViewHorariController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/prop/presentacio/view/ViewHorariController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/production/prop/presentacio/view/ViewHorariController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/prop/presentacio/view/ViewHorariController$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/production/prop/presentacio/view/ViewHorariController.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/prop/presentacio/view/ViewHorariController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/presentacio/view/ViewHorariController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentacio/view/ViewHorariController.java" afterDir="false" />
     </list>
@@ -32,8 +35,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/presentacio/view/ViewHorariController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="85" selection-start-line="85" selection-end-line="85" />
+            <state relative-caret-position="255">
+              <caret line="137" column="19" lean-forward="true" selection-start-line="137" selection-start-column="19" selection-end-line="137" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1155#1156#0" expanded="true" />
@@ -46,7 +49,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/presentacio/ControladorPresentacio.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2040">
+            <state relative-caret-position="-1190">
               <caret line="54" selection-start-line="54" selection-end-line="54" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -246,7 +249,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544697994969" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544698671541" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../prop 1" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -312,9 +315,9 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.35038364" visible="true" weight="0.22684564" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.35135135" visible="true" weight="0.22684564" />
       <window_info id="Favorites" order="1" sideWeight="0.52238804" side_tool="true" weight="0.24040921" />
-      <window_info id="Structure" order="2" sideWeight="0.64961636" side_tool="true" weight="0.22684564" />
+      <window_info id="Structure" order="2" sideWeight="0.6486486" side_tool="true" weight="0.22684564" />
       <window_info id="Designer" order="3" />
       <window_info id="Image Layers" order="4" />
       <window_info id="Capture Tool" order="5" />
@@ -322,15 +325,15 @@
       <window_info id="Learn" order="7" weight="0.3295302" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.69328856" visible="true" weight="0.44617563" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.69060403" visible="true" weight="0.3186969" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.41076487" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.3067114" side_tool="true" visible="true" weight="0.44617563" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.47248322" weight="0.32719547" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.30939597" side_tool="true" visible="true" weight="0.3186969" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.46979865" weight="0.32719547" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -598,20 +601,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/domini/TestDriver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-41">
-          <caret line="666" column="9" lean-forward="true" selection-start-line="666" selection-start-column="9" selection-end-line="666" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#506#507#0" expanded="true" />
-            <element signature="e#531#532#0" expanded="true" />
-            <element signature="e#15660#15661#0" expanded="true" />
-            <element signature="e#15701#15702#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/domini/Classe.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -660,16 +649,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentacio/ControladorPresentacio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2040">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-9.0.1/lib/src.zip!/java.base/java/util/Arrays.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -677,10 +656,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/domini/TestDriver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-41">
+          <caret line="666" column="9" lean-forward="true" selection-start-line="666" selection-start-column="9" selection-end-line="666" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#506#507#0" expanded="true" />
+            <element signature="e#531#532#0" expanded="true" />
+            <element signature="e#15660#15661#0" expanded="true" />
+            <element signature="e#15701#15702#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentacio/ControladorPresentacio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1190">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/presentacio/view/ViewHorariController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="85" selection-start-line="85" selection-end-line="85" />
+        <state relative-caret-position="255">
+          <caret line="137" column="19" lean-forward="true" selection-start-line="137" selection-start-column="19" selection-end-line="137" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1155#1156#0" expanded="true" />

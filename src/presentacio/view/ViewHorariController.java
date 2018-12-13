@@ -33,8 +33,6 @@ public class ViewHorariController {
     @FXML
     private Label classDestination;
 
-    private Button[][][] classes;
-
     private boolean classSelected = false;
 
     private boolean isClass[][][];
@@ -114,14 +112,8 @@ public class ViewHorariController {
 
                     Label auxL = new Label(text);
 
-                    auxL.setMouseTransparent(true);
+                    auxL.setMouseTransparent(false);
 
-
-
-
-                    //classes[i][j][k] = auxL;
-
-                    //Assigns button to list
                     listHora.getItems().add(auxL);
 
                 }
@@ -135,9 +127,13 @@ public class ViewHorariController {
 
                         System.out.println (isClass[columnSelected-1][rowSelected-1][indexSelected]);
                         if (isClass[columnSelected-1][rowSelected-1][indexSelected]){
-                            System.out.println("is class");
-                        }
 
+                            classOrigin.setText(listHora.getSelectionModel().getSelectedItem().getText());
+                        }
+                        else {
+
+                            classDestination.setText(listHora.getSelectionModel().getSelectedItem().getText());
+                        }
                     }
                 });
 
@@ -157,8 +153,8 @@ public class ViewHorariController {
                             System.out.println( "Node: " + node + " at " + GridPane.getRowIndex(node) + "/" + GridPane.getColumnIndex(node)
                                             //+   " with element selected " + ((ListView) node).getSelectionModel().getSelectedIndex()
                             );
-                            columnSelected = GridPane.getRowIndex(node);
-                            rowSelected = GridPane.getColumnIndex(node);
+                            rowSelected = GridPane.getRowIndex(node);
+                            columnSelected = GridPane.getColumnIndex(node);
 
                         }
                     }
@@ -172,90 +168,7 @@ public class ViewHorariController {
 
         borderPaneViewHorari.setCenter(horariScroll);
     }
-/*    public void setHorari (String[][][][] hs, ArrayList<String> dies, ArrayList<String> hores) {
 
-
-*//*
-        Idea1:
-        array per guardar si hi ha boto de classe disponible
-        array per guardar valors importants per tornar a fer referencia al domini
-
-        Idea2:
-        label selected,  2 buttons, select class, select hueco
-
-        Idea3: depends on what label is selected, it knows automatically
-*//*
-
-        GridPane horariGrid = new GridPane();
-        ColumnConstraints c0 = new ColumnConstraints();
-        c0.setPercentWidth(3);
-        horariGrid.getColumnConstraints().addAll(c0);
-        horariGrid.setGridLinesVisible(true);
-        horariGrid.setPadding(new Insets(10, 10, 10, 10));
-        //set days
-        for (int i = 1; i <= hs.length; ++i) horariGrid.add(new Label(dies.get(i-1)), i, 0);
-        //set hours
-        for (int i = 1; i <= hs[0].length; ++i) horariGrid.add(new Label(hores.get(i-1)), 0, i);
-
-
-        ScrollPane horariScroll = new ScrollPane(horariGrid);
-
-        horariScroll.setFitToWidth(true);
-
-
-        Button[][][] classes = new Button[hs.length][hs[0].length][hs[0][0].length];
-
-        for (int i = 0; i < hs.length; ++i) {
-            for (int j = 0; j < hs[0].length; ++j) {
-                ListView<Button> listHora = new ListView<>();
-                for (int k = 0; k < hs[0][0].length; ++k) {
-
-                    //Declares button text
-                    String text;
-                    if (hs[i][j][k][0] != null) {
-                        text = hs[i][j][k][0] + " " + hs[i][j][k][1] + " " + hs[i][j][k][2];
-                    } else {
-                        text = dies.get(i) + " a les " + hores.get(j);
-                    }
-
-                    Button auxB = new Button(text);
-
-
-
-                    //Assings button even
-
-                    auxB.setOnAction(new EventHandler<ActionEvent>() {
-                        @Override public void handle(ActionEvent e) {
-                            if (!classSelected) {
-                                classSelected=true;
-                                classOrigin.setText(auxB.getText());
-                            }
-                            else {
-                                classSelected=false;
-                                //getrowindex and col no van
-                                Node parent = auxB.getParent();
-                                System.out.println("row: " + GridPane.getRowIndex(parent));
-                                System.out.println("col: " + GridPane.getColumnIndex(parent));
-                                classDestination.setText(auxB.getText());
-                                cP.swap(classOrigin.getText(), classDestination.getText());
-                            }
-
-                        }
-                    });
-
-                    classes[i][j][k] = auxB;
-
-                    //Assigns button to list
-                    listHora.getItems().add(classes[i][j][k]);
-
-
-                }
-                horariGrid.add(listHora, i+1, j+1);
-            }
-        }
-
-        borderPaneViewHorari.setCenter(horariScroll);
-    }*/
     @FXML
     public void initialize() {
 
