@@ -45,8 +45,16 @@ public class ViewHorariController {
     private ArrayList<String> dies;
 
     private int rowSelected;
-    private int columnSelected;
+    private int colSelected;
     private int indexSelected;
+
+    private int rowClassOrigin;
+    private int colClassOrigin;
+    private int indexClassOrigin;
+
+    private int rowDest;
+    private int colDest;
+
 
 //    public Classe(Aula a, Grup g, Dia dia, int h, int duracio)
 //    {
@@ -95,7 +103,7 @@ public class ViewHorariController {
         ColumnConstraints c0 = new ColumnConstraints();
         c0.setPercentWidth(3);
         horariGrid.getColumnConstraints().addAll(c0);
-        horariGrid.setGridLinesVisible(true);
+        //horariGrid.setGridLinesVisible(true);
         horariGrid.setPadding(new Insets(10, 10, 10, 10));
         //set days
         for (int i = 1; i <= hs.length; ++i) horariGrid.add(new Label(dies.get(i-1)), i, 0);
@@ -135,12 +143,19 @@ public class ViewHorariController {
                         System.out.println("at " + listHora.getSelectionModel().getSelectedIndex() + " theres " + listHora.getSelectionModel().getSelectedItem());
                         indexSelected = listHora.getSelectionModel().getSelectedIndex();
 
-                        System.out.println (isClass[columnSelected-1][rowSelected-1][indexSelected]);
-                        if (isClass[columnSelected-1][rowSelected-1][indexSelected]){
+                        System.out.println (isClass[colSelected-1][rowSelected-1][indexSelected]);
+                        if (isClass[colSelected-1][rowSelected-1][indexSelected]){
+
+                            colClassOrigin = colSelected-1;
+                            rowClassOrigin = rowSelected-1;
+                            indexClassOrigin = indexSelected;
 
                             classOrigin.setText(listHora.getSelectionModel().getSelectedItem().getText());
                         }
                         else {
+
+                            rowDest = rowSelected-1;
+                            colDest = colSelected-1;
 
                             classDestination.setText(listHora.getSelectionModel().getSelectedItem().getText());
                         }
@@ -164,7 +179,7 @@ public class ViewHorariController {
                                             //+   " with element selected " + ((ListView) node).getSelectionModel().getSelectedIndex()
                             );
                             rowSelected = GridPane.getRowIndex(node);
-                            columnSelected = GridPane.getColumnIndex(node);
+                            colSelected = GridPane.getColumnIndex(node);
 
                         }
                     }
@@ -184,9 +199,14 @@ public class ViewHorariController {
 
         swapButton.setOnAction((event) -> {
 
-            for (int i = 0; i < 3; ++i) System.out.println(classes[rowSelected-1][columnSelected-1][indexSelected][i] + " ");
+            System.out.println();
+            System.out.print("swap at viewhoraricontroller going to swap ");
 
-            cP.swap(classes[rowSelected-1][columnSelected-1][indexSelected], hores.get(rowSelected), hores.get(columnSelected));
+            for (int i = 0; i < 3; ++i) System.out.print(classes[rowSelected-1][colSelected-1][indexSelected][i] + " ");
+
+            System.out.println(" to " + hores.get(rowDest) + " " + dies.get(colDest));
+
+            cP.swap(classes[colClassOrigin][rowClassOrigin][indexClassOrigin], hores.get(rowDest), dies.get(colDest));
 
         });
 

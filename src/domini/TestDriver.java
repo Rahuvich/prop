@@ -719,8 +719,11 @@ public class TestDriver {
     }
 
     public void swap(String[] origin, String hora, String dia) {
+        System.out.println("calling swap from td");
         horari.moveClasse(origin, Integer.parseInt(hora), getIndexDia(dia));
+        System.out.println("swap completed from td, calling print horari");
         horari.printHorari();
+
 
     }
 

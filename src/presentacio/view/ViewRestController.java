@@ -10,7 +10,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import presentacio.ControladorPresentacio;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class ViewRestController {
 
@@ -33,7 +35,7 @@ public class ViewRestController {
     @FXML
     private ComboBox<String> horaRestHoraAssig;
     @FXML
-    private ListView<Label> listRestHoraAssig;
+    private ListView listRestHoraAssig;
 
     @FXML
     private Button afegirRestTornAssig;
@@ -43,6 +45,8 @@ public class ViewRestController {
     private ComboBox<String> assigRestTornAssig;
     @FXML
     private ComboBox<String> tornRestTornAssig;
+    @FXML
+    private ListView<String> listRestTornAssig;
 
     @FXML
     private Button afegirRestTornGrup;
@@ -55,6 +59,12 @@ public class ViewRestController {
 
 
     public void setMainApp(ControladorPresentacio contPres) {this.cP = contPres;}
+
+    public void setRestriccionsEx(Map<String, ArrayList<String>> restEx) {
+
+        
+
+    }
 
     public void setAssigs (ArrayList<String> assigs) {
         ObservableList<String> observableListAssigs = FXCollections.observableList(assigs);
@@ -84,11 +94,13 @@ public class ViewRestController {
             String torn = tornRestTornAssig.getValue();
             cP.createRestTornAssig(assig, torn);
 
-            Label auxL = new Label("L'assignatura " + assig + " no fara classe durant " + torn);
+//            Label auxL = new Label("L'assignatura " + assig + " no fara classe durant " + torn);
 
 
-            listRestHoraAssig.getItems().add(auxL);
+            listRestTornAssig.getItems().add("L'assignatura " + assig + " no fara classe durant " + torn);
         });
+
+
 
         afegirRestHoraAssig.setOnAction((event) -> {
 

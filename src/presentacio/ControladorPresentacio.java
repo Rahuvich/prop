@@ -55,7 +55,7 @@ public class ControladorPresentacio extends Application {
 
 
         td.swap(origin, hora, dia);
-        System.out.println("Swap completed");
+        System.out.println("Swap completed from cp, calling viewhorari");
         showViewHorari();
 
 
