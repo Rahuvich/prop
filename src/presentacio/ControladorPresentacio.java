@@ -22,6 +22,9 @@ public class ControladorPresentacio extends Application {
     private BorderPane rootLayout;
     private TestDriver td = new TestDriver();;
 
+    private boolean viewRestAssig = false;
+    AnchorPane ViewRest;
+
     public static void main(String[] args) {
 
         //RAUL SI VOLS EXECUTAR EN FORMATO TERMINAL DESCOMENTA LO DE tESTdRIVER.EXECUTE()
@@ -43,7 +46,7 @@ public class ControladorPresentacio extends Application {
     public void devMode_viewInfo() {
         td.devMode();
         System.out.println("before showViewInfo");
-        showViewInfo();
+        showViewRest();
     }
 
     public void generaHorari() {
@@ -60,6 +63,7 @@ public class ControladorPresentacio extends Application {
 
 
     }
+
 
     public ArrayList<String> getAules() {
         return td.getAules();
@@ -87,6 +91,11 @@ public class ControladorPresentacio extends Application {
     public void createRestHoraAssig (String assig, int hora) {
         td.createRestHoraAssig(assig, hora);
     }
+
+    public void deleteRestTornAssig(String nomAssig, String mati) {
+        td.deleteRestTornAssig(nomAssig, mati);
+    }
+
 
 
     @Override
@@ -170,18 +179,28 @@ public class ControladorPresentacio extends Application {
 
     public void showViewRest() {
         try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("view/3ViewRest.fxml"));
-            AnchorPane ViewRest = loader.load();
 
-            ViewRestController controller = loader.getController();
-            controller.setAssigs(getAssigs());
-            controller.setHores(getHores());
-            controller.setTorns();
+            if(!viewRestAssig) {
 
-            controller.setMainApp(this);
+                viewRestAssig = true;
 
-            rootLayout.setCenter(ViewRest);
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("view/3ViewRest.fxml"));
+                AnchorPane ViewRest = loader.load();
+
+                ViewRestController controller = loader.getController();
+                controller.setAssigs(getAssigs());
+                controller.setHores(getHores());
+                controller.setTorns();
+
+                controller.setMainApp(this);
+
+                rootLayout.setCenter(ViewRest);
+            }
+            else {
+                System.out.println("else of showrest");
+                rootLayout.setCenter(ViewRest);
+            }
 
         } catch (IOException e) {
             e.printStackTrace();

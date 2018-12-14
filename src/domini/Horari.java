@@ -94,7 +94,7 @@ public class Horari {
 		grupTried.clear();
 
 		System.out.println("Vaig a eliminar F de tarda");
-		TestDriver.deleteRestTornAssig("F", false);
+		TestDriver.deleteRestTornAssig("F", "Tarda");
 
 		for (int i = 0; i < 5; ++i){
 			for (int j = 0; j < horaFiDia - horaIniDia; ++j){

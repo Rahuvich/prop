@@ -1,6 +1,7 @@
 package presentacio.view;
 
 
+import com.google.common.collect.Multimap;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -12,6 +13,7 @@ import presentacio.ControladorPresentacio;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class ViewRestController {
@@ -54,17 +56,19 @@ public class ViewRestController {
     private Button borrarRestTornGrup;
 
 
+    HashMap<String, ArrayList<String[]>> rests = new HashMap<>();
+
     private ControladorPresentacio cP;
 
 
 
     public void setMainApp(ControladorPresentacio contPres) {this.cP = contPres;}
 
-    public void setRestriccionsEx(Map<String, ArrayList<String>> restEx) {
-
-        
-
-    }
+//    public void setRestriccionsEx(Map<String, ArrayList<String>> restEx) {
+//
+//
+//
+//    }
 
     public void setAssigs (ArrayList<String> assigs) {
         ObservableList<String> observableListAssigs = FXCollections.observableList(assigs);
@@ -84,7 +88,7 @@ public class ViewRestController {
         ObservableList<String> observableListTorn = FXCollections.observableList(listTorn);
         tornRestTornAssig.setItems(observableListTorn);
     }
-
+    
     @FXML
     public void initialize() {
 
@@ -94,10 +98,30 @@ public class ViewRestController {
             String torn = tornRestTornAssig.getValue();
             cP.createRestTornAssig(assig, torn);
 
-//            Label auxL = new Label("L'assignatura " + assig + " no fara classe durant " + torn);
+            if (!rests.containsKey("RestTornAssig")) {
+                rests.put("RestTornAssig", null);
+            }
+
+            ArrayList<String[]> aux = rests.get("RestTornAssig");
+            if (aux==null){
+                aux = new ArrayList<>();
+            }
+            String[] actual = new String[] {assig, torn};
+            aux.add(actual);
+
+            rests.put("RestTornAssig", aux);
 
 
-            listRestTornAssig.getItems().add("L'assignatura " + assig + " no fara classe durant " + torn);
+            listRestTornAssig.getItems().add("L'assignatura " + assig + " fara classe durant " + torn);
+        });
+
+        borrarRestTornAssig.setOnAction((event) -> {
+            int selected = listRestTornAssig.getSelectionModel().getSelectedIndex();
+            String[] aux = rests.get("RestTornAssig").get(selected);
+            cP.deleteRestTornAssig(aux[0], aux[1]);
+
+            listRestTornAssig.getItems().remove(selected);
+
         });
 
 

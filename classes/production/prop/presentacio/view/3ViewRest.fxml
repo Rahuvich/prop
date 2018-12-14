@@ -54,7 +54,7 @@
          <center>
             <Accordion BorderPane.alignment="CENTER">
               <panes>
-                  <TitledPane animated="false" text="Restriccio de torn (mati/tarda) on una assignatura no fara classe">
+                  <TitledPane animated="false" text="Restriccio de torn (mati/tarda) on una assignatura SI fara classe">
                      <content>
                         <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
                            <children>
@@ -62,7 +62,7 @@
                                  <children>
                                     <Label text="L'assignatura " />
                                     <ComboBox fx:id="assigRestTornAssig" prefHeight="26.0" prefWidth="70.0" />
-                                    <Label text=" no farà classe al torn" />
+                                    <Label text=" SI fara classe al torn" />
                                     <ComboBox fx:id="tornRestTornAssig" prefHeight="26.0" prefWidth="86.0" />
                                     <Button fx:id="afegirRestTornAssig" mnemonicParsing="false" text="Afegir restriccio" />
                                  </children>

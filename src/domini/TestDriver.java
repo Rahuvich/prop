@@ -370,6 +370,11 @@ public class TestDriver {
         horari.afegirRestriccio(res);
     }
 
+    private static boolean getBoolFromTorn(String m) {
+        if (m == "Mati") return true;
+        else return false;
+    }
+
     /**
      * Borra la restriccio
      * @param nomAssig Nom de l'assignatura
@@ -442,9 +447,10 @@ public class TestDriver {
     /**
      * Borra la restriccio
      * @param nomAssig Nom de l'assignatura
-     * @param mati true == mati, false == tarda
+     * @param m String that == Mati or == tarda
      */
-    public static void deleteRestTornAssig(String nomAssig, boolean mati){
+    public static void deleteRestTornAssig(String nomAssig, String m){
+        boolean mati = getBoolFromTorn(m);
         System.out.print("Vaig a eliminar " + nomAssig + " de ");
         if(mati) System.out.print("mati");
         else System.out.print("tarda");
@@ -468,6 +474,7 @@ public class TestDriver {
             }
         }
     }
+
 
     /**
      * Borra la restriccio
@@ -775,8 +782,7 @@ public class TestDriver {
 
     public void createRestTornAssig (String assig, String torn) {
         System.out.println("before createRestTornAssig from td");
-        boolean x = false;
-        if (torn=="Mati") x = true;
+        boolean x = getBoolFromTorn(torn);
         Assignatura aux = getAssigFromName(assig);
         RestTornAssig res = new RestTornAssig(aux, x);
         horari.afegirRestriccio(res);
