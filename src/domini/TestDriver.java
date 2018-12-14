@@ -5,6 +5,7 @@ import org.json.simple.parser.ParseException;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class TestDriver {
@@ -730,8 +731,12 @@ public class TestDriver {
         horari.moveClasse(origin, Integer.parseInt(hora), getIndexDia(dia));
         System.out.println("swap completed from td, calling print horari");
         horari.printHorari();
+    }
 
+    public HashMap<String, ArrayList<String[]>> getAllRest() {
+        
 
+        return null;
     }
 
     public ArrayList<String> getUnitatsDocents() {

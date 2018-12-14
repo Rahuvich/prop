@@ -88,7 +88,42 @@ public class ViewRestController {
         ObservableList<String> observableListTorn = FXCollections.observableList(listTorn);
         tornRestTornAssig.setItems(observableListTorn);
     }
-    
+
+    public void setRestsEx (HashMap<String, ArrayList<String[]>> r) {
+        for (Map.Entry<String, ArrayList<String[]>> entry : r.entrySet())
+        {
+            System.out.println(entry.getKey() + "/" + entry.getValue());
+            ArrayList<String[]> aux = entry.getValue();
+            switch (entry.getKey()) {
+                case "RestTornAssig":
+                    setRestTornAssig(aux);
+                    break;
+                case "RestHoraAssig":
+                    setRestHoraAssig(aux);
+                    break;
+
+            }
+
+        }
+
+
+    }
+
+    public void setRestTornAssig (ArrayList<String[]> list) {
+        for (int i=0; i<list.size(); ++i) {
+            String[] aux = list.get(i);
+            listRestTornAssig.getItems().add("L'assignatura " + aux[0] + " fara classe durant " + aux[1]);
+
+        }
+    }
+    public void setRestHoraAssig (ArrayList<String[]> list) {
+        for (int i=0; i<list.size(); ++i) {
+            String[] aux = list.get(i);
+            listRestHoraAssig.getItems().add("L'assignatura " + aux[0] + " no fara classe durant les" + aux[1]);
+
+        }
+    }
+
     @FXML
     public void initialize() {
 

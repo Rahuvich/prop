@@ -192,6 +192,7 @@ public class ControladorPresentacio extends Application {
                 controller.setAssigs(getAssigs());
                 controller.setHores(getHores());
                 controller.setTorns();
+                controller.setRestsEx(td.getAllRest());
 
                 controller.setMainApp(this);
 
