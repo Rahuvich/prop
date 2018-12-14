@@ -15,12 +15,10 @@ public class Horari {
 
     private Classe[][][] horari;
 
-	private Vector5 firstEmptyClass;
-
 	private HashMap<Grup, Boolean> grupTried;
 
-	private HashMap<Grup, ArrayList<Restriccions>> restGrups;
-	private HashMap<String, ArrayList<Restriccions>> restAssig;
+	public HashMap<Grup, ArrayList<Restriccions>> restGrups;
+	public HashMap<String, ArrayList<Restriccions>> restAssig;
 
 
 	private ArrayList<Assignatura> vassigs;
@@ -48,7 +46,6 @@ public class Horari {
 		this.vassigs = vassigs;
 		this.vaules = vaules;
 
-		firstEmptyClass = new Vector5(0,0,0,0,0);
 		grupTried = new HashMap<>();
 	}
 
@@ -96,6 +93,20 @@ public class Horari {
 
 		grupTried.clear();
 
+		System.out.println("Vaig a eliminar F de tarda");
+		TestDriver.deleteRestTornAssig("F", false);
+
+		for (int i = 0; i < 5; ++i){
+			for (int j = 0; j < horaFiDia - horaIniDia; ++j){
+				for (int k = 0; k < vaules.size(); ++k){
+					horari[i][j][k] = new Classe();
+				}
+			}
+		}
+
+		if(!backtrackingGrup(0,0))
+			System.out.println("No ha sigut possible");
+		else printHorari();
     }
 
     private boolean backtrackingGrup(int g, int assig){
@@ -285,16 +296,6 @@ public class Horari {
 			restAssig.put(assig.getNomAssig(), auxV);
 		}
 	}
-
-	public void deleteRest(Restriccions res){
-        if(res instanceof ResGrup) {
-            restGrups.remove(((ResGrup) res).getGrup(), res);
-        }
-        else if(res instanceof ResAssig)
-        {
-            restAssig.remove(((ResAssig) res).assig, res);
-        }
-    }
 
 	public int 	getHoraIni () {
 		return this.horaIniDia;

@@ -380,8 +380,15 @@ public class TestDriver {
         for (int i = 0; i < vassig.size(); i++) {
             if(nomAssig.equals(vassig.get(i).getNomAssig())) indexAssig = i;
         }
-        RestHoraAssig res = new RestHoraAssig(vassig.get(indexAssig), hora);
-        horari.deleteRest(res);
+
+        if(horari.restAssig.containsKey(vassig.get(indexAssig))){
+            for (Restriccions aux : horari.restAssig.get(vassig.get(indexAssig))) {
+                if(aux instanceof  RestHoraAssig){
+                    if(((RestHoraAssig) aux).getHora() == hora)
+                        horari.restAssig.remove(vassig.get(indexAssig), aux);
+                }
+            }
+        }
     }
 
     /**
@@ -397,8 +404,15 @@ public class TestDriver {
         }
 
         int indexGrup = getIndexGrup(vassig.get(indexAssig), grup);
-        RestHoraGrup res = new RestHoraGrup(vassig.get(indexAssig).getGrups().get(indexGrup), hora);
-        horari.deleteRest(res);
+
+        if(horari.restGrups.containsKey(vassig.get(indexAssig).getGrups().get(indexGrup))){
+            for (Restriccions aux : horari.restGrups.get(vassig.get(indexAssig).getGrups().get(indexGrup))) {
+                if(aux instanceof  RestHoraGrup){
+                    if(((RestHoraGrup) aux).getHora() == hora)
+                        horari.restGrups.remove(vassig.get(indexAssig).getGrups().get(indexGrup), aux);
+                }
+            }
+        }
     }
 
     /**
@@ -414,8 +428,15 @@ public class TestDriver {
         }
 
         int indexGrup = getIndexGrup(vassig.get(indexAssig), grup);
-        RestTornGrup res = new RestTornGrup(vassig.get(indexAssig).getGrups().get(indexGrup), mati);
-        horari.deleteRest(res);
+
+        if(horari.restGrups.containsKey(vassig.get(indexAssig).getGrups().get(indexGrup))){
+            for (Restriccions aux : horari.restGrups.get(vassig.get(indexAssig).getGrups().get(indexGrup))) {
+                if(aux instanceof  RestTornGrup){
+                    if(((RestTornGrup) aux).getMati() == mati)
+                        horari.restGrups.remove(vassig.get(indexAssig).getGrups().get(indexGrup), aux);
+                }
+            }
+        }
     }
 
     /**
@@ -424,12 +445,28 @@ public class TestDriver {
      * @param mati true == mati, false == tarda
      */
     public static void deleteRestTornAssig(String nomAssig, boolean mati){
+        System.out.print("Vaig a eliminar " + nomAssig + " de ");
+        if(mati) System.out.print("mati");
+        else System.out.print("tarda");
+        System.out.println();
         int indexAssig = -1;
         for (int i = 0; i < vassig.size(); i++) {
             if(nomAssig.equals(vassig.get(i).getNomAssig())) indexAssig = i;
         }
-        RestTornAssig res = new RestTornAssig(vassig.get(indexAssig), mati);
-        horari.deleteRest(res);
+
+        System.out.println(vassig.get(indexAssig).getNomAssig());
+
+        if(horari.restAssig.containsKey(nomAssig)){
+            System.out.println("Horari conte la restriccio");
+            for (Restriccions aux : horari.restAssig.get(nomAssig)) {
+                if(aux instanceof  RestTornAssig){
+                    if(((RestTornAssig) aux).getMati() == mati){
+                        horari.restAssig.remove(nomAssig, aux);
+                        System.out.println("He eliminat una restriccio");
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -445,8 +482,15 @@ public class TestDriver {
         }
 
         int indexGrup = getIndexGrup(vassig.get(indexAssig), grup);
-        RestDiaGrup res = new RestDiaGrup(vassig.get(indexAssig).getGrups().get(indexGrup), dia);
-        horari.afegirRestriccio(res);
+
+        if(horari.restGrups.containsKey(vassig.get(indexAssig).getGrups().get(indexGrup))){
+            for (Restriccions aux : horari.restGrups.get(vassig.get(indexAssig).getGrups().get(indexGrup))) {
+                if(aux instanceof  RestDiaGrup){
+                    if(((RestDiaGrup) aux).getDia() == dia)
+                        horari.restGrups.remove(vassig.get(indexAssig).getGrups().get(indexGrup), aux);
+                }
+            }
+        }
     }
     /**
      * Borra la restriccio
@@ -461,9 +505,10 @@ public class TestDriver {
         }
 
         int indexGrup = getIndexGrup(vassig.get(indexAssig), grup);
-        RestFranjaHoraria res = new RestFranjaHoraria(vassig.get(indexAssig).getGrups().get(indexGrup),horaIni, horaFi, dia );
-        horari.deleteRest(res);
 
+        /*
+        No se com eliminarla
+         */
     }
 
     public static void deleteRestSeparat(String nomAssig){
@@ -471,8 +516,10 @@ public class TestDriver {
         for (int i = 0; i < vassig.size(); i++) {
             if( nomAssig.equals(vassig.get(i).getNomAssig())) indexAssig = i;
         }
-        RestSeparat res = new RestSeparat(vassig.get(indexAssig));
-        horari.deleteRest(res);
+
+        /*
+        no se com eliminarla
+         */
     }
 
 
