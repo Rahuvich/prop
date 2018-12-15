@@ -27,18 +27,8 @@ public class ViewRestController {
     @FXML
     private Button ini;
 
-    //Atributs RestHoraAssig
-    @FXML
-    private Button afegirRestHoraAssig;
-    @FXML
-    private Button borrarRestHoraAssig;
-    @FXML
-    private ComboBox<String> assigRestHoraAssig;
-    @FXML
-    private ComboBox<String> horaRestHoraAssig;
-    @FXML
-    private ListView listRestHoraAssig;
 
+//Atributs RestTornAssig
     @FXML
     private Button afegirRestTornAssig;
     @FXML
@@ -50,10 +40,43 @@ public class ViewRestController {
     @FXML
     private ListView<String> listRestTornAssig;
 
+    //Atributs RestHoraAssig
+    @FXML
+    private Button afegirRestHoraAssig;
+    @FXML
+    private Button borrarRestHoraAssig;
+    @FXML
+    private ComboBox<String> assigRestHoraAssig;
+    @FXML
+    private ComboBox<String> horaRestHoraAssig;
+    @FXML
+    private ListView<String> listRestHoraAssig;
+
+    //Atributs RestTornGrup
     @FXML
     private Button afegirRestTornGrup;
     @FXML
     private Button borrarRestTornGrup;
+    @FXML
+    private ComboBox<String> grupRestTornGrup;
+    @FXML
+    private ComboBox<String> assigRestTornGrup;
+    @FXML
+    private ComboBox<String> tornRestTornGrup;
+    @FXML
+    private ListView<String> listRestTornGrup;
+
+    //Atributs RestHoraGrup
+    @FXML
+    private Button afegirRestHoraGrup;
+    @FXML
+    private Button borrarRestHoraGrup;
+    @FXML
+    private ComboBox<String> assigRestHoraGrup;
+    @FXML
+    private ComboBox<String> tornRestHoraGrup;
+    @FXML
+    private ListView<String> listRestHoraGrup;
 
 
     HashMap<String, ArrayList<String[]>> rests = new HashMap<>();
@@ -90,6 +113,9 @@ public class ViewRestController {
     }
 
     public void setRestsEx (HashMap<String, ArrayList<String[]>> r) {
+
+        rests = r;
+
         for (Map.Entry<String, ArrayList<String[]>> entry : r.entrySet())
         {
             System.out.println(entry.getKey() + "/" + entry.getValue());
@@ -100,6 +126,12 @@ public class ViewRestController {
                     break;
                 case "RestHoraAssig":
                     setRestHoraAssig(aux);
+                    break;
+                case "RestHoraGrup":
+                    setRestHoraGrup(aux);
+                    break;
+                case "RestTornGrup":
+                    setRestTornGrup(aux);
                     break;
 
             }
@@ -121,6 +153,18 @@ public class ViewRestController {
             String[] aux = list.get(i);
             listRestHoraAssig.getItems().add("L'assignatura " + aux[0] + " no fara classe durant les" + aux[1]);
 
+        }
+    }
+    public void setRestTornGrup (ArrayList<String[]> list) {
+        for (int i=0; i<list.size(); ++i) {
+            String[] aux = list.get(i);
+            listRestTornGrup.getItems().add("El grup " + aux[1] + " de l'assignatura " + aux[0] + " no fara classe durant " + aux[2]);
+        }
+    }
+    public void setRestHoraGrup (ArrayList<String[]> list) {
+        for (int i=0; i<list.size(); ++i) {
+            String[] aux = list.get(i);
+            listRestHoraGrup.getItems().add("El grup " + aux[1] + " de l'assignatura " + aux[0] + " no fara classe durant les" + aux[2]);
         }
     }
 
@@ -153,6 +197,7 @@ public class ViewRestController {
         borrarRestTornAssig.setOnAction((event) -> {
             int selected = listRestTornAssig.getSelectionModel().getSelectedIndex();
             String[] aux = rests.get("RestTornAssig").get(selected);
+            System.out.println("from viewrestcontroller vull elminiar rest torn assig de lassig " + aux[0] + " al torn " + aux[1]);
             cP.deleteRestTornAssig(aux[0], aux[1]);
 
             listRestTornAssig.getItems().remove(selected);

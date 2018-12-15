@@ -182,8 +182,6 @@ public class ControladorPresentacio extends Application {
 
             if(!viewRestAssig) {
 
-                viewRestAssig = true;
-
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("view/3ViewRest.fxml"));
                 AnchorPane ViewRest = loader.load();
@@ -198,11 +196,6 @@ public class ControladorPresentacio extends Application {
 
                 rootLayout.setCenter(ViewRest);
             }
-            else {
-                System.out.println("else of showrest");
-                rootLayout.setCenter(ViewRest);
-            }
-
         } catch (IOException e) {
             e.printStackTrace();
         }

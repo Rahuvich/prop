@@ -375,6 +375,10 @@ public class TestDriver {
         if (m == "Mati") return true;
         else return false;
     }
+    private static String getTornFromBool(boolean b) {
+        if (b == true) return "Mati";
+        else return "Tarda";
+    }
 
     /**
      * Borra la restriccio
@@ -548,13 +552,13 @@ public class TestDriver {
      * Cada Array conte nom de la assignatura i l'hora
      * @return
      */
-    public static ArrayList<ArrayList<String>> getAllRestHoraAssig(){
-        ArrayList<ArrayList<String>> result = new ArrayList<>();
+    public static ArrayList<String[]> getAllRestHoraAssig(){
+        ArrayList<String[]> result = new ArrayList<>();
         for (Restriccions rest : horari.getAllRestAssig()) {
             if(rest instanceof RestHoraAssig){
-                ArrayList<String> restString = new ArrayList<>();
-                restString.add(((RestHoraAssig) rest).getAssig().getNomAssig());
-                restString.add(String.valueOf(((RestHoraAssig) rest).getHora()));
+                String[] restString = new String[2];
+                restString[0] = (((RestHoraAssig) rest).getAssig().getNomAssig());
+                restString[1] = (String.valueOf(((RestHoraAssig) rest).getHora()));
                 result.add(restString);
             }
         }
@@ -565,14 +569,14 @@ public class TestDriver {
      * Cada Array conte nom de la assignatura, numero del grup (10, 11, 20, 21) i l'hora
      * @return
      */
-    public static ArrayList<ArrayList<String>> getAllRestHoraGrup(){
-        ArrayList<ArrayList<String>> result = new ArrayList<>();
+    public static ArrayList<String[]> getAllRestHoraGrup(){
+        ArrayList<String[]> result = new ArrayList<>();
         for (Restriccions rest : horari.getAllRestGrup()) {
             if(rest instanceof RestHoraGrup){
-                ArrayList<String> restString = new ArrayList<>();
-                restString.add(((RestHoraGrup) rest).getGrup().getNomAssig());
-                restString.add(String.valueOf(((RestHoraGrup) rest).getGrup().getNumero()));
-                restString.add(String.valueOf(((RestHoraGrup) rest).getHora()));
+                String[] restString = new String[3];
+                restString[0] = (((RestHoraGrup) rest).getGrup().getNomAssig());
+                restString[1] = (String.valueOf(((RestHoraGrup) rest).getGrup().getNumero()));
+                restString[2] = (String.valueOf(((RestHoraGrup) rest).getHora()));
                 result.add(restString);
             }
         }
@@ -583,13 +587,13 @@ public class TestDriver {
      * Cada Array conte nom de la assignatura i true si es mati, false si es tarda
      * @return
      */
-    public static ArrayList<ArrayList<String>> getAllRestTornAssig(){
-        ArrayList<ArrayList<String>> result = new ArrayList<>();
+    public static ArrayList<String[]> getAllRestTornAssig(){
+        ArrayList<String[]> result = new ArrayList<>();
         for (Restriccions rest : horari.getAllRestAssig()) {
             if(rest instanceof RestTornAssig){
-                ArrayList<String> restString = new ArrayList<>();
-                restString.add(((RestTornAssig) rest).getAssig().getNomAssig());
-                restString.add(String.valueOf(((RestTornAssig) rest).getMati()));
+                String[] restString = new String[2];
+                restString[0] = ((RestTornAssig) rest).getAssig().getNomAssig();
+                restString[1] = (getTornFromBool(((RestTornAssig) rest).getMati()));
                 result.add(restString);
             }
         }
@@ -600,14 +604,14 @@ public class TestDriver {
      * Cada Array conte nom de la assignatura, el numero del grup (10, 11, 20, 21) i true si es mati, false si es tarda
      * @return
      */
-    public static ArrayList<ArrayList<String>> getAllRestTornGrup(){
-        ArrayList<ArrayList<String>> result = new ArrayList<>();
+    public static ArrayList<String[]> getAllRestTornGrup(){
+        ArrayList<String[]> result = new ArrayList<>();
         for (Restriccions rest : horari.getAllRestGrup()) {
             if(rest instanceof RestTornGrup){
-                ArrayList<String> restString = new ArrayList<>();
-                restString.add(((RestTornGrup) rest).getGrup().getNomAssig());
-                restString.add(String.valueOf(((RestTornGrup) rest).getGrup().getNumero()));
-                restString.add(String.valueOf(((RestTornGrup) rest).getMati()));
+                String[] restString = new String[3];
+                restString[0] = (((RestTornGrup) rest).getGrup().getNomAssig());
+                restString[1] = (String.valueOf(((RestTornGrup) rest).getGrup().getNumero()));
+                restString[2] = (getTornFromBool(((RestTornGrup) rest).getMati()));
                 result.add(restString);
             }
         }
@@ -618,14 +622,14 @@ public class TestDriver {
      * Cada Array conte nom de la assignatura, el numero del grup (10, 11, 20, 21) i dia (0-4)
      * @return
      */
-    public static ArrayList<ArrayList<String>> getAllRestDiaGrup(){
-        ArrayList<ArrayList<String>> result = new ArrayList<>();
+    public static ArrayList<String[]> getAllRestDiaGrup(){
+        ArrayList<String[]> result = new ArrayList<>();
         for (Restriccions rest : horari.getAllRestGrup()) {
             if(rest instanceof RestDiaGrup){
-                ArrayList<String> restString = new ArrayList<>();
-                restString.add(((RestDiaGrup) rest).getGrup().getNomAssig());
-                restString.add(String.valueOf(((RestDiaGrup) rest).getGrup().getNumero()));
-                restString.add(String.valueOf(((RestDiaGrup) rest).getDia()));
+                String[] restString = new String[3];
+                restString[0] = (((RestDiaGrup) rest).getGrup().getNomAssig());
+                restString[1] = (String.valueOf(((RestDiaGrup) rest).getGrup().getNumero()));
+                restString[2] = Dia.values()[((RestDiaGrup) rest).getDia()].toString();
                 result.add(restString);
             }
         }
@@ -734,9 +738,21 @@ public class TestDriver {
     }
 
     public HashMap<String, ArrayList<String[]>> getAllRest() {
-        
+        HashMap<String, ArrayList<String[]>> rests = new HashMap<>();
 
-        return null;
+
+        rests.put("RestTornAssig", getAllRestTornAssig());
+
+        rests.put("RestTornGrup", getAllRestTornGrup());
+
+        rests.put("RestHoraAssig", getAllRestHoraAssig());
+
+        rests.put("RestHoraGrup", getAllRestHoraGrup());
+
+        rests.put("RestDiaGrup", getAllRestDiaGrup());
+
+
+        return rests;
     }
 
     public ArrayList<String> getUnitatsDocents() {
