@@ -9,14 +9,14 @@ package presentacio.view;
         import javafx.scene.Node;
         import javafx.scene.control.*;
         import javafx.scene.input.MouseEvent;
-        import javafx.scene.layout.BorderPane;
-        import javafx.scene.layout.ColumnConstraints;
-        import javafx.scene.layout.GridPane;
+        import javafx.scene.layout.*;
+        import javafx.scene.paint.Color;
         import presentacio.ControladorPresentacio;
 
         import java.lang.reflect.Array;
         import java.util.ArrayList;
         import java.util.Arrays;
+        import java.util.HashMap;
 
 public class ViewHorariController {
 
@@ -41,6 +41,8 @@ public class ViewHorariController {
     private boolean classAvailable[][];
 
     private String classes[][][][];
+
+    private HashMap<String, Color> colorAssig;
 
     private ArrayList<String> hores;
     private ArrayList<String> dies;
@@ -100,6 +102,7 @@ public class ViewHorariController {
         this.dies = dies;
         isClass = new boolean[hs.length][hs[0].length][hs[0][0].length];
         classAvailable = new boolean[hs.length][hs[0].length];
+        colorAssig = new HashMap<>();
 
         GridPane horariGrid = new GridPane();
         ColumnConstraints c0 = new ColumnConstraints();
@@ -117,26 +120,36 @@ public class ViewHorariController {
         for (int i = 0; i < hs.length; ++i) {
             for (int j = 0; j < hs[0].length; ++j) {
                 ListView<Label> listHora = new ListView<>();
+                int realPos = 0;
                 for (int k = 0; k < hs[0][0].length; ++k) {
+
+
 
                     if (hs[i][j][k][0] != null) isClass[i][j][k] = true;
                     //Declares button text
                     String text;
                     if (isClass[i][j][k]) {
-                        classes[i][j][k] = hs[i][j][k];
+                        classes[i][j][realPos] = hs[i][j][k];
                         text = hs[i][j][k][0] + " " + hs[i][j][k][1] + " " + hs[i][j][k][2];
                         Label auxL = new Label(text);
                         auxL.setMouseTransparent(false);
+                        if (!colorAssig.containsKey(hs[i][j][k][1])) {
+                            colorAssig.put(hs[i][j][k][1], Color.color(Math.random(), Math.random(), Math.random()));
+                        }
+                        auxL.setBackground(new Background(new BackgroundFill(colorAssig.get(hs[i][j][k][1]), CornerRadii.EMPTY, Insets.EMPTY)));
 
                         listHora.getItems().add(auxL);
+                        ++realPos;
 
                     } else {
                         if(!classAvailable[i][j]) {
                             classAvailable[i][j] = true;
                             Label auxL = new Label("Espai disponible");
                             auxL.setMouseTransparent(false);
+                            auxL.setBackground(new Background(new BackgroundFill(Color.GOLD, CornerRadii.EMPTY, Insets.EMPTY)));
 
                             listHora.getItems().add(auxL);
+                            ++realPos;
                         }
                     }
 
@@ -151,14 +164,17 @@ public class ViewHorariController {
                         System.out.println("at " + listHora.getSelectionModel().getSelectedIndex() + " theres " + listHora.getSelectionModel().getSelectedItem());
                         indexSelected = listHora.getSelectionModel().getSelectedIndex();
 
-                        System.out.println (isClass[colSelected-1][rowSelected-1][indexSelected]);
+                        System.out.println ("es una classe " + isClass[colSelected-1][rowSelected-1][indexSelected]);
                         if (isClass[colSelected-1][rowSelected-1][indexSelected]){
 
                             colClassOrigin = colSelected-1;
                             rowClassOrigin = rowSelected-1;
                             indexClassOrigin = indexSelected;
 
-                            classOrigin.setText(listHora.getSelectionModel().getSelectedItem().getText());
+                            classOrigin.setText(classes[colClassOrigin][rowClassOrigin][indexClassOrigin][0]
+                                    + " " + classes[colClassOrigin][rowClassOrigin][indexClassOrigin][1]
+                                    + " " + classes[colClassOrigin][rowClassOrigin][indexClassOrigin][2]);
+                            //classOrigin.setText(listHora.getSelectionModel().getSelectedItem().getText());
                         }
                         else {
 
