@@ -38,6 +38,7 @@ public class ViewHorariController {
     private boolean classSelected = false;
 
     private boolean isClass[][][];
+    private boolean classAvailable[][];
 
     private String classes[][][][];
 
@@ -98,6 +99,7 @@ public class ViewHorariController {
         this.hores = hores;
         this.dies = dies;
         isClass = new boolean[hs.length][hs[0].length][hs[0][0].length];
+        classAvailable = new boolean[hs.length][hs[0].length];
 
         GridPane horariGrid = new GridPane();
         ColumnConstraints c0 = new ColumnConstraints();
@@ -117,22 +119,28 @@ public class ViewHorariController {
                 ListView<Label> listHora = new ListView<>();
                 for (int k = 0; k < hs[0][0].length; ++k) {
 
-
+                    if (hs[i][j][k][0] != null) isClass[i][j][k] = true;
                     //Declares button text
                     String text;
-                    if (hs[i][j][k][0] != null) {
-                        isClass[i][j][k] = true;
+                    if (isClass[i][j][k]) {
                         classes[i][j][k] = hs[i][j][k];
                         text = hs[i][j][k][0] + " " + hs[i][j][k][1] + " " + hs[i][j][k][2];
+                        Label auxL = new Label(text);
+                        auxL.setMouseTransparent(false);
+
+                        listHora.getItems().add(auxL);
+
                     } else {
-                        text = dies.get(i) + " a les " + hores.get(j);
+                        if(!classAvailable[i][j]) {
+                            classAvailable[i][j] = true;
+                            Label auxL = new Label("Espai disponible");
+                            auxL.setMouseTransparent(false);
+
+                            listHora.getItems().add(auxL);
+                        }
                     }
 
-                    Label auxL = new Label(text);
 
-                    auxL.setMouseTransparent(false);
-
-                    listHora.getItems().add(auxL);
 
                 }
                 listHora.setOnMouseClicked(new EventHandler<MouseEvent>() {
