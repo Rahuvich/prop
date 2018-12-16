@@ -162,7 +162,7 @@ public class ViewHorariController {
 
                 }
 
-                listHora.setPrefHeight(numItems * ROW_HEIGHT + 2);
+                listHora.setPrefHeight(numItems * ROW_HEIGHT - ROW_HEIGHT + 4);
 
                 listHora.addEventFilter(MouseEvent.MOUSE_PRESSED, event -> {
                     System.out.println( "Node: " + listHora + " at row/col" + GridPane.getRowIndex( listHora) + "/" + GridPane.getColumnIndex( listHora));
@@ -201,7 +201,7 @@ public class ViewHorariController {
                             rowDest = rowSelected-1;
                             colDest = colSelected-1;
 
-                            classDestination.setText(listHora.getSelectionModel().getSelectedItem().getText());
+                            classDestination.setText(dies.get(colDest) + " a les " + hores.get(rowDest));
                         }
                     }
                 });
