@@ -58,6 +58,8 @@ public class ViewHorariController {
     private int rowDest;
     private int colDest;
 
+    final int ROW_HEIGHT = 24;
+
 
 //    public Classe(Aula a, Grup g, Dia dia, int h, int duracio)
 //    {
@@ -121,6 +123,7 @@ public class ViewHorariController {
             for (int j = 0; j < hs[0].length; ++j) {
                 ListView<Label> listHora = new ListView<>();
                 int realPos = 0;
+                int numItems = 0;
                 for (int k = 0; k < hs[0][0].length; ++k) {
 
 
@@ -140,6 +143,7 @@ public class ViewHorariController {
 
                         listHora.getItems().add(auxL);
                         ++realPos;
+                        ++numItems;
 
                     } else {
                         if(!classAvailable[i][j]) {
@@ -150,27 +154,43 @@ public class ViewHorariController {
 
                             listHora.getItems().add(auxL);
                             ++realPos;
+                            ++numItems;
                         }
                     }
 
 
 
                 }
+
+                listHora.setPrefHeight(numItems * ROW_HEIGHT + 2);
+
+                listHora.addEventFilter(MouseEvent.MOUSE_PRESSED, event -> {
+                    System.out.println( "Node: " + listHora + " at row/col" + GridPane.getRowIndex( listHora) + "/" + GridPane.getColumnIndex( listHora));
+
+                    rowSelected = GridPane.getRowIndex(listHora);
+                    colSelected = GridPane.getColumnIndex(listHora);
+                });
+
                 listHora.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
                     @Override
                     public void handle(MouseEvent event) {
 
-                        System.out.println("at " + listHora.getSelectionModel().getSelectedIndex() + " theres " + listHora.getSelectionModel().getSelectedItem());
+
                         indexSelected = listHora.getSelectionModel().getSelectedIndex();
 
-                        System.out.println ("es una classe " + isClass[colSelected-1][rowSelected-1][indexSelected]);
                         if (isClass[colSelected-1][rowSelected-1][indexSelected]){
+
+                            System.out.println("label reads " + listHora.getSelectionModel().getSelectedItem());
 
                             colClassOrigin = colSelected-1;
                             rowClassOrigin = rowSelected-1;
                             indexClassOrigin = indexSelected;
 
+                            System.out.println("colclassOrigin " + colClassOrigin + " rowclassorigin " + (rowSelected-1) + " index " + indexClassOrigin);
+                            System.out.println("in class array theres " + classes[colClassOrigin][rowClassOrigin][indexSelected][0]
+                                    + " " + classes[colClassOrigin][rowClassOrigin][indexSelected][1]
+                                    + " " + classes[colClassOrigin][rowClassOrigin][indexSelected][2]);
                             classOrigin.setText(classes[colClassOrigin][rowClassOrigin][indexClassOrigin][0]
                                     + " " + classes[colClassOrigin][rowClassOrigin][indexClassOrigin][1]
                                     + " " + classes[colClassOrigin][rowClassOrigin][indexClassOrigin][2]);
@@ -185,12 +205,11 @@ public class ViewHorariController {
                         }
                     }
                 });
-
                 horariGrid.add(listHora, i+1, j+1);
             }
         }
 
-        horariGrid.addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+        /*horariGrid.addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent e) {
                 System.out.println("event filter start");
@@ -199,7 +218,7 @@ public class ViewHorariController {
 
                     if (node instanceof ListView) {
                         if( node.getBoundsInParent().contains(e.getSceneX(),  e.getSceneY())) {
-                            System.out.println( "Node: " + node + " at " + GridPane.getRowIndex(node) + "/" + GridPane.getColumnIndex(node)
+                            System.out.println( "Node: " + node + " at row " + GridPane.getRowIndex(node) + "/ col " + GridPane.getColumnIndex(node)
                                             //+   " with element selected " + ((ListView) node).getSelectionModel().getSelectedIndex()
                             );
                             rowSelected = GridPane.getRowIndex(node);
@@ -209,7 +228,7 @@ public class ViewHorariController {
                     }
                 }
             }
-        });
+        });*/
 
         ScrollPane horariScroll = new ScrollPane(horariGrid);
 
