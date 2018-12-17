@@ -53,7 +53,7 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="86.0" prefWidth="706.0">
                      <children>
-                        <Label prefHeight="42.0" prefWidth="134.0" text="Unitat Docent: ">
+                        <Label prefHeight="42.0" prefWidth="144.0" text="Unitat Docent: ">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -74,7 +74,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="178.0" prefWidth="457.0" text="Hora Inici" textAlignment="CENTER">
+                        <Label alignment="CENTER_RIGHT" prefHeight="168.0" prefWidth="414.0" text="Hora Inici" textAlignment="CENTER">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -88,7 +88,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
                         </Label>
-                        <TextField fx:id="hI" prefHeight="26.0" prefWidth="224.0" promptText="Hora Inici &gt;6" text="8" GridPane.columnIndex="1">
+                        <TextField fx:id="hI" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="30.0" promptText="Hora Inici &gt;6" text="8" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                            </GridPane.margin>
@@ -104,7 +104,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
                         </Label>
-                        <TextField fx:id="hF" promptText="Hora Fi &gt; Hora Inici" text="20" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <TextField fx:id="hF" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="30.0" promptText="Hora Fi &gt; Hora Inici" text="20" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="20.0" right="20.0" />
                            </GridPane.margin>

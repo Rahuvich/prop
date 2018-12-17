@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import presentacio.view.*;
@@ -15,15 +16,18 @@ import java.io.IOException;
 import java.sql.Array;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ControladorPresentacio extends Application {
 
     private Stage primaryStage;
     private BorderPane rootLayout;
-    private TestDriver td = new TestDriver();;
+    private TestDriver td = new TestDriver();
+
+    private HashMap<String, Color> colorAssig;
 
     private boolean viewRestAssig = false;
-    AnchorPane ViewRest;
+
 
     public static void main(String[] args) {
 
@@ -211,7 +215,11 @@ public class ControladorPresentacio extends Application {
             System.out.println("after loading");
             ViewHorariController controller = loader.getController();
             controller.setClassOrigin();
-            controller.setHorari(td.getHorari(), td.getDies(), td.getHores());
+            String[][][][] horari = td.getHorari();
+
+            assignColors(horari);
+
+            controller.setHorari(horari, td.getDies(), td.getHores(), colorAssig);
             controller.setMainApp(this);
 
             rootLayout.setCenter(ViewHorari);
@@ -221,5 +229,35 @@ public class ControladorPresentacio extends Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void assignColors(String[][][][] hs) {
+        if (colorAssig == null) {
+            colorAssig = new HashMap<>();
+            for (int i = 0; i < hs.length; ++i) {
+                for (int j = 0; j < hs[0].length; ++j) {
+                    for (int k = 0; k < hs[0][0].length; ++k) {
+                        if (hs[i][j][k][0]!=null) {
+                            if (!colorAssig.containsKey(hs[i][j][k][1])) {
+                                double c1, c2, c3;
+                                c1 = Math.random();
+                                c2 = Math.random();
+                                c3 = Math.random();
+                                if ((c1 + c2 + c3) > 2.5) {
+                                    if ((c1 > c2) && (c1 > c3)) c1 = c1 / 2;
+                                    else if ((c2 > c1) && (c2 > c3)) c2 = c2 / 2;
+                                    else c3 = c3 / 2;
+                                    //if ((c3>c1) && (c3>c2))
+                                }
+                                colorAssig.put(hs[i][j][k][1], Color.color(c1, c2, c3));
+
+                                System.out.println("a " + hs[i][j][k][1] + " hi ha el color " + colorAssig.get(hs[i][j][k][1]));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }

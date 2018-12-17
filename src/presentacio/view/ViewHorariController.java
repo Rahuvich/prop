@@ -42,9 +42,7 @@ public class ViewHorariController {
 
     private String classes[][][][];
 
-    private HashMap<String, Color> colorAssig;
-
-    private ArrayList<String> hores;
+        private ArrayList<String> hores;
     private ArrayList<String> dies;
 
     private int rowSelected;
@@ -61,17 +59,6 @@ public class ViewHorariController {
     final int ROW_HEIGHT = 24;
 
 
-//    public Classe(Aula a, Grup g, Dia dia, int h, int duracio)
-//    {
-//        this.aula = a;
-//        this.grup = g;
-//        this.dia = dia;
-//        this.horaIni = h;
-//        this.duracio = duracio;
-//        empty = false;
-//    }
-
-
     private ControladorPresentacio cP;
 
     public void setMainApp(ControladorPresentacio contPres) {this.cP = contPres;}
@@ -80,31 +67,17 @@ public class ViewHorariController {
         classOrigin.setText("No sha seleccionat res");
     }
 
+
     //hs[dia][hora][aula]
 
 
 
-
-    public void setHorari (String[][][][] hs, ArrayList<String> dies, ArrayList<String> hores) {
-
-
-
-        /*Idea1:
-        array per guardar si hi ha boto de classe disponible
-        array per guardar valors importants per tornar a fer referencia al domini
-
-        Idea2:
-        label selected,  2 buttons, select class, select hueco
-
-        Idea3: depends on what label is selected, it knows automatically
-
-        */
+    public void setHorari (String[][][][] hs, ArrayList<String> dies, ArrayList<String> hores, HashMap<String, Color> colorAssig) {
         classes = new String[hs.length][hs[0].length][hs[0][0].length][hs[0][0][0].length];
         this.hores = hores;
         this.dies = dies;
         isClass = new boolean[hs.length][hs[0].length][hs[0][0].length];
         classAvailable = new boolean[hs.length][hs[0].length];
-        colorAssig = new HashMap<>();
 
         GridPane horariGrid = new GridPane();
         ColumnConstraints c0 = new ColumnConstraints();
@@ -125,9 +98,6 @@ public class ViewHorariController {
                 int realPos = 0;
                 int numItems = 0;
                 for (int k = 0; k < hs[0][0].length; ++k) {
-
-
-
                     if (hs[i][j][k][0] != null) isClass[i][j][k] = true;
                     //Declares button text
                     String text;
@@ -136,9 +106,6 @@ public class ViewHorariController {
                         text = hs[i][j][k][0] + " " + hs[i][j][k][1] + " " + hs[i][j][k][2];
                         Label auxL = new Label(text);
                         auxL.setMouseTransparent(false);
-                        if (!colorAssig.containsKey(hs[i][j][k][1])) {
-                            colorAssig.put(hs[i][j][k][1], Color.color(Math.random(), Math.random(), Math.random()));
-                        }
                         auxL.setBackground(new Background(new BackgroundFill(colorAssig.get(hs[i][j][k][1]), CornerRadii.EMPTY, Insets.EMPTY)));
 
                         listHora.getItems().add(auxL);
@@ -208,27 +175,6 @@ public class ViewHorariController {
                 horariGrid.add(listHora, i+1, j+1);
             }
         }
-
-        /*horariGrid.addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent e) {
-                System.out.println("event filter start");
-
-                for (Node node : horariGrid.getChildren()) {
-
-                    if (node instanceof ListView) {
-                        if( node.getBoundsInParent().contains(e.getSceneX(),  e.getSceneY())) {
-                            System.out.println( "Node: " + node + " at row " + GridPane.getRowIndex(node) + "/ col " + GridPane.getColumnIndex(node)
-                                            //+   " with element selected " + ((ListView) node).getSelectionModel().getSelectedIndex()
-                            );
-                            rowSelected = GridPane.getRowIndex(node);
-                            colSelected = GridPane.getColumnIndex(node);
-
-                        }
-                    }
-                }
-            }
-        });*/
 
         ScrollPane horariScroll = new ScrollPane(horariGrid);
 
