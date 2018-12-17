@@ -188,6 +188,8 @@ public class Horari {
 					if(horari[dia][hora][i].getAssig().equals(g.getNomAssig())) return false;
 					if(horari[dia][hora][i].getCodiQuatri().equals(g.getCodiQuatri()) &&
 							horari[dia][hora][i].getGrup().getNumero() == g.getNumero()) return false;
+				} else{
+					if(g.etsFamilia(horari[dia][hora][i].getGrup())) return false; // Si hi ha un subgrup de la teva familia aborta
 				}
 			}
 		}
@@ -219,11 +221,12 @@ public class Horari {
 	 */
 	public boolean moveClasse(String[] c, int hora, int dia){
 		Classe classe = getClassFromString(c);
+
 		int auxDia = classe.getDia();
 		int auxHora = classe.getHoraIni() - horaIniDia;
 		int auxAula = -1;
 		for (int i = 0; i < vaules.size(); i++) {
-			if(classe.getAula() == vaules.get(i).getAula()) auxAula = i;
+			if(classe.getAula().equals(vaules.get(i).getAula())) auxAula = i;
 		}
 		if(auxAula < 0) return false;
 
@@ -231,6 +234,7 @@ public class Horari {
 
 		for (int i = 0; i < vaules.size(); i++) {
 			if(comprobarAssignacio(dia, hora, i, classe.getGrup())){
+				classe.setEmpty(true);
 				horari[dia][hora][i] = new Classe(vaules.get(i), classe.getGrup(), Dia.values()[i], hora+horaIniDia, classe.getDuracio());
 				return true;
 			}
@@ -251,14 +255,16 @@ public class Horari {
 
 		for (int i = 0; i < vaules.size(); i++) {
 			if(comprobarAssignacio(dia, hora, i, classe.getGrup())){
-				auxHorari[dia][hora][i] = new Classe(vaules.get(i), classe.getGrup(), Dia.values()[i], hora+horaIniDia, classe.getDuracio());
+				horari[dia][hora][i] = new Classe(vaules.get(i), classe.getGrup(), Dia.values()[i], hora+horaIniDia, classe.getDuracio());
 				grupTried.put(classe.getGrup(), true);
 				possible = true;
 				break;
 			}
 		}
 
+		startAlgorithm = System.nanoTime();
 		if(!possible || !backtrackingGrup(0,0)){
+			System.out.println("						--No ha sigut possible el swap--");
 			for (int i = 0; i < 5; ++i){
 				for (int j = 0; j < horaFiDia - horaIniDia; ++j){
 					for (int k = 0; k < vaules.size(); ++k){

@@ -242,10 +242,9 @@ public class ViewHorariController {
 
         swapButton.setOnAction((event) -> {
 
-            System.out.println();
-            System.out.print("swap at viewhoraricontroller going to swap ");
+            System.out.println("swap at viewhoraricontroller going to swap ");
 
-            for (int i = 0; i < 3; ++i) System.out.print(classes[rowSelected-1][colSelected-1][indexSelected][i] + " ");
+            for (int i = 0; i < 3; ++i) System.out.print(classes[colClassOrigin][rowClassOrigin][indexClassOrigin][i] + " ");
 
             System.out.println(" to " + hores.get(rowDest) + " " + dies.get(colDest));
 
