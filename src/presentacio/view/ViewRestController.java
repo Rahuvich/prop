@@ -97,7 +97,14 @@ public class ViewRestController {
         ObservableList<String> observableListAssigs = FXCollections.observableList(assigs);
         assigRestHoraAssig.setItems(observableListAssigs);
         assigRestTornAssig.setItems(observableListAssigs);
+        assigRestTornGrup.setItems(observableListAssigs);
     }
+
+    public void setGrups (ArrayList<String> grups) {
+        ObservableList<String> observableListGrups = FXCollections.observableList(grups);
+        grupRestTornGrup.setItems(observableListGrups);
+    }
+
 
     public void setHores (ArrayList<String> hores) {
         ObservableList<String> observableListHores = FXCollections.observableList(hores);
@@ -110,6 +117,7 @@ public class ViewRestController {
         listTorn.add("Tarda");
         ObservableList<String> observableListTorn = FXCollections.observableList(listTorn);
         tornRestTornAssig.setItems(observableListTorn);
+        tornRestTornGrup.setItems(observableListTorn);
     }
 
     public void setRestsEx (HashMap<String, ArrayList<String[]>> r) {
@@ -168,8 +176,14 @@ public class ViewRestController {
         }
     }
 
+    public String getAssig()
+    {
+        return assigRestTornGrup.getValue();
+    }
+
     @FXML
     public void initialize() {
+
 
         afegirRestTornAssig.setOnAction((event) -> {
 

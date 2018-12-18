@@ -61,7 +61,7 @@
                               <HBox prefHeight="30.0" prefWidth="581.0" spacing="5.0">
                                  <children>
                                     <Label text="L'assignatura " />
-                                    <ComboBox fx:id="assigRestTornAssig" prefHeight="26.0" prefWidth="70.0" />
+                                    <ComboBox fx:id="assigRestTornAssig" prefHeight="25.0" prefWidth="89.0" />
                                     <Label text=" SI fara classe al torn" />
                                     <ComboBox fx:id="tornRestTornAssig" prefHeight="26.0" prefWidth="86.0" />
                                     <Button fx:id="afegirRestTornAssig" mnemonicParsing="false" text="Afegir restriccio" />
@@ -89,7 +89,45 @@
                         </VBox>
                      </content>
                   </TitledPane>
-                <TitledPane animated="false" text="Restriccio d'hora on una assignatura no fara classe">
+                  <TitledPane animated="false" text="Restriccio de torn (mati/tarda) on un grup d'una assignatura SI fara classe">
+                     <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                           <children>
+                              <HBox prefHeight="25.0" prefWidth="576.0" spacing="5.0">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="80.0" text="L'assignatura" />
+                                    <ComboBox fx:id="assigRestTornGrup" prefHeight="25.0" prefWidth="89.0" />
+                                    <Label text="amb grup" />
+                                    <ComboBox fx:id="grupRestTornGrup" prefHeight="26.0" prefWidth="86.0" />
+                                    <Label text=" SI fara classe al torn" />
+                                    <ComboBox fx:id="tornRestTornGrup" prefHeight="25.0" prefWidth="89.0" />
+                                    <BorderPane />
+                                    <Button fx:id="afegirRestTornGrup" mnemonicParsing="false" prefHeight="25.0" prefWidth="109.0" text="Afegir restriccio" />
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </HBox>
+                              <ListView fx:id="listRestTornAssig11" prefHeight="291.0" prefWidth="581.0" />
+                              <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="758.0">
+                                 <children>
+                                    <Button fx:id="borrarRestTornGrup" mnemonicParsing="false" text="Borrar restriccions seleccionades" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </TitledPane>
+                <TitledPane animated="false" text="Restriccio d'hora on una assignatura NO fara classe">
                      <content>
                         <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
                            <children>
@@ -97,7 +135,7 @@
                                  <children>
                                     <Label text="L'assignatura " />
                                     <ComboBox fx:id="assigRestHoraAssig" prefHeight="26.0" prefWidth="70.0" />
-                                    <Label text=" no farà classe a l'hora" />
+                                    <Label text=" NO farà classe a l'hora" />
                                     <ComboBox fx:id="horaRestHoraAssig" prefHeight="26.0" prefWidth="66.0" />
                                     <Button fx:id="afegirRestHoraAssig" mnemonicParsing="false" text="Afegir restriccio" />
                                  </children>
@@ -124,16 +162,110 @@
                         </VBox>
                      </content>
                 </TitledPane>
-                <TitledPane animated="false" text="untitled 2">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                  </content>
-                </TitledPane>
-                <TitledPane animated="false" text="untitled 3">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                  </content>
-                </TitledPane>
+                  <TitledPane animated="false" text="Restriccio d'hora on el grup una assignatura NO fara classe">
+                     <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                           <children>
+                              <HBox prefHeight="30.0" prefWidth="581.0" spacing="5.0">
+                                 <children>
+                                    <Label text="L'assignatura " />
+                                    <ComboBox fx:id="assigRestHoraAssig2" prefHeight="26.0" prefWidth="70.0" />
+                                    <Label text=" NO farà classe a l'hora" />
+                                    <ComboBox fx:id="horaRestHoraAssig2" prefHeight="26.0" prefWidth="66.0" />
+                                    <Button fx:id="afegirRestHoraAssig2" mnemonicParsing="false" text="Afegir restriccio" />
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </HBox>
+                              <ListView prefHeight="291.0" prefWidth="581.0" />
+                              <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="758.0">
+                                 <children>
+                                    <Button fx:id="borrarRestHoraAssig2" mnemonicParsing="false" text="Borrar restriccions seleccionades" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" text="Restriccio que determina la franja horaria NO lectiva">
+                     <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                           <children>
+                              <HBox prefHeight="30.0" prefWidth="581.0" spacing="5.0">
+                                 <children>
+                                    <Label text="No hi haurá classe de " />
+                                    <ComboBox fx:id="horaIniRestFranjaHoraria" prefHeight="25.0" prefWidth="89.0" />
+                                    <Label text="a" />
+                                    <ComboBox fx:id="horaFiRestFranjaHoraria" prefHeight="26.0" prefWidth="86.0" />
+                                    <Button fx:id="afegirRestFranjaHoraria" mnemonicParsing="false" text="Afegir restriccio" />
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </HBox>
+                              <ListView fx:id="listRestTornAssig1" prefHeight="291.0" prefWidth="581.0" />
+                              <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="758.0">
+                                 <children>
+                                    <Button fx:id="borrarRestTornAssig1" mnemonicParsing="false" text="Borrar restriccions seleccionades" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" text="Restriccio que si s'activa fa que una assignatura es distribueixi en el maxim de dies possibles">
+                     <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                           <children>
+                              <HBox prefHeight="30.0" prefWidth="581.0" spacing="5.0">
+                                 <children>
+                                    <Label text="L'assignatura " />
+                                    <ComboBox fx:id="assigRestSeparat" prefHeight="25.0" prefWidth="89.0" />
+                                    <Label text="es realitzarà en el màxim de dies posibles" />
+                                    <Button fx:id="afegirRestSeparat" mnemonicParsing="false" text="Afegir restriccio" />
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </HBox>
+                              <ListView fx:id="listRestTornAssig14" prefHeight="291.0" prefWidth="581.0" />
+                              <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="758.0">
+                                 <children>
+                                    <Button fx:id="borrarRestTornAssig14" mnemonicParsing="false" text="Borrar restriccions seleccionades" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </TitledPane>
               </panes>
                <BorderPane.margin>
                   <Insets left="10.0" right="10.0" />

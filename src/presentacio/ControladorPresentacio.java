@@ -75,6 +75,13 @@ public class ControladorPresentacio extends Application {
         return td.getAssigs();
     }
 
+    public ArrayList<String> getGrups(String assig) {
+        System.out.println("getGrups from cP");
+
+        return td.getGrups(assig);
+
+    }
+
     public ArrayList<String> getHores() {
         return td.getHores();
     }
@@ -189,6 +196,9 @@ public class ControladorPresentacio extends Application {
 
                 ViewRestController controller = loader.getController();
                 controller.setAssigs(getAssigs());
+                String assig = controller.getAssig();
+
+                controller.setGrups(getGrups(assig));
                 controller.setHores(getHores());
                 controller.setTorns();
                 controller.setRestsEx(td.getAllRest());

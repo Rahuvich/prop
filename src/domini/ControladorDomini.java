@@ -779,6 +779,23 @@ public class ControladorDomini {
         }
     return listAssigs;
     }
+
+
+    public ArrayList<String> getGrups(String assig){
+        int index = -1;
+        Assignatura ass;
+        for(int i = 0; (i < vassig.size()) && (index == -1); i++) {
+            if (vassig.get(i).getNomAssig() == assig) index = i;
+            ass = vassig.get(i);
+        }
+        ArrayList<String> listgrups = new ArrayList<>();
+        ArrayList<Grup> listnumeros = new ArrayList<>();
+        for(int i = 0; i < listnumeros.size(); i++ ) {
+            listgrups.add(Integer.toString(listnumeros.get(i).getNumero()));
+        }
+        return listgrups;
+    }
+
     public ArrayList<String> getHores(){
         ArrayList<String> list = new ArrayList<>();
         for (int i = horari.getHoraIni(); i < horari.getHoraFi(); ++i) {
