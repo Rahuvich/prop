@@ -1,6 +1,6 @@
 package presentacio;
 
-import domini.TestDriver;
+import domini.ControladorDomini;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,13 +8,10 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import presentacio.view.*;
 
 import java.io.IOException;
-import java.sql.Array;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -22,7 +19,7 @@ public class ControladorPresentacio extends Application {
 
     private Stage primaryStage;
     private BorderPane rootLayout;
-    private TestDriver td = new TestDriver();
+    private ControladorDomini td = new ControladorDomini();
 
     private HashMap<String, Color> colorAssig;
 
@@ -33,7 +30,7 @@ public class ControladorPresentacio extends Application {
 
         //RAUL SI VOLS EXECUTAR EN FORMATO TERMINAL DESCOMENTA LO DE tESTdRIVER.EXECUTE()
 
-//        TestDriver.execute();
+//        ControladorDomini.execute();
 
         launch(args);
     }

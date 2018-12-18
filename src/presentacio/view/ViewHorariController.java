@@ -69,7 +69,7 @@ public class ViewHorariController {
 
 
     //hs[dia][hora][aula]
-
+//Podria fer que classe disponible sempre estigui al inici o final
 
 
     public void setHorari (String[][][][] hs, ArrayList<String> dies, ArrayList<String> hores, HashMap<String, Color> colorAssig) {

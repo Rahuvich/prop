@@ -1,8 +1,5 @@
 package domini;
 
-import utils.Vector5;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -94,7 +91,7 @@ public class Horari {
 		grupTried.clear();
 
 		System.out.println("Vaig a eliminar F de tarda");
-		TestDriver.deleteRestTornAssig("F", "Tarda");
+		ControladorDomini.deleteRestTornAssig("F", "Tarda");
 
 		for (int i = 0; i < 5; ++i){
 			for (int j = 0; j < horaFiDia - horaIniDia; ++j){
