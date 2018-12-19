@@ -1,6 +1,5 @@
 package presentacio.view;
 
-
 import com.google.common.collect.Multimap;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -178,17 +177,26 @@ public class ViewRestController {
 
     public String getAssig()
     {
-        return assigRestTornGrup.getValue();
+        String assig = assigRestTornGrup.getValue();
+        System.out.println("String de assigRestTornGrup= " + assig);
+        return assig;
+        //assigRestTornGrup.
+
     }
+
+
 
     @FXML
     public void initialize() {
 
 
+        /*
+         ** RESTTORNASSIG
+         */
         afegirRestTornAssig.setOnAction((event) -> {
-
             String assig = assigRestTornAssig.getValue();
             String torn = tornRestTornAssig.getValue();
+
             cP.createRestTornAssig(assig, torn);
 
             if (!rests.containsKey("RestTornAssig")) {
@@ -217,6 +225,47 @@ public class ViewRestController {
             listRestTornAssig.getItems().remove(selected);
 
         });
+
+        /*
+        ** RESTTORNGRUP
+         */
+        assigRestTornGrup.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
+            setGrups(cP.getGrups(newValue));
+        }
+        );
+
+        afegirRestTornGrup.setOnAction((event) -> {
+            String assig = assigRestTornGrup.getValue();
+            String grup = grupRestTornGrup.getValue();
+            String torn = tornRestTornGrup.getValue();
+            cP.createRestTornGrup(assig, grup, torn);
+
+            if (!rests.containsKey("RestTornGrup")) {
+                rests.put("RestTornGrup", null);
+            }
+
+            ArrayList<String[]> aux = rests.get("RestTornGrup");
+            if (aux==null){
+                aux = new ArrayList<>();
+            }
+            String[] actual = new String[] {assig, grup, torn};
+            aux.add(actual);
+
+            rests.put("RestTornGrup", aux);
+
+            listRestTornGrup.getItems().add("L'assignatura " + assig + " del grup " + grup +" fara classe de " + torn);
+        });
+
+        borrarRestTornGrup.setOnAction((event) -> {
+            int selected = listRestTornGrup.getSelectionModel().getSelectedIndex();
+            String[] aux = rests.get("RestTornGrup").get(selected);
+            System.out.println("from viewrestcontroller vull elminiar rest torn assig de lassig " + aux[0] + " del grup " + aux[1] +" al torn " + aux[2]);
+            cP.deleteRestTornGrup(aux[0], aux[1], aux[2]);
+            System.out.println("from viewrestcontroller he fet el delete");
+            listRestTornGrup.getItems().remove(selected);
+
+        });
+
 
 
 

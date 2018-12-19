@@ -431,7 +431,8 @@ public class ControladorDomini {
      * @param grup String del numero del grup (10, 11, 20, 21)
      * @param mati true == mati, false == tarda
      */
-    public static void deleteRestTornGrup(String nomAssig, String grup, boolean mati){
+    public static void deleteRestTornGrup(String nomAssig, String grup, String m){
+        boolean mati = Boolean.parseBoolean(m);
         int indexAssig = -1;
         for (int i = 0; i < vassig.size(); i++) {
             if(nomAssig.equals(vassig.get(i).getNomAssig())) indexAssig = i;
@@ -783,13 +784,13 @@ public class ControladorDomini {
 
     public ArrayList<String> getGrups(String assig){
         int index = -1;
-        Assignatura ass;
+        Assignatura ass = null;
         for(int i = 0; (i < vassig.size()) && (index == -1); i++) {
             if (vassig.get(i).getNomAssig() == assig) index = i;
             ass = vassig.get(i);
         }
         ArrayList<String> listgrups = new ArrayList<>();
-        ArrayList<Grup> listnumeros = new ArrayList<>();
+        ArrayList<Grup> listnumeros = ass.getGrups();
         for(int i = 0; i < listnumeros.size(); i++ ) {
             listgrups.add(Integer.toString(listnumeros.get(i).getNumero()));
         }
@@ -819,12 +820,50 @@ public class ControladorDomini {
     }
 
     public void createRestTornAssig (String assig, String torn) {
-        System.out.println("before createRestTornAssig from td");
         boolean x = getBoolFromTorn(torn);
         Assignatura aux = getAssigFromName(assig);
+        System.out.println("despres getassig");
+
+        if(aux == null) System.out.println("Assig no trobat, null");
+        else System.out.println("Treballem amb assig " + aux.getNomAssig());
+
         RestTornAssig res = new RestTornAssig(aux, x);
         horari.afegirRestriccio(res);
         System.out.println("after createRestTornAssig from td");
+    }
+
+    public void createRestTornGrup (String assig, String grup, String torn) {
+        System.out.println("createRestTornGrup Cd");
+        boolean x = getBoolFromTorn(torn);
+
+        Assignatura aux = getAssigFromName(assig);
+        if(aux == null)  System.out.println("aux is null and should be " + assig );
+        else         System.out.println("aux is" + aux.getNomAssig());
+
+
+        ArrayList<Grup> vgrups = new ArrayList<Grup>();
+        vgrups = aux.getGrups();
+        System.out.println("despres vgrups");
+
+        Grup g = null;
+        System.out.println("abans for");
+
+        for(int i = 0; i < vgrups.size(); i++)
+        {
+            System.out.println("grup " + grup + "es igual a vgrups " + vgrups.get(i).getNumero());
+
+            if(Integer.parseInt(grup) == vgrups.get(i).getNumero())
+            {
+                System.out.println("grup trobat " + vgrups.get(i).getNumero());
+                g = vgrups.get(i);
+            }
+        }
+        System.out.println("despres for");
+
+        if(g == null) System.out.println("Grup no trobat, null");
+        else System.out.println("Treballem amb el grup " + g.getNumero() + " de l'assig" + g.getNomAssig());
+        RestTornGrup res = new RestTornGrup(g, x);
+        horari.afegirRestriccio(res);
     }
 
     public void createRestHoraAssig (String assig, int hora) {

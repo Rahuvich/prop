@@ -38,7 +38,6 @@ public class ControladorPresentacio extends Application {
     public void creaHorari_showInfoOrRest(String uD, int horaIni, int horaFi) {
         //Cal cridar al controladorModel pq ens crei un horari amb horaIni i horaFi i cargui les assignatures de la
         //FIB si el bool Fib es true i minifib si es fals. Tambe podem posar la microfib pero no esta implementat
-        System.out.println("crea horari i doncs show info or rest");
         td.loader(uD);
         td.creaHorari(horaIni, horaFi);
         showInfoOrRest();
@@ -46,7 +45,6 @@ public class ControladorPresentacio extends Application {
 
     public void devMode_viewInfo() {
         td.devMode();
-        System.out.println("before showViewInfo");
         showViewRest();
     }
 
@@ -59,7 +57,6 @@ public class ControladorPresentacio extends Application {
 
 
         td.swap(origin, hora, dia);
-        System.out.println("Swap completed from cp, calling viewhorari");
         showViewHorari();
 
 
@@ -71,12 +68,10 @@ public class ControladorPresentacio extends Application {
     }
 
     public ArrayList<String> getAssigs() {
-        System.out.println("getAssigs from cP");
         return td.getAssigs();
     }
 
     public ArrayList<String> getGrups(String assig) {
-        System.out.println("getGrups from cP");
 
         return td.getGrups(assig);
 
@@ -91,9 +86,11 @@ public class ControladorPresentacio extends Application {
     }
 
     public void createRestTornAssig (String assig, String torn) {
-        System.out.println("before createRestTornAssig from cp");
         td.createRestTornAssig(assig, torn);
-        System.out.println("after createRestTornAssig from cp");
+    }
+
+    public void createRestTornGrup (String assig, String grup, String torn) {
+        td.createRestTornGrup(assig,grup, torn);
     }
 
     public void createRestHoraAssig (String assig, int hora) {
@@ -103,6 +100,11 @@ public class ControladorPresentacio extends Application {
     public void deleteRestTornAssig(String nomAssig, String mati) {
         td.deleteRestTornAssig(nomAssig, mati);
     }
+
+    public void deleteRestTornGrup(String nomAssig, String nomGrup, String mati) {
+        td.deleteRestTornGrup(nomAssig, nomGrup, mati);
+    }
+
 
 
 
@@ -148,7 +150,6 @@ public class ControladorPresentacio extends Application {
 
     public void showInfoOrRest() {
         try {
-            System.out.println("Load scene 2InfoOrRest");
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("view/2InfoOrRest.fxml"));
             AnchorPane InfoOrRest = loader.load();
@@ -168,7 +169,6 @@ public class ControladorPresentacio extends Application {
             loader.setLocation(getClass().getResource("view/3ViewInfo.fxml"));
 
             AnchorPane ViewInfo = loader.load();
-            System.out.println("after loading info from cp");
 
             ViewInfoController controller = loader.getController();
             controller.setAssigs(td.getAssigs());
@@ -176,7 +176,6 @@ public class ControladorPresentacio extends Application {
             controller.setMainApp(this);
 
             rootLayout.setCenter(ViewInfo);
-            System.out.println("after setting viewinfo from cp");
 
 //            ViewInfoController controller = loader.getController();
 //            controller.setMainApp(this);
@@ -196,9 +195,6 @@ public class ControladorPresentacio extends Application {
 
                 ViewRestController controller = loader.getController();
                 controller.setAssigs(getAssigs());
-                String assig = controller.getAssig();
-
-                controller.setGrups(getGrups(assig));
                 controller.setHores(getHores());
                 controller.setTorns();
                 controller.setRestsEx(td.getAllRest());
@@ -214,12 +210,9 @@ public class ControladorPresentacio extends Application {
 
     public void showViewHorari() {
         try {
-            System.out.println("show viewHorari beginning");
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("view/4ViewHorari.fxml"));
-            System.out.println("after setting location");
             AnchorPane ViewHorari = loader.load();
-            System.out.println("after loading");
             ViewHorariController controller = loader.getController();
             controller.setClassOrigin();
             String[][][][] horari = td.getHorari();
@@ -231,7 +224,6 @@ public class ControladorPresentacio extends Application {
 
             rootLayout.setCenter(ViewHorari);
 
-            System.out.println("show viewHorari end");
 
         } catch (IOException e) {
             e.printStackTrace();
