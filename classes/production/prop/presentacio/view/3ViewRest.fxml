@@ -209,6 +209,8 @@
                                     <ComboBox fx:id="horaIniRestFranjaHoraria" prefHeight="25.0" prefWidth="89.0" />
                                     <Label text="a" />
                                     <ComboBox fx:id="horaFiRestFranjaHoraria" prefHeight="26.0" prefWidth="86.0" />
+                                    <Label text="els" />
+                                    <ComboBox fx:id="diaRestFranjaHoraria" prefHeight="25.0" prefWidth="89.0" />
                                     <Button fx:id="afegirRestFranjaHoraria" mnemonicParsing="false" text="Afegir restriccio" />
                                  </children>
                                  <opaqueInsets>
@@ -218,10 +220,10 @@
                                     <Insets />
                                  </VBox.margin>
                               </HBox>
-                              <ListView fx:id="listRestTornAssig1" prefHeight="291.0" prefWidth="581.0" />
+                              <ListView fx:id="listRestFranjaHoraria" prefHeight="291.0" prefWidth="581.0" />
                               <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="758.0">
                                  <children>
-                                    <Button fx:id="borrarRestTornAssig1" mnemonicParsing="false" text="Borrar restriccions seleccionades" />
+                                    <Button fx:id="borrarRestFranjaHoraria" mnemonicParsing="false" text="Borrar restriccions seleccionades" />
                                  </children>
                                  <VBox.margin>
                                     <Insets />

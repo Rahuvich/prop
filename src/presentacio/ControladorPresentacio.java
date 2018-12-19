@@ -81,6 +81,10 @@ public class ControladorPresentacio extends Application {
         return td.getHores();
     }
 
+    public ArrayList<String> getHoresFi(String iniHora) {
+        return td.getHoresFi(iniHora);
+    }
+
     public ArrayList<String> getDies() {
         return td.getDies();
     }
@@ -99,6 +103,8 @@ public class ControladorPresentacio extends Application {
 
     public void createRestHoraGrup (String assig, String grup, String hora) { td.createRestHoraGrup(assig, grup, hora);
     }
+    public void createRestFranjaHoraria (String horaIni, String horaFi, String dia) { td.createRestFranjaHoraria(horaIni,horaFi,dia);
+    }
 
     public void deleteRestTornAssig(String nomAssig, String mati) {
         td.deleteRestTornAssig(nomAssig, mati);
@@ -112,6 +118,9 @@ public class ControladorPresentacio extends Application {
     }
     public void deleteRestHoraGrup(String nomAssig, String nomGrup, String hora) {
         td.deleteRestHoraGrup(nomAssig, nomGrup, hora);
+    }
+    public void deleteRestFranjaHoraria(String horaIni, String horaFi, String dia) {
+        td.deleteRestFranjaHoraria(horaIni, horaFi, dia);
     }
 
 
@@ -205,6 +214,7 @@ public class ControladorPresentacio extends Application {
                 ViewRestController controller = loader.getController();
                 controller.setAssigs(getAssigs());
                 controller.setHores(getHores());
+                controller.setDies(getDies());
                 controller.setTorns();
                 controller.setRestsEx(td.getAllRest());
 

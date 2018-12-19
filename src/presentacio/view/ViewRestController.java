@@ -80,6 +80,20 @@ public class ViewRestController {
     @FXML
     private ListView<String> listRestHoraGrup;
 
+    //Atributs RestFranjaHoraria
+    @FXML
+    private Button afegirRestFranjaHoraria;
+    @FXML
+    private Button borrarRestFranjaHoraria;
+    @FXML
+    private ComboBox<String> horaIniRestFranjaHoraria;
+    @FXML
+    private ComboBox<String> horaFiRestFranjaHoraria;
+    @FXML
+    private ComboBox<String> diaRestFranjaHoraria;
+    @FXML
+    private ListView<String> listRestFranjaHoraria;
+
 
     HashMap<String, ArrayList<String[]>> rests = new HashMap<>();
 
@@ -114,6 +128,18 @@ public class ViewRestController {
         ObservableList<String> observableListHores = FXCollections.observableList(hores);
         horaRestHoraAssig.setItems(observableListHores);
         horaRestHoraGrup.setItems(observableListHores);
+        horaIniRestFranjaHoraria.setItems(observableListHores);
+        horaFiRestFranjaHoraria.setItems(observableListHores);
+    }
+
+    public void setHoresFi (ArrayList<String> hores) {
+        ObservableList<String> observableListGrups = FXCollections.observableList(hores);
+        horaFiRestFranjaHoraria.setItems(observableListGrups);
+    }
+
+    public void setDies (ArrayList<String> dies) {
+        ObservableList<String> observableListDies = FXCollections.observableList(dies);
+        diaRestFranjaHoraria.setItems(observableListDies);
     }
 
     public void setTorns() {
@@ -337,6 +363,45 @@ public class ViewRestController {
             cP.deleteRestHoraGrup(aux[0], aux[1], aux[2]);
             System.out.println("from viewrestcontroller he fet el delete");
             listRestHoraGrup.getItems().remove(selected);
+
+        });
+        /*
+         ** RESTFRANJAHORARIA
+         */
+        horaIniRestFranjaHoraria.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
+                    setHoresFi(cP.getHoresFi(newValue));
+                }
+        );
+
+        afegirRestFranjaHoraria.setOnAction((event) -> {
+            String horaIni = horaIniRestFranjaHoraria.getValue();
+            String horaFi = horaFiRestFranjaHoraria.getValue();
+            String dia = diaRestFranjaHoraria.getValue();
+            cP.createRestFranjaHoraria(horaIni, horaFi, dia);
+
+            if (!rests.containsKey("RestFranjaHoraria")) {
+                rests.put("RestFranjaHoraria", null);
+            }
+
+            ArrayList<String[]> aux = rests.get("RestFranjaHoraria");
+            if (aux==null){
+                aux = new ArrayList<>();
+            }
+            String[] actual = new String[] {horaIni, horaFi, dia};
+            aux.add(actual);
+
+            rests.put("RestFranjaHoraria", aux);
+
+            listRestFranjaHoraria.getItems().add("Els " + dia + " de " + horaIni +" a " + horaFi + "será horari no lectiu");
+        });
+
+        borrarRestFranjaHoraria.setOnAction((event) -> {
+            int selected = listRestFranjaHoraria.getSelectionModel().getSelectedIndex();
+            String[] aux = rests.get("RestFranjaHoraria").get(selected);
+            System.out.println("from viewrestcontroller vull elminiar rest torn assig de lassig " + aux[0] + " del grup " + aux[1] +" al torn " + aux[2]);
+            cP.deleteRestFranjaHoraria(aux[0], aux[1], aux[2]);
+            System.out.println("from viewrestcontroller he fet el delete");
+            listRestFranjaHoraria.getItems().remove(selected);
 
         });
 
