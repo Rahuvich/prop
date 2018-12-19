@@ -385,7 +385,8 @@ public class ControladorDomini {
      * @param nomAssig Nom de l'assignatura
      * @param hora Hora entre HoraIni i HoraFi
      */
-    public static void deleteRestHoraAssig(String nomAssig, int hora){
+    public static void deleteRestHoraAssig(String nomAssig, String h){
+        int hora = Integer.parseInt(h);
         int indexAssig = -1;
         for (int i = 0; i < vassig.size(); i++) {
             if(nomAssig.equals(vassig.get(i).getNomAssig())) indexAssig = i;
@@ -866,7 +867,8 @@ public class ControladorDomini {
         horari.afegirRestriccio(res);
     }
 
-    public void createRestHoraAssig (String assig, int hora) {
+    public void createRestHoraAssig (String assig, String h) {
+        int hora = Integer.parseInt(h);
         Assignatura aux = getAssigFromName(assig);
         RestHoraAssig res = new RestHoraAssig(aux, hora);
         horari.afegirRestriccio(res);

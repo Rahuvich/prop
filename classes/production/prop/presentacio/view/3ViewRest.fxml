@@ -146,7 +146,7 @@
                                     <Insets />
                                  </VBox.margin>
                               </HBox>
-                              <ListView prefHeight="291.0" prefWidth="581.0" />
+                              <ListView fx:id="listRestHoraAssig" prefHeight="291.0" prefWidth="581.0" />
                               <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="758.0">
                                  <children>
                                     <Button fx:id="borrarRestHoraAssig" mnemonicParsing="false" text="Borrar restriccions seleccionades" />

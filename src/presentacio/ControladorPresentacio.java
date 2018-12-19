@@ -93,8 +93,8 @@ public class ControladorPresentacio extends Application {
         td.createRestTornGrup(assig,grup, torn);
     }
 
-    public void createRestHoraAssig (String assig, int hora) {
-        td.createRestHoraAssig(assig, hora);
+    public void createRestHoraAssig (String assig, String h) {
+        td.createRestHoraAssig(assig, h);
     }
 
     public void deleteRestTornAssig(String nomAssig, String mati) {
@@ -103,6 +103,9 @@ public class ControladorPresentacio extends Application {
 
     public void deleteRestTornGrup(String nomAssig, String nomGrup, String mati) {
         td.deleteRestTornGrup(nomAssig, nomGrup, mati);
+    }
+    public void deleteRestHoraAssig(String nomAssig, String h) {
+        td.deleteRestHoraAssig(nomAssig, h);
     }
 
 

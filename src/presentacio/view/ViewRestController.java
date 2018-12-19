@@ -39,17 +39,6 @@ public class ViewRestController {
     @FXML
     private ListView<String> listRestTornAssig;
 
-    //Atributs RestHoraAssig
-    @FXML
-    private Button afegirRestHoraAssig;
-    @FXML
-    private Button borrarRestHoraAssig;
-    @FXML
-    private ComboBox<String> assigRestHoraAssig;
-    @FXML
-    private ComboBox<String> horaRestHoraAssig;
-    @FXML
-    private ListView<String> listRestHoraAssig;
 
     //Atributs RestTornGrup
     @FXML
@@ -64,6 +53,18 @@ public class ViewRestController {
     private ComboBox<String> tornRestTornGrup;
     @FXML
     private ListView<String> listRestTornGrup;
+
+    //Atributs RestHoraAssig
+    @FXML
+    private Button afegirRestHoraAssig;
+    @FXML
+    private Button borrarRestHoraAssig;
+    @FXML
+    private ComboBox<String> assigRestHoraAssig;
+    @FXML
+    private ComboBox<String> horaRestHoraAssig;
+    @FXML
+    private ListView<String> listRestHoraAssig;
 
     //Atributs RestHoraGrup
     @FXML
@@ -227,11 +228,11 @@ public class ViewRestController {
         });
 
         /*
-        ** RESTTORNGRUP
+         ** RESTTORNGRUP
          */
         assigRestTornGrup.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
-            setGrups(cP.getGrups(newValue));
-        }
+                    setGrups(cP.getGrups(newValue));
+                }
         );
 
         afegirRestTornGrup.setOnAction((event) -> {
@@ -266,14 +267,41 @@ public class ViewRestController {
 
         });
 
-
+        /*
+         ** RESTHORAASSIG
+         */
 
 
         afegirRestHoraAssig.setOnAction((event) -> {
 
-            String assig = assigRestTornAssig.getValue();
-            String torn = tornRestTornAssig.getValue();
-            cP.createRestTornAssig(assig, torn);
+            String assig = assigRestHoraAssig.getValue();
+            String h = horaRestHoraAssig.getValue();
+            cP.createRestHoraAssig(assig, h);
+            if (!rests.containsKey("RestHoraAssig")) {
+                rests.put("RestHoraAssig", null);
+            }
+
+            ArrayList<String[]> aux = rests.get("RestHoraAssig");
+            if (aux==null){
+                aux = new ArrayList<>();
+            }
+            String[] actual = new String[] {assig, h};
+            aux.add(actual);
+
+            rests.put("RestHoraAssig", aux);
+
+            listRestHoraAssig.getItems().add("L'assignatura " + assig +" no fara classe a les " + h);
+
+
+        });
+
+        borrarRestHoraAssig.setOnAction((event) -> {
+            int selected = listRestHoraAssig.getSelectionModel().getSelectedIndex();
+            String[] aux = rests.get("RestHoraAssig").get(selected);
+            System.out.println("from viewrestcontroller vull elminiar rest torn assig de lassig " + aux[0] + " a les " + aux[1]);
+            cP.deleteRestHoraAssig(aux[0], aux[1]);
+            System.out.println("from viewrestcontroller he fet el delete");
+            listRestHoraAssig.getItems().remove(selected);
 
         });
 
