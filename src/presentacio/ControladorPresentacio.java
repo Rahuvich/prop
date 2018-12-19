@@ -97,6 +97,9 @@ public class ControladorPresentacio extends Application {
         td.createRestHoraAssig(assig, h);
     }
 
+    public void createRestHoraGrup (String assig, String grup, String hora) { td.createRestHoraGrup(assig, grup, hora);
+    }
+
     public void deleteRestTornAssig(String nomAssig, String mati) {
         td.deleteRestTornAssig(nomAssig, mati);
     }
@@ -106,6 +109,9 @@ public class ControladorPresentacio extends Application {
     }
     public void deleteRestHoraAssig(String nomAssig, String h) {
         td.deleteRestHoraAssig(nomAssig, h);
+    }
+    public void deleteRestHoraGrup(String nomAssig, String nomGrup, String hora) {
+        td.deleteRestHoraGrup(nomAssig, nomGrup, hora);
     }
 
 

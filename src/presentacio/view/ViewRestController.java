@@ -72,9 +72,11 @@ public class ViewRestController {
     @FXML
     private Button borrarRestHoraGrup;
     @FXML
+    private ComboBox<String> grupRestHoraGrup;
+    @FXML
     private ComboBox<String> assigRestHoraGrup;
     @FXML
-    private ComboBox<String> tornRestHoraGrup;
+    private ComboBox<String> horaRestHoraGrup;
     @FXML
     private ListView<String> listRestHoraGrup;
 
@@ -98,17 +100,20 @@ public class ViewRestController {
         assigRestHoraAssig.setItems(observableListAssigs);
         assigRestTornAssig.setItems(observableListAssigs);
         assigRestTornGrup.setItems(observableListAssigs);
+        assigRestHoraGrup.setItems(observableListAssigs);
     }
 
     public void setGrups (ArrayList<String> grups) {
         ObservableList<String> observableListGrups = FXCollections.observableList(grups);
         grupRestTornGrup.setItems(observableListGrups);
+        grupRestHoraGrup.setItems(observableListGrups);
     }
 
 
     public void setHores (ArrayList<String> hores) {
         ObservableList<String> observableListHores = FXCollections.observableList(hores);
         horaRestHoraAssig.setItems(observableListHores);
+        horaRestHoraGrup.setItems(observableListHores);
     }
 
     public void setTorns() {
@@ -174,15 +179,6 @@ public class ViewRestController {
             String[] aux = list.get(i);
             listRestHoraGrup.getItems().add("El grup " + aux[1] + " de l'assignatura " + aux[0] + " no fara classe durant les" + aux[2]);
         }
-    }
-
-    public String getAssig()
-    {
-        String assig = assigRestTornGrup.getValue();
-        System.out.println("String de assigRestTornGrup= " + assig);
-        return assig;
-        //assigRestTornGrup.
-
     }
 
 
@@ -302,6 +298,45 @@ public class ViewRestController {
             cP.deleteRestHoraAssig(aux[0], aux[1]);
             System.out.println("from viewrestcontroller he fet el delete");
             listRestHoraAssig.getItems().remove(selected);
+
+        });
+        /*
+         ** RESTHORAGRUP
+         */
+        assigRestHoraGrup.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
+                    setGrups(cP.getGrups(newValue));
+                }
+        );
+
+        afegirRestHoraGrup.setOnAction((event) -> {
+            String assig = assigRestHoraGrup.getValue();
+            String grup = grupRestHoraGrup.getValue();
+            String hora = horaRestHoraGrup.getValue();
+            cP.createRestHoraGrup(assig, grup, hora);
+
+            if (!rests.containsKey("RestHoraGrup")) {
+                rests.put("RestHoraGrup", null);
+            }
+
+            ArrayList<String[]> aux = rests.get("RestHoraGrup");
+            if (aux==null){
+                aux = new ArrayList<>();
+            }
+            String[] actual = new String[] {assig, grup, hora};
+            aux.add(actual);
+
+            rests.put("RestHoraGrup", aux);
+
+            listRestHoraGrup.getItems().add("L'assignatura " + assig + " del grup " + grup +" no fara classe a les " + hora);
+        });
+
+        borrarRestHoraGrup.setOnAction((event) -> {
+            int selected = listRestHoraGrup.getSelectionModel().getSelectedIndex();
+            String[] aux = rests.get("RestHoraGrup").get(selected);
+            System.out.println("from viewrestcontroller vull elminiar rest torn assig de lassig " + aux[0] + " del grup " + aux[1] +" al torn " + aux[2]);
+            cP.deleteRestHoraGrup(aux[0], aux[1], aux[2]);
+            System.out.println("from viewrestcontroller he fet el delete");
+            listRestHoraGrup.getItems().remove(selected);
 
         });
 

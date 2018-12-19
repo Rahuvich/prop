@@ -169,10 +169,12 @@
                               <HBox prefHeight="30.0" prefWidth="581.0" spacing="5.0">
                                  <children>
                                     <Label text="L'assignatura " />
-                                    <ComboBox fx:id="assigRestHoraAssig2" prefHeight="26.0" prefWidth="70.0" />
+                                    <ComboBox fx:id="assigRestHoraGrup" prefHeight="26.0" prefWidth="70.0" />
+                                    <Label text="amb grup" />
+                                    <ComboBox fx:id="grupRestHoraGrup" prefHeight="26.0" prefWidth="70.0" />
                                     <Label text=" NO farà classe a l'hora" />
-                                    <ComboBox fx:id="horaRestHoraAssig2" prefHeight="26.0" prefWidth="66.0" />
-                                    <Button fx:id="afegirRestHoraAssig2" mnemonicParsing="false" text="Afegir restriccio" />
+                                    <ComboBox fx:id="horaRestHoraGrup" prefHeight="26.0" prefWidth="66.0" />
+                                    <Button fx:id="afegirRestHoraGrup" mnemonicParsing="false" text="Afegir restriccio" />
                                  </children>
                                  <opaqueInsets>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -181,10 +183,10 @@
                                     <Insets />
                                  </VBox.margin>
                               </HBox>
-                              <ListView prefHeight="291.0" prefWidth="581.0" />
+                              <ListView fx:id="listRestHoraGrup" prefHeight="291.0" prefWidth="581.0" />
                               <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="758.0">
                                  <children>
-                                    <Button fx:id="borrarRestHoraAssig2" mnemonicParsing="false" text="Borrar restriccions seleccionades" />
+                                    <Button fx:id="borrarRestHoraGrup" mnemonicParsing="false" text="Borrar restriccions seleccionades" />
                                  </children>
                                  <VBox.margin>
                                     <Insets />

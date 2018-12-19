@@ -408,7 +408,8 @@ public class ControladorDomini {
      * @param grup String del numero del grup (10, 11, 20, 21)
      * @param hora Hora entre HoraIni i HoraFi
      */
-    public static void deleteRestHoraGrup(String nomAssig, String grup, int hora){
+    public static void deleteRestHoraGrup(String nomAssig, String grup, String h){
+        int hora = Integer.parseInt(h);
         int indexAssig = -1;
         for (int i = 0; i < vassig.size(); i++) {
             if(nomAssig.equals(vassig.get(i).getNomAssig())) indexAssig = i;
@@ -481,7 +482,6 @@ public class ControladorDomini {
             }
         }
     }
-
 
     /**
      * Borra la restriccio
@@ -836,36 +836,13 @@ public class ControladorDomini {
     public void createRestTornGrup (String assig, String grup, String torn) {
         System.out.println("createRestTornGrup Cd");
         boolean x = getBoolFromTorn(torn);
-
         Assignatura aux = getAssigFromName(assig);
-        if(aux == null)  System.out.println("aux is null and should be " + assig );
-        else         System.out.println("aux is" + aux.getNomAssig());
-
-
-        ArrayList<Grup> vgrups = new ArrayList<Grup>();
-        vgrups = aux.getGrups();
-        System.out.println("despres vgrups");
-
-        Grup g = null;
-        System.out.println("abans for");
-
-        for(int i = 0; i < vgrups.size(); i++)
-        {
-            System.out.println("grup " + grup + "es igual a vgrups " + vgrups.get(i).getNumero());
-
-            if(Integer.parseInt(grup) == vgrups.get(i).getNumero())
-            {
-                System.out.println("grup trobat " + vgrups.get(i).getNumero());
-                g = vgrups.get(i);
-            }
-        }
-        System.out.println("despres for");
-
-        if(g == null) System.out.println("Grup no trobat, null");
-        else System.out.println("Treballem amb el grup " + g.getNumero() + " de l'assig" + g.getNomAssig());
+        Grup g = getGrupFromAssig(aux, grup);
         RestTornGrup res = new RestTornGrup(g, x);
         horari.afegirRestriccio(res);
     }
+
+
 
     public void createRestHoraAssig (String assig, String h) {
         int hora = Integer.parseInt(h);
@@ -875,11 +852,29 @@ public class ControladorDomini {
 
     }
 
+    public void createRestHoraGrup (String assig,String grup, String h) {
+        int hora = Integer.parseInt(h);
+        Assignatura aux = getAssigFromName(assig);
+        Grup g = getGrupFromAssig(aux, grup);
+        RestHoraGrup res = new RestHoraGrup(g, hora);
+        horari.afegirRestriccio(res);
+
+    }
+
     private Assignatura getAssigFromName(String assig) {
         for (int i = 0; i < vassig.size(); ++i) {
             if (vassig.get(i).getNomAssig()==assig) return vassig.get(i);
         }
         return null;
+    }
+
+    private Grup getGrupFromAssig(Assignatura aux, String grup)
+    {
+        ArrayList<Grup> vgrups = new ArrayList<Grup>();
+        vgrups = aux.getGrups();
+        Grup g = null;
+        for(int i = 0; i < vgrups.size(); i++) { if(Integer.parseInt(grup) == vgrups.get(i).getNumero()) g = vgrups.get(i); }
+        return g;
     }
 
 
