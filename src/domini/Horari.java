@@ -28,6 +28,8 @@ public class Horari {
 		this.horaIniDia = horaIniDia;
 		this.horaFiDia = horaFiDia;
 
+		System.out.println("			--------EEEEEEEEE-------");
+
 		horari = new Classe[5][horaFiDia-horaIniDia][vaules.size()];
 
 		for (int i = 0; i < 5; ++i){
@@ -87,23 +89,6 @@ public class Horari {
 
 		endAlgorithm = System.nanoTime();
 		System.out.println("Ha tardat " + ((endAlgorithm - startAlgorithm) / 1000000) + "ms");
-
-		grupTried.clear();
-
-		System.out.println("Vaig a eliminar F de tarda");
-		ControladorDomini.deleteRestTornAssig("F", "Tarda");
-
-		for (int i = 0; i < 5; ++i){
-			for (int j = 0; j < horaFiDia - horaIniDia; ++j){
-				for (int k = 0; k < vaules.size(); ++k){
-					horari[i][j][k] = new Classe();
-				}
-			}
-		}
-
-		if(!backtrackingGrup(0,0))
-			System.out.println("No ha sigut possible");
-		else printHorari();
     }
 
     private boolean backtrackingGrup(int g, int assig){
@@ -269,12 +254,9 @@ public class Horari {
 					}
 				}
 			}
-			grupTried.clear();
 			return false;
-		} else {
-			grupTried.clear();
-			return true;
-		}
+		} else return true;
+
 	}
 
 	/**
