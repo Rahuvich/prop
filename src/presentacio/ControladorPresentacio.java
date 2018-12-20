@@ -26,6 +26,8 @@ public class ControladorPresentacio extends Application {
     private boolean viewRestAssig = false;
 
 
+
+
     public static void main(String[] args) {
 
         //RAUL SI VOLS EXECUTAR EN FORMATO TERMINAL DESCOMENTA LO DE tESTdRIVER.EXECUTE()
@@ -129,7 +131,7 @@ public class ControladorPresentacio extends Application {
     public void deleteRestSeparat(String assig) {
         td.deleteRestSeparat(assig);
     }
-
+    public String getStringDia(int i){return td.getStringDia(i);}
 
 
 

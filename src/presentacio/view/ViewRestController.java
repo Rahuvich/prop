@@ -183,6 +183,14 @@ public class ViewRestController {
                 case "RestTornGrup":
                     setRestTornGrup(aux);
                     break;
+                case "RestFranjaHoraria":
+                    if(aux.isEmpty()) System.out.println("esta vacia la lista en el case");
+                    else System.out.println("en la lista hay " + aux.size() + "componentes en el case");
+                    setRestFranjaHoraria(aux);
+                    break;
+                case "RestSeparat":
+                    setRestSeparat(aux);
+                    break;
 
             }
 
@@ -216,6 +224,47 @@ public class ViewRestController {
             String[] aux = list.get(i);
             listRestHoraGrup.getItems().add("El grup " + aux[1] + " de l'assignatura " + aux[0] + " no fara classe durant les" + aux[2]);
         }
+    }
+    public void setRestFranjaHoraria(ArrayList<String[]> list) {
+        if(list.isEmpty()) System.out.println("esta vacia la lista");
+        else System.out.println("en la lista hay " + list.size() + "componentes");
+        for (int i=0; i<list.size(); ++i) {
+            String[] aux = list.get(i);
+            int d = Integer.parseInt(aux[2]);
+            aux[2] = getStringFromdia(d);
+            listRestFranjaHoraria.getItems().add("De " + aux[0] + " a " + aux[1] +" els " + aux[2] + " será horari no lectiu");
+
+        }
+    }
+    public void setRestSeparat (ArrayList<String[]> list) {
+        for (int i=0; i<list.size(); ++i) {
+            String[] aux = list.get(i);
+            listRestSeparat.getItems().add("L'assignatura " + aux[0] + " es realitzara en el maxim de dies posibles ");
+
+        }
+    }
+
+    private String getStringFromdia(int d)
+    {
+        String dia = " ";
+        switch (d) {
+            case 0:
+                dia = "DILLUNS";
+                break;
+            case 1:
+                dia = "DIMARTS";
+                break;
+            case 2:
+                dia = "DIMECRES";
+                break;
+            case 3:
+                dia = "DIJOUS";
+                break;
+            case 4:
+                dia = "DIVENDRES";
+                break;
+        }
+        return dia;
     }
 
 
@@ -403,7 +452,7 @@ public class ViewRestController {
 
             rests.put("RestFranjaHoraria", aux);
 
-            listRestFranjaHoraria.getItems().add("Els " + dia + " de " + horaIni +" a " + horaFi + "será horari no lectiu");
+            listRestFranjaHoraria.getItems().add("De " + horaIni + " a " + horaFi +" els " + dia + " será horari no lectiu");
         });
 
         borrarRestFranjaHoraria.setOnAction((event) -> {
@@ -449,6 +498,7 @@ public class ViewRestController {
             else System.out.println("no la conte");
             String[] aux = rests.get("RestSeparat").get(selected);
             System.out.println(aux[0]);
+            System.out.println("from viewrestcontroller vull elminiar rest torn assig de lassig " + aux[0]);
             cP.deleteRestSeparat(aux[0]);
             System.out.println("from viewrestcontroller he fet el delete");
             listRestSeparat.getItems().remove(selected);

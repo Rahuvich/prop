@@ -272,12 +272,8 @@ public class ControladorDomini {
                 " de les " + horaInici + " a les " + horaFin + " no hi haura classes");
 
         for (int i = 0; i<vassig.size(); ++i){
-            for (int j = 0; j<vassig.get(i).getGrups().size(); ++j)
-            {
-                //System.out.println("Creando restriccion al grup " + vassig.get(i).getGrups().get(j).getNumero() +  " de l'assignatura " + vassig.get(i).getNomAssig());
-                RestFranjaHoraria res = new RestFranjaHoraria(vassig.get(i).getGrups().get(j), horaInici, horaFin, dia-1);
-                horari.afegirRestriccio(res);
-            }
+            RestFranjaHoraria res = new RestFranjaHoraria(vassig.get(i), horaInici, horaFin, dia-1);
+            horari.afegirRestriccio(res);
         }
     }
 
@@ -414,51 +410,26 @@ public class ControladorDomini {
         }
     }
 
-    /**
-     * Borra la restriccio
-     * @param nomAssig Nom de l'assignatura
-     * @param grup String del numero del grup (10, 11, 20, 21)
-     * @param dia Between 0 and 4
-     */
-    public static void deleteRestDiaGrup(String nomAssig, String grup, int dia) {
-        int indexAssig = -1;
-        for (int i = 0; i < vassig.size(); i++) {
-            if(nomAssig.equals(vassig.get(i).getNomAssig())) indexAssig = i;
-        }
-
-        int indexGrup = getIndexGrup(vassig.get(indexAssig), grup);
-
-        if(horari.restGrups.containsKey(vassig.get(indexAssig).getGrups().get(indexGrup))){
-            for (Restriccions aux : horari.restGrups.get(vassig.get(indexAssig).getGrups().get(indexGrup))) {
-                if(aux instanceof  RestDiaGrup){
-                    if(((RestDiaGrup) aux).getDia() == dia)
-                        horari.restGrups.remove(vassig.get(indexAssig).getGrups().get(indexGrup), aux);
-                }
-            }
-        }
-    }
-
     public  void deleteRestFranjaHoraria(String iniHora, String fiHora, String d) {
         System.out.println("delete en CD");
 
         int horaIni = Integer.parseInt(iniHora);
         int horaFi = Integer.parseInt(fiHora);
         int dia = getDiaFromName(d);
-System.out.println("antes del for");
         for (int i = 0; i < vassig.size(); i++)
         {
-            for(int j = 0; j < vassig.get(i).getGrups().size(); ++j)
-            {
+            String nomAssig = vassig.get(i).getNomAssig();
+            if(horari.restAssig.containsKey(nomAssig)){
+                for (Iterator<Restriccions> it = horari.restAssig.get(nomAssig).iterator(); it.hasNext(); ) {
+                    Restriccions aux = it.next();
+                    if(aux instanceof  RestFranjaHoraria){
+                       if( (((RestFranjaHoraria) aux).getDia() == dia)
+                           && (((RestFranjaHoraria) aux).getHoraIni() == horaIni)
+                                && (((RestFranjaHoraria) aux).getHoraFi() == horaFi) ){
+                            it.remove();
+                            if(horari.restAssig.get(nomAssig).isEmpty())
+                                horari.restAssig.remove(nomAssig);
 
-                Grup g = vassig.get(i).getGrups().get(j);
-                System.out.println("bucle mas interno " +  g.getNomAssig() + " "+ g.getNumero() );
-                if(horari.restGrups.containsKey(g)){
-                    System.out.println("contiene g");
-                    for (Restriccions aux : horari.restGrups.get(g)) {
-                        if(aux instanceof  RestFranjaHoraria){
-                           if( (((RestFranjaHoraria) aux).getDia() == dia) && (((RestFranjaHoraria) aux).getHoraIni() == horaIni) && (((RestFranjaHoraria) aux).getHoraFi() == horaFi) )
-                               System.out.println("lo borro ");
-                               horari.restGrups.remove(g, aux);
                         }
                     }
                 }
@@ -469,18 +440,15 @@ System.out.println("antes del for");
     }
 
     public static void deleteRestSeparat(String nomAssig){
-        int indexAssig = -1;
-        for (int i = 0; i < vassig.size(); i++) {
-            if(nomAssig.equals(vassig.get(i).getNomAssig())) indexAssig = i;
-        }
-
+        System.out.println("delete en CD");
         if(horari.restAssig.containsKey(nomAssig)){
-            for (Restriccions aux : horari.restAssig.get(nomAssig)) {
+            for (Iterator<Restriccions> it = horari.restAssig.get(nomAssig).iterator(); it.hasNext(); ) {
+                Restriccions aux = it.next();
                 if(aux instanceof  RestSeparat){
-                    if(((RestSeparat) aux).assig.getNomAssig() == nomAssig){
-                        horari.restAssig.remove(nomAssig, aux);
-                        System.out.println("He eliminat una restriccio");
-                    }
+                        it.remove();
+                        if(horari.restAssig.get(nomAssig).isEmpty())
+                            horari.restAssig.remove(nomAssig);
+
                 }
             }
         }
@@ -571,22 +539,50 @@ System.out.println("antes del for");
     }
 
     /**
-     * Cada Array conte nom de la assignatura, el numero del grup (10, 11, 20, 21) i dia (0-4)
+     * Cada Array conte nom de la dia i l'horaINi i horaFi
      * @return
      */
-    public static ArrayList<String[]> getAllRestDiaGrup(){
+    public static ArrayList<String[]> getAllRestFranjaHoraria(){
+        System.out.println("getAllRestFranjaHoraria");
+
         ArrayList<String[]> result = new ArrayList<>();
-        for (Restriccions rest : horari.getAllRestGrup()) {
-            if(rest instanceof RestDiaGrup){
-                String[] restString = new String[3];
-                restString[0] = (((RestDiaGrup) rest).getGrup().getNomAssig());
-                restString[1] = (String.valueOf(((RestDiaGrup) rest).getGrup().getNumero()));
-                restString[2] = Dia.values()[((RestDiaGrup) rest).getDia()].toString();
+            for (Restriccions rest : horari.getAllRestAssig()) {
+                if(rest instanceof RestFranjaHoraria){
+
+                    String[] restString = new String[3];
+                    restString[0] = (Integer.toString(((RestFranjaHoraria) rest).getHoraIni()));
+                    restString[1] = (Integer.toString(((RestFranjaHoraria) rest).getHoraFi()));
+                    restString[2] = Integer.toString(((RestFranjaHoraria) rest).getDia());
+                    boolean found = false;
+                    for(int i = 0; i < result.size() && !found; i++)
+                    {
+                        String[] antString = result.get(i);
+                        if((antString[0].equals(restString[0]))
+                                &&(antString[1].equals(restString[1]))
+                                &&(antString[2].equals(restString[2])))
+                            found = true;
+
+                    }
+
+                    if(!found) result.add(restString);
+
+                }
+            }
+        return result;
+    }
+    public static ArrayList<String[]> getAllRestSeparat(){
+        System.out.println("getAllRestSeparat");
+        ArrayList<String[]> result = new ArrayList<>();
+        for (Restriccions rest : horari.getAllRestAssig()) {
+            if(rest instanceof RestSeparat){
+                String[] restString = new String[1];
+                restString[0] = ((RestSeparat) rest).getAssig().getNomAssig();
                 result.add(restString);
             }
         }
         return result;
     }
+
 
     public static void loader(String unitatD){
 
@@ -647,7 +643,13 @@ System.out.println("antes del for");
 
         rests.put("RestHoraGrup", getAllRestHoraGrup());
 
-        rests.put("RestDiaGrup", getAllRestDiaGrup());
+        if(getAllRestFranjaHoraria().isEmpty()) System.out.println("esta vacia la lista en getallrest");
+        else System.out.println("en la lista hay " + getAllRestFranjaHoraria().size() + "componentes en getallrest");
+        rests.put("RestFranjaHoraria", getAllRestFranjaHoraria());
+
+        rests.put("RestSeparat", getAllRestSeparat());
+
+
 
 
         return rests;
@@ -724,6 +726,10 @@ System.out.println("antes del for");
         }
     return -1;
     }
+    public String getStringDia(int i)
+    {
+        return Dia.values()[i].toString();
+    }
 
     public void createRestTornAssig (String assig, String torn) {
         boolean x = getBoolFromTorn(torn);
@@ -773,12 +779,9 @@ System.out.println("antes del for");
         System.out.println("el string de dia es " + d + " s'ha convertit en" + dia );
         for(int i = 0; i < vassig.size(); ++i)
         {
-            for(int j = 0; j < vassig.get(i).getGrups().size(); ++j )
-            {
-                Grup g = vassig.get(i).getGrups().get(j);
-                RestFranjaHoraria res = new RestFranjaHoraria(g, horaIni, horaFi, dia);
+                Assignatura assig= vassig.get(i);
+                RestFranjaHoraria res = new RestFranjaHoraria(assig, horaIni, horaFi, dia);
                 horari.afegirRestriccio(res);
-            }
         }
     }
 

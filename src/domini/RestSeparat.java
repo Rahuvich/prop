@@ -18,8 +18,7 @@ public class RestSeparat extends ResAssig
         int dia = classe.getDia();
         if(dia == grup%5)
         {
-            if( ((grup/10) < 4) && (classe.getHoraIni() < 14) ) ans = true;
-            else if (((grup/10) >= 4) && (classe.getHoraIni() >= 14)) ans = true;
+            ans = true;
         }
         return ans;
     }

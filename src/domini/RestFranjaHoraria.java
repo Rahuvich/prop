@@ -1,14 +1,14 @@
 package domini;
 
-public class RestFranjaHoraria extends ResGrup
+public class RestFranjaHoraria extends ResAssig
 {
     private int horaIni;
     private int horaFi;
     private int dia;
 
-    public RestFranjaHoraria(Grup g, int horaIni, int horaFi, int dia)
+    public RestFranjaHoraria(Assignatura assig, int horaIni, int horaFi, int dia)
     {
-        this.g = g;
+        this.assig = assig;
         this.horaIni = horaIni;
         this.horaFi = horaFi;
         this.dia = dia;
