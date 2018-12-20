@@ -20,19 +20,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/presentacio/view/ViewRestController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="403" column="44" selection-start-line="403" selection-start-column="44" selection-end-line="403" selection-end-column="44" />
+            <state relative-caret-position="401">
+              <caret line="449" column="49" selection-start-line="449" selection-start-column="49" selection-end-line="449" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#setTorns#0;class#ViewRestController#0" />
                 <element signature="method#setRestsEx#0;class#ViewRestController#0" />
                 <element signature="e#5609#6304#0" />
                 <element signature="e#6348#6769#0" />
+                <element signature="e#8097#8866#0" />
+                <element signature="e#8909#9432#0" />
                 <element signature="e#9526#10210#0" />
                 <element signature="e#9219#9742#0" />
+                <element signature="e#9837#9942#0" />
+                <element signature="e#9994#10763#0" />
+                <element signature="e#10806#11329#0" />
+                <element signature="e#11941#12046#0" />
+                <element signature="e#12098#12873#0" />
               </folding>
             </state>
           </provider>
@@ -41,8 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/presentacio/ControladorPresentacio.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="122" column="55" selection-start-line="122" selection-start-column="55" selection-end-line="122" selection-end-column="55" />
+            <state relative-caret-position="351">
+              <caret line="127" column="5" lean-forward="true" selection-start-line="127" selection-start-column="5" selection-end-line="127" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1737#1738#0" expanded="true" />
@@ -53,17 +60,21 @@
                 <element signature="e#2034#2035#0" expanded="true" />
                 <element signature="e#2095#2096#0" expanded="true" />
                 <element signature="e#2146#2147#0" expanded="true" />
+                <element signature="e#2815#2816#0" expanded="true" />
+                <element signature="e#2851#2852#0" expanded="true" />
                 <element signature="method#deleteRestHoraGrup#0;class#ControladorPresentacio#0" />
+                <element signature="e#3585#3586#0" expanded="true" />
+                <element signature="e#3649#3650#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/domini/ControladorDomini.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="523" column="67" selection-start-line="523" selection-start-column="67" selection-end-line="523" selection-end-column="67" />
+            <state relative-caret-position="15">
+              <caret line="553" column="74" selection-start-line="553" selection-start-column="74" selection-end-line="553" selection-end-column="74" />
               <folding>
                 <element signature="e#4698#5480#0" />
                 <element signature="e#5486#6599#0" />
@@ -71,8 +82,12 @@
                 <element signature="e#7940#8969#0" />
                 <element signature="e#8975#10123#0" />
                 <element signature="e#11938#12456#0" />
+                <element signature="e#12717#13475#0" />
+                <element signature="e#13481#14459#0" />
+                <element signature="e#14465#15448#0" />
                 <element signature="e#15454#16619#0" />
                 <element signature="e#16626#17586#0" />
+                <element signature="e#17591#18177#0" />
                 <element signature="e#20189#20835#0" />
                 <element signature="e#20841#21615#0" />
                 <element signature="e#21621#22370#0" />
@@ -167,7 +182,6 @@
       <find>createRestTornGrup</find>
       <find>listRestTornAssig</find>
       <find>System.out</find>
-      <find>delete</find>
       <find>deleteRestTorn</find>
       <find>deleteRestHora</find>
       <find>deleteRestHoraGrup</find>
@@ -183,13 +197,14 @@
       <find>getDies</find>
       <find>values</find>
       <find>dia.values()</find>
-      <find>create</find>
       <find>case</find>
       <find>case &quot;</find>
       <find>deleteRestF</find>
-      <find>RestFranjaHoraria</find>
-      <find>get</find>
       <find>restGrups</find>
+      <find>RestFranjaHoraria</find>
+      <find>create</find>
+      <find>get</find>
+      <find>delete</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -229,8 +244,8 @@
         <option value="$PROJECT_DIR$/src/domini/TestDriver.java" />
         <option value="$PROJECT_DIR$/src/presentacio/view/ViewHorariController.java" />
         <option value="$PROJECT_DIR$/src/presentacio/ControladorPresentacio.java" />
-        <option value="$PROJECT_DIR$/src/presentacio/view/ViewRestController.java" />
         <option value="$PROJECT_DIR$/src/domini/ControladorDomini.java" />
+        <option value="$PROJECT_DIR$/src/presentacio/view/ViewRestController.java" />
       </list>
     </option>
   </component>
@@ -301,7 +316,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545259280176" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545322967353" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -470,15 +485,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/domini/ControladorDomini.java</url>
-          <line>387</line>
-          <properties class="domini.ControladorDomini" method="deleteRestHoraAssig">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/domini/ControladorDomini.java</url>
-          <line>889</line>
+          <line>896</line>
           <properties class="domini.ControladorDomini" method="createRestFranjaHoraria">
             <option name="EMULATED" value="true" />
           </properties>
@@ -486,15 +493,9 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/presentacio/view/ViewRestController.java</url>
-          <line>368</line>
+          <line>379</line>
           <properties />
           <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/presentacio/ControladorPresentacio.java</url>
-          <line>122</line>
-          <properties />
-          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -567,13 +568,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domini/RestSeparat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -723,26 +717,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentacio/view/ViewRestController.java">
+    <entry file="file://$PROJECT_DIR$/src/domini/Horari.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="403" column="44" selection-start-line="403" selection-start-column="44" selection-end-line="403" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#setTorns#0;class#ViewRestController#0" />
-            <element signature="method#setRestsEx#0;class#ViewRestController#0" />
-            <element signature="e#5609#6304#0" />
-            <element signature="e#6348#6769#0" />
-            <element signature="e#9526#10210#0" />
-            <element signature="e#9219#9742#0" />
-          </folding>
+        <state relative-caret-position="174">
+          <caret line="288" column="28" selection-start-line="288" selection-start-column="19" selection-end-line="288" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/scene/control/ButtonBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="120" column="22" selection-start-line="120" selection-start-column="22" selection-end-line="120" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domini/RestSeparat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/presentacio/ControladorPresentacio.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="122" column="55" selection-start-line="122" selection-start-column="55" selection-end-line="122" selection-end-column="55" />
+        <state relative-caret-position="351">
+          <caret line="127" column="5" lean-forward="true" selection-start-line="127" selection-start-column="5" selection-end-line="127" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1737#1738#0" expanded="true" />
@@ -753,22 +752,19 @@
             <element signature="e#2034#2035#0" expanded="true" />
             <element signature="e#2095#2096#0" expanded="true" />
             <element signature="e#2146#2147#0" expanded="true" />
+            <element signature="e#2815#2816#0" expanded="true" />
+            <element signature="e#2851#2852#0" expanded="true" />
             <element signature="method#deleteRestHoraGrup#0;class#ControladorPresentacio#0" />
+            <element signature="e#3585#3586#0" expanded="true" />
+            <element signature="e#3649#3650#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domini/Horari.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="288" column="28" selection-start-line="288" selection-start-column="19" selection-end-line="288" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/domini/ControladorDomini.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="523" column="67" selection-start-line="523" selection-start-column="67" selection-end-line="523" selection-end-column="67" />
+        <state relative-caret-position="15">
+          <caret line="553" column="74" selection-start-line="553" selection-start-column="74" selection-end-line="553" selection-end-column="74" />
           <folding>
             <element signature="e#4698#5480#0" />
             <element signature="e#5486#6599#0" />
@@ -776,8 +772,12 @@
             <element signature="e#7940#8969#0" />
             <element signature="e#8975#10123#0" />
             <element signature="e#11938#12456#0" />
+            <element signature="e#12717#13475#0" />
+            <element signature="e#13481#14459#0" />
+            <element signature="e#14465#15448#0" />
             <element signature="e#15454#16619#0" />
             <element signature="e#16626#17586#0" />
+            <element signature="e#17591#18177#0" />
             <element signature="e#20189#20835#0" />
             <element signature="e#20841#21615#0" />
             <element signature="e#21621#22370#0" />
@@ -798,6 +798,29 @@
             <element signature="e#30292#30298#0" expanded="true" />
             <element signature="e#30497#31682#0" />
             <element signature="e#31688#31823#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentacio/view/ViewRestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="449" column="49" selection-start-line="449" selection-start-column="49" selection-end-line="449" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#setTorns#0;class#ViewRestController#0" />
+            <element signature="method#setRestsEx#0;class#ViewRestController#0" />
+            <element signature="e#5609#6304#0" />
+            <element signature="e#6348#6769#0" />
+            <element signature="e#8097#8866#0" />
+            <element signature="e#8909#9432#0" />
+            <element signature="e#9526#10210#0" />
+            <element signature="e#9219#9742#0" />
+            <element signature="e#9837#9942#0" />
+            <element signature="e#9994#10763#0" />
+            <element signature="e#10806#11329#0" />
+            <element signature="e#11941#12046#0" />
+            <element signature="e#12098#12873#0" />
           </folding>
         </state>
       </provider>

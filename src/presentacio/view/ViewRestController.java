@@ -94,6 +94,16 @@ public class ViewRestController {
     @FXML
     private ListView<String> listRestFranjaHoraria;
 
+    //Atributs RestSeparat
+    @FXML
+    private Button afegirRestSeparat;
+    @FXML
+    private Button borrarRestSeparat;
+    @FXML
+    private ComboBox<String> assigRestSeparat;
+    @FXML
+    private ListView<String> listRestSeparat;
+
 
     HashMap<String, ArrayList<String[]>> rests = new HashMap<>();
 
@@ -115,6 +125,7 @@ public class ViewRestController {
         assigRestTornAssig.setItems(observableListAssigs);
         assigRestTornGrup.setItems(observableListAssigs);
         assigRestHoraGrup.setItems(observableListAssigs);
+        assigRestSeparat.setItems(observableListAssigs);
     }
 
     public void setGrups (ArrayList<String> grups) {
@@ -402,6 +413,45 @@ public class ViewRestController {
             cP.deleteRestFranjaHoraria(aux[0], aux[1], aux[2]);
             System.out.println("from viewrestcontroller he fet el delete");
             listRestFranjaHoraria.getItems().remove(selected);
+
+        });
+
+
+        /*
+         ** RESTSEPARAT
+         */
+        afegirRestSeparat.setOnAction((event) -> {
+            String assig = assigRestSeparat.getValue();
+            cP.createRestSeparat(assig);
+
+            if (!rests.containsKey("RestSeparat")) {
+                rests.put("RestSeparat", null);
+            }
+
+            ArrayList<String[]> aux = rests.get("RestSeparat");
+            if (aux==null){
+                aux = new ArrayList<>();
+            }
+            String[] actual = new String[] {assig};
+            aux.add(actual);
+
+            rests.put("RestSeparat", aux);
+
+
+            listRestSeparat.getItems().add("L'assignatura " + assig + " es realitzara en el maxim de dies posibles ");
+        });
+
+        borrarRestSeparat.setOnAction((event) -> {
+            System.out.println("entro en borrarRestSeparat");
+            int selected = listRestSeparat.getSelectionModel().getSelectedIndex();
+            System.out.println("abans string");
+            if(rests.containsKey("RestSeparat")) System.out.println("la conte");
+            else System.out.println("no la conte");
+            String[] aux = rests.get("RestSeparat").get(selected);
+            System.out.println("from viewrestcontroller vull elminiar rest torn assig de lassig " + aux[0] + " del grup " + aux[1] +" al torn " + aux[2]);
+            cP.deleteRestSeparat(aux[0]);
+            System.out.println("from viewrestcontroller he fet el delete");
+            listRestSeparat.getItems().remove(selected);
 
         });
 

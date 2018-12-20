@@ -545,12 +545,19 @@ System.out.println("antes del for");
     public static void deleteRestSeparat(String nomAssig){
         int indexAssig = -1;
         for (int i = 0; i < vassig.size(); i++) {
-            if( nomAssig.equals(vassig.get(i).getNomAssig())) indexAssig = i;
+            if(nomAssig.equals(vassig.get(i).getNomAssig())) indexAssig = i;
         }
 
-        /*
-        no se com eliminarla
-         */
+        if(horari.restAssig.containsKey(nomAssig)){
+            for (Restriccions aux : horari.restAssig.get(nomAssig)) {
+                if(aux instanceof  RestSeparat){
+                    if(((RestSeparat) aux).assig.getNomAssig() == nomAssig){
+                        horari.restAssig.remove(nomAssig, aux);
+                        System.out.println("He eliminat una restriccio");
+                    }
+                }
+            }
+        }
     }
 
 
@@ -902,6 +909,13 @@ System.out.println("antes del for");
             }
         }
     }
+
+    public void createRestSeparat (String assig) {
+        Assignatura aux = getAssigFromName(assig);
+        RestSeparat res = new RestSeparat(aux);
+        horari.afegirRestriccio(res);
+    }
+
     private Integer getDiaFromName(String d)
     {
         int dia = 0;

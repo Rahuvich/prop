@@ -106,6 +106,10 @@ public class ControladorPresentacio extends Application {
     public void createRestFranjaHoraria (String horaIni, String horaFi, String dia) { td.createRestFranjaHoraria(horaIni,horaFi,dia);
     }
 
+    public void createRestSeparat (String assig) {
+        td.createRestSeparat(assig);
+    }
+
     public void deleteRestTornAssig(String nomAssig, String mati) {
         td.deleteRestTornAssig(nomAssig, mati);
     }
@@ -121,6 +125,9 @@ public class ControladorPresentacio extends Application {
     }
     public void deleteRestFranjaHoraria(String horaIni, String horaFi, String dia) {
         td.deleteRestFranjaHoraria(horaIni, horaFi, dia);
+    }
+    public void deleteRestSeparat(String assig) {
+        td.deleteRestSeparat(assig);
     }
 
 

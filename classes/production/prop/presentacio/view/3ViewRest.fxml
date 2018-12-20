@@ -254,10 +254,10 @@
                                     <Insets />
                                  </VBox.margin>
                               </HBox>
-                              <ListView fx:id="listRestTornAssig14" prefHeight="291.0" prefWidth="581.0" />
+                              <ListView fx:id="listRestSeparat" prefHeight="291.0" prefWidth="581.0" />
                               <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="758.0">
                                  <children>
-                                    <Button fx:id="borrarRestTornAssig14" mnemonicParsing="false" text="Borrar restriccions seleccionades" />
+                                    <Button fx:id="borrarRestSeparat" mnemonicParsing="false" text="Borrar restriccions seleccionades" />
                                  </children>
                                  <VBox.margin>
                                     <Insets />
