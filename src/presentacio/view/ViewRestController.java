@@ -448,7 +448,7 @@ public class ViewRestController {
             if(rests.containsKey("RestSeparat")) System.out.println("la conte");
             else System.out.println("no la conte");
             String[] aux = rests.get("RestSeparat").get(selected);
-            System.out.println("from viewrestcontroller vull elminiar rest torn assig de lassig " + aux[0] + " del grup " + aux[1] +" al torn " + aux[2]);
+            System.out.println(aux[0]);
             cP.deleteRestSeparat(aux[0]);
             System.out.println("from viewrestcontroller he fet el delete");
             listRestSeparat.getItems().remove(selected);
