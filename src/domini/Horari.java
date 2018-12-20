@@ -2,6 +2,7 @@ package domini;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 
 public class Horari {
@@ -14,8 +15,8 @@ public class Horari {
 
 	private HashMap<Grup, Boolean> grupTried;
 
-	public HashMap<Grup, ArrayList<Restriccions>> restGrups;
-	public HashMap<String, ArrayList<Restriccions>> restAssig;
+	public ConcurrentHashMap<Grup, ArrayList<Restriccions>> restGrups;
+	public ConcurrentHashMap<String, ArrayList<Restriccions>> restAssig;
 
 
 	private ArrayList<Assignatura> vassigs;
@@ -40,8 +41,8 @@ public class Horari {
 			}
 		}
 
-		restGrups = new HashMap<>();
-		restAssig = new HashMap<>();
+		restGrups = new ConcurrentHashMap<>();
+		restAssig = new ConcurrentHashMap<>();
 		this.vassigs = vassigs;
 		this.vaules = vaules;
 
@@ -80,6 +81,14 @@ public class Horari {
 
 	public void generaTot()
 	{
+		for (int i = 0; i < 5; ++i){
+			for (int j = 0; j < horaFiDia - horaIniDia; ++j){
+				for (int k = 0; k < vaules.size(); ++k){
+					horari[i][j][k] = new Classe();
+				}
+			}
+		}
+
 		System.out.println("Starting algorithm");
 		startAlgorithm = System.nanoTime();
 
