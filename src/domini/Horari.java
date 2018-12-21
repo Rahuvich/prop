@@ -28,9 +28,6 @@ public class Horari {
 	public Horari(int horaIniDia, int horaFiDia, ArrayList<Assignatura> vassigs, ArrayList<Aula> vaules) {
 		this.horaIniDia = horaIniDia;
 		this.horaFiDia = horaFiDia;
-
-		System.out.println("			--------EEEEEEEEE-------");
-
 		horari = new Classe[5][horaFiDia-horaIniDia][vaules.size()];
 
 		for (int i = 0; i < 5; ++i){

@@ -28,16 +28,6 @@ public class Fabrica {
             String nomAssig = (String) ((JSONObject) llista.get(i)).get("codiAssig");
             String codiBloc = (String) ((JSONObject) llista.get(i)).get("quatri");
             int numeroAlumnes = ((Long) ((JSONObject) llista.get(i)).get("alumnes")).intValue();
-            //System.out.println(nomAssig + " pertany a bloc " + codiBloc);
-            /*JSONArray llistaGrups = (JSONArray) ((JSONObject) llista.get(i)).get("grups");
-            ArrayList<Integer> grups = new ArrayList<>();
-            for(int j = 0; j < llistaGrups.size(); ++j) {
-                grups.add(((Long) llistaGrups.get(j)).intValue());
-                //System.out.print(" " + ((Long) llistaGrups.get(j)).intValue());
-            }
-            //System.out.println();*/
-
-
             vassig.add(new Assignatura(nomAssig, codiBloc, numeroAlumnes));
         }
         return vassig;
@@ -60,7 +50,6 @@ public class Fabrica {
             String pis = (String) ((JSONObject) llista.get(i)).get("pis");
             int numero = ((Long) ((JSONObject) llista.get(i)).get("numero")).intValue();
             int capacitat = ((Long) ((JSONObject) llista.get(i)).get("capacitat")).intValue();
-            //System.out.println(aulari + pis + String.format("%02d", numero) + " amb capacitat: "+capacitat);
             vaula.add(new Aula(aulari, pis.charAt(0), numero, capacitat));
         }
         return vaula;

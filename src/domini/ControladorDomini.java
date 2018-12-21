@@ -22,11 +22,9 @@ public class ControladorDomini {
     }
 
     public void devMode() {
-        System.out.println("before try of devmode");
         try {
         vaules = Fabrica.carregaAules("/src/dades/miniAules.json");
         vassig = Fabrica.carregaAssig("/src/dades/miniAssig.json");
-        System.out.println("Assignatures y aules de la miniFIB creades");
     } catch (IOException e) {
         e.printStackTrace();
     } catch (ParseException e) {
@@ -40,260 +38,7 @@ public class ControladorDomini {
 	public void creaHorari(int ini, int fi) {
 
     	horari = new Horari(ini, fi, vassig, vaules);
-    	
-    	System.out.println("El dia lectiu comenca a les " + horari.getHoraIni() + " i acaba a les " + horari.getHoraFi());
     }
-
-    private static void llistaRestriccions() {
-        System.out.println("Escolleix restriccio");
-        System.out.println("1. Restringir el torn mati/tarda d'una assignatura");
-        System.out.println("2. Restringir el torn mati/tarda d'un grup");
-        System.out.println("3. Restringir l'hora d'inici d'un grup");
-        System.out.println("4. Restringir l'hora d'inici d'una assignatura");
-        System.out.println("5. Restringir el dia en que s'imparteix un grup");
-        System.out.println("6. Restringir la franja horaria no lectiva");
-        System.out.println("7. Restringir que es reparteixi en el maxim de dies possibles una assignatura");
-        System.out.println("8. Torna enrere");
-
-        switch (readInput()){
-            case 1:
-                crearRestTornAssig();
-                llistaRestriccions();
-                break;
-            case 2:
-                crearRestTornGrup();
-                llistaRestriccions();
-                break;
-            case 3:
-                crearRestHoraGrup();
-                llistaRestriccions();
-                break;
-            case 4:
-                crearRestHoraAssig();
-                llistaRestriccions();
-            case 5:
-                crearRestDiaGrup();
-                llistaRestriccions();
-            case 6:
-                crearRestFranjaHoraria();
-                llistaRestriccions();
-            case 7:
-                crearRestSeparat();
-                llistaRestriccions();
-            case 8:
-
-            default:
-        }
-    }
-
-    private static void crearRestHoraAssig() {
-        System.out.println("Escolleix assignatura");
-        for (int i = 0; i<vassig.size(); ++i){
-            System.out.println(i+1 + ". " + vassig.get(i).getNomAssig());
-        }
-
-        int assigIndex = readInput();
-
-        System.out.println("Escolleix hora entre " + horaIni + " y " + horaFi);
-        int hora = readInput();
-        if(hora < horaIni || hora > horaFi){
-            System.out.println("Hora invalida");
-            llistaRestriccions();
-            return;
-        }
-
-        System.out.println("L'assignatura " + vassig.get(assigIndex-1).getNomAssig() + " no podra ser a les " + hora);
-
-
-
-        RestHoraAssig res = new RestHoraAssig(vassig.get(assigIndex-1), hora);
-        horari.afegirRestriccio(res);
-    }
-
-    private static void crearRestHoraGrup() {
-        System.out.println("Escolleix assignatura");
-        for (int i = 0; i<vassig.size(); ++i){
-            System.out.println(i+1 + ". " + vassig.get(i).getNomAssig());
-        }
-        int assigIndex = readInput();
-        for (int i = 0; i<vassig.get(assigIndex-1).getGrups().size(); ++i){
-            System.out.println(i+1 + ". " + vassig.get(assigIndex-1).getGrups().get(i).getNumero());
-        }
-        int grup = readInput();
-
-        System.out.println("Escolleix hora entre " + horaIni + " y " + horaFi);
-        int hora = readInput();
-        if(hora < horaIni || hora > horaFi){
-            System.out.println("Hora invalida");
-            llistaRestriccions();
-            return;
-        }
-
-        System.out.println("El grup " + vassig.get(assigIndex-1).getGrups().get(grup-1).getNumero() +
-                " de l'assignatura " + vassig.get(assigIndex-1).getNomAssig() + " no podra ser a les " + hora);
-
-        RestHoraGrup res = new RestHoraGrup(vassig.get(assigIndex-1).getGrups().get(grup-1), hora);
-        horari.afegirRestriccio(res);
-    }
-
-    private static void crearRestTornGrup() {
-        System.out.println("Escolleix assignatura");
-        for (int i = 0; i<vassig.size(); ++i){
-            System.out.println(i+1 + ". " + vassig.get(i).getNomAssig());
-        }
-        int assigIndex = readInput();
-        for (int i = 0; i<vassig.get(assigIndex-1).getGrups().size(); ++i){
-            System.out.println(i+1 + ". " + vassig.get(assigIndex-1).getGrups().get(i).getNumero());
-        }
-        int grup = readInput();
-
-        boolean mati = false;
-        System.out.println("Escolleix mati o tarda");
-        System.out.println("1. Mati");
-        System.out.println("2. Tarda");
-        switch (readInput()){
-            case 1:
-                mati = true;
-                break;
-            case 2:
-                mati = false;
-                break;
-            case 3:
-            default:
-        }
-
-        System.out.print("El grup " + vassig.get(assigIndex-1).getGrups().get(grup-1).getNumero() +  " de l'assignatura " + vassig.get(assigIndex-1).getNomAssig() + " nomes podra ser de ");
-        if(mati) System.out.print("mati");
-        else System.out.print("tarda");
-        System.out.println();
-        
-        RestTornGrup res = new RestTornGrup(vassig.get(assigIndex-1).getGrups().get(grup-1), mati);
-        horari.afegirRestriccio(res);
-    }
-
-    private static void crearRestTornAssig() {
-        System.out.println("Escolleix assignatura");
-        for (int i = 0; i<vassig.size(); ++i){
-            System.out.println(i+1 + ". " + vassig.get(i).getNomAssig());
-        }
-
-        int assigIndex = readInput();
-
-        boolean mati = false;
-        System.out.println("Escolleix mati o tarda");
-        System.out.println("1. Mati");
-        System.out.println("2. Tarda");
-        switch (readInput()){
-            case 1:
-                mati = true;
-                break;
-            case 2:
-                mati = false;
-                break;
-            case 3:
-            default:
-        }
-
-        System.out.print("L'assignatura " + vassig.get(assigIndex-1).getNomAssig() + " nomes podra ser de ");
-        if(mati) System.out.print("mati");
-        else System.out.print("tarda");
-        System.out.println();
-        
-        
-        
-        RestTornAssig res = new RestTornAssig(vassig.get(assigIndex-1), mati);
-        horari.afegirRestriccio(res);
-    }
-
-    public static void crearRestDiaGrup()
-    {
-        System.out.println("Escolleix assignatura");
-        for (int i = 0; i<vassig.size(); ++i){
-            System.out.println(i+1 + ". " + vassig.get(i).getNomAssig());
-        }
-        int assigIndex = readInput();
-        for (int i = 0; i<vassig.get(assigIndex-1).getGrups().size(); ++i){
-            System.out.println(i+1 + ". " + vassig.get(assigIndex-1).getGrups().get(i).getNumero());
-        }
-        int grup = readInput();
-        for (int i = 0; i< 5; ++i){
-            System.out.println(i+1 + ". " + Dia.values()[i]);
-        }
-
-        int dia = readInput();
-        if(dia < 1 || dia > 5)
-        {
-            System.out.println("Dia invalid");
-            llistaRestriccions();
-            return;
-        }
-
-        System.out.println("El grup " + vassig.get(assigIndex-1).getGrups().get(grup-1).getNumero() +
-                " de l'assignatura " + vassig.get(assigIndex-1).getNomAssig() + " tindra clase els " + Dia.values()[dia-1]);
-
-        RestDiaGrup res = new RestDiaGrup(vassig.get(assigIndex-1).getGrups().get(grup-1), dia-1);
-        horari.afegirRestriccio(res);
-    }
-
-    public static void crearRestFranjaHoraria()
-    {
-        System.out.println("Selecciona quin dia vols aplicar la Franja horaria");
-        for (int i = 0; i< 5; ++i){
-            System.out.println(i+1 + ". " + Dia.values()[i]);
-        }
-        int dia = readInput();
-
-        if(dia < 1 || dia > 5)
-        {
-            System.out.println("Dia invalid");
-            llistaRestriccions();
-            return;
-        }
-        System.out.println("Insereix l'hora en que vulguis que comencin les hores no lectives del " + Dia.values()[dia-1]);
-        int horaInici = readInput();
-
-        if(horaInici < horaIni || horaInici > horaFi)
-        {
-            System.out.println("Hora d'inici de les hores no lectives INVALIDA");
-            llistaRestriccions();
-            return;
-        }
-        System.out.println("Insereix l'hora en que vulguis que acabin les hores no lectives del " + Dia.values()[dia-1]);
-        int horaFin = readInput();
-
-        if(horaFin < horaIni || horaFin > horaFi)
-        {
-            System.out.println("Hora de fi de les hores no lectives INVALIDA\"");
-            llistaRestriccions();
-            return;
-        }
-
-        System.out.println("El " + Dia.values()[dia-1]+
-                " de les " + horaInici + " a les " + horaFin + " no hi haura classes");
-
-        for (int i = 0; i<vassig.size(); ++i){
-            RestFranjaHoraria res = new RestFranjaHoraria(vassig.get(i), horaInici, horaFin, dia-1);
-            horari.afegirRestriccio(res);
-        }
-    }
-
-    private static void crearRestSeparat()
-    {
-        System.out.println("Escolleix assignatura");
-        for (int i = 0; i<vassig.size(); ++i){
-            System.out.println(i+1 + ". " + vassig.get(i).getNomAssig());
-        }
-
-        int assigIndex = readInput();
-
-        System.out.println("L'assignatura " + vassig.get(assigIndex-1).getNomAssig() + " es separarà en el màxim de dies possibles");
-
-
-
-        RestSeparat res = new RestSeparat(vassig.get(assigIndex-1));
-        horari.afegirRestriccio(res);
-    }
-
     private static boolean getBoolFromTorn(String m) {
         if (m == "Mati") return true;
         else return false;
@@ -411,8 +156,6 @@ public class ControladorDomini {
     }
 
     public  void deleteRestFranjaHoraria(String iniHora, String fiHora, String d) {
-        System.out.println("delete en CD");
-
         int horaIni = Integer.parseInt(iniHora);
         int horaFi = Integer.parseInt(fiHora);
         int dia = getDiaFromName(d);
@@ -435,12 +178,10 @@ public class ControladorDomini {
                 }
             }
         }
-        System.out.println("despues del for");
 
     }
 
     public static void deleteRestSeparat(String nomAssig){
-        System.out.println("delete en CD");
         if(horari.restAssig.containsKey(nomAssig)){
             for (Iterator<Restriccions> it = horari.restAssig.get(nomAssig).iterator(); it.hasNext(); ) {
                 Restriccions aux = it.next();
@@ -543,7 +284,6 @@ public class ControladorDomini {
      * @return
      */
     public static ArrayList<String[]> getAllRestFranjaHoraria(){
-        System.out.println("getAllRestFranjaHoraria");
 
         ArrayList<String[]> result = new ArrayList<>();
             for (Restriccions rest : horari.getAllRestAssig()) {
@@ -571,7 +311,6 @@ public class ControladorDomini {
         return result;
     }
     public static ArrayList<String[]> getAllRestSeparat(){
-        System.out.println("getAllRestSeparat");
         ArrayList<String[]> result = new ArrayList<>();
         for (Restriccions rest : horari.getAllRestAssig()) {
             if(rest instanceof RestSeparat){
@@ -591,7 +330,6 @@ public class ControladorDomini {
                 try {
                     vaules = Fabrica.carregaAules("/src/dades/microAules.json");
                     vassig = Fabrica.carregaAssig("/src/dades/microAssig.json");
-                    System.out.println("Assignatures y aules de la miniFIB creades");
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (ParseException e) {
@@ -602,7 +340,6 @@ public class ControladorDomini {
                 try {
                     vaules = Fabrica.carregaAules("/src/dades/miniAules.json");
                     vassig = Fabrica.carregaAssig("/src/dades/miniAssig.json");
-                    System.out.println("Assignatures y aules de la miniFIB creades");
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (ParseException e) {
@@ -614,7 +351,6 @@ public class ControladorDomini {
                 try {
                     vaules = Fabrica.carregaAules("/src/dades/fibAules.json");
                     vassig = Fabrica.carregaAssig("/src/dades/fibAssig.json");
-                    System.out.println("Assignatures y aules de la FIB creades");
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (ParseException e) {
@@ -625,9 +361,7 @@ public class ControladorDomini {
     }
 
     public void swap(String[] origin, String hora, String dia) {
-        System.out.println("calling swap from td");
         horari.moveClasse(origin, Integer.parseInt(hora), getIndexDia(dia));
-        System.out.println("swap completed from td, calling print horari");
         horari.printHorari();
     }
 
@@ -643,8 +377,6 @@ public class ControladorDomini {
 
         rests.put("RestHoraGrup", getAllRestHoraGrup());
 
-        if(getAllRestFranjaHoraria().isEmpty()) System.out.println("esta vacia la lista en getallrest");
-        else System.out.println("en la lista hay " + getAllRestFranjaHoraria().size() + "componentes en getallrest");
         rests.put("RestFranjaHoraria", getAllRestFranjaHoraria());
 
         rests.put("RestSeparat", getAllRestSeparat());
@@ -734,18 +466,11 @@ public class ControladorDomini {
     public void createRestTornAssig (String assig, String torn) {
         boolean x = getBoolFromTorn(torn);
         Assignatura aux = getAssigFromName(assig);
-        System.out.println("despres getassig");
-
-        if(aux == null) System.out.println("Assig no trobat, null");
-        else System.out.println("Treballem amb assig " + aux.getNomAssig());
-
         RestTornAssig res = new RestTornAssig(aux, x);
         horari.afegirRestriccio(res);
-        System.out.println("after createRestTornAssig from td");
     }
 
     public void createRestTornGrup (String assig, String grup, String torn) {
-        System.out.println("createRestTornGrup Cd");
         boolean x = getBoolFromTorn(torn);
         Assignatura aux = getAssigFromName(assig);
         Grup g = getGrupFromAssig(aux, grup);
@@ -776,7 +501,6 @@ public class ControladorDomini {
         int horaIni = Integer.parseInt(iniHora);
         int horaFi = Integer.parseInt(fiHora);
         int dia = getDiaFromName(d);
-        System.out.println("el string de dia es " + d + " s'ha convertit en" + dia );
         for(int i = 0; i < vassig.size(); ++i)
         {
                 Assignatura assig= vassig.get(i);
@@ -835,6 +559,5 @@ public class ControladorDomini {
         int x = Integer.parseInt(aux);
         return x;
     }
-    
-    private void printAssignatura() {};
+
 }

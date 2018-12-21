@@ -131,9 +131,6 @@ public class ControladorPresentacio extends Application {
     public void deleteRestSeparat(String assig) {
         td.deleteRestSeparat(assig);
     }
-    public String getStringDia(int i){return td.getStringDia(i);}
-
-
 
     @Override
     public void start(Stage primaryStage) {
@@ -277,8 +274,6 @@ public class ControladorPresentacio extends Application {
                                     //if ((c3>c1) && (c3>c2))
                                 }
                                 colorAssig.put(hs[i][j][k][1], Color.color(c1, c2, c3));
-
-                                System.out.println("a " + hs[i][j][k][1] + " hi ha el color " + colorAssig.get(hs[i][j][k][1]));
                             }
                         }
                     }

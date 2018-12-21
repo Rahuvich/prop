@@ -113,11 +113,6 @@ public class ViewRestController {
 
     public void setMainApp(ControladorPresentacio contPres) {this.cP = contPres;}
 
-//    public void setRestriccionsEx(Map<String, ArrayList<String>> restEx) {
-//
-//
-//
-//    }
 
     public void setAssigs (ArrayList<String> assigs) {
         ObservableList<String> observableListAssigs = FXCollections.observableList(assigs);
@@ -168,7 +163,6 @@ public class ViewRestController {
 
         for (Map.Entry<String, ArrayList<String[]>> entry : r.entrySet())
         {
-            System.out.println(entry.getKey() + "/" + entry.getValue());
             ArrayList<String[]> aux = entry.getValue();
             switch (entry.getKey()) {
                 case "RestTornAssig":
@@ -184,8 +178,6 @@ public class ViewRestController {
                     setRestTornGrup(aux);
                     break;
                 case "RestFranjaHoraria":
-                    if(aux.isEmpty()) System.out.println("esta vacia la lista en el case");
-                    else System.out.println("en la lista hay " + aux.size() + "componentes en el case");
                     setRestFranjaHoraria(aux);
                     break;
                 case "RestSeparat":
@@ -226,8 +218,6 @@ public class ViewRestController {
         }
     }
     public void setRestFranjaHoraria(ArrayList<String[]> list) {
-        if(list.isEmpty()) System.out.println("esta vacia la lista");
-        else System.out.println("en la lista hay " + list.size() + "componentes");
         for (int i=0; i<list.size(); ++i) {
             String[] aux = list.get(i);
             int d = Integer.parseInt(aux[2]);
@@ -302,7 +292,6 @@ public class ViewRestController {
         borrarRestTornAssig.setOnAction((event) -> {
             int selected = listRestTornAssig.getSelectionModel().getSelectedIndex();
             String[] aux = rests.get("RestTornAssig").get(selected);
-            System.out.println("from viewrestcontroller vull elminiar rest torn assig de lassig " + aux[0] + " al torn " + aux[1]);
             cP.deleteRestTornAssig(aux[0], aux[1]);
 
             listRestTornAssig.getItems().remove(selected);
@@ -342,9 +331,7 @@ public class ViewRestController {
         borrarRestTornGrup.setOnAction((event) -> {
             int selected = listRestTornGrup.getSelectionModel().getSelectedIndex();
             String[] aux = rests.get("RestTornGrup").get(selected);
-            System.out.println("from viewrestcontroller vull elminiar rest torn assig de lassig " + aux[0] + " del grup " + aux[1] +" al torn " + aux[2]);
             cP.deleteRestTornGrup(aux[0], aux[1], aux[2]);
-            System.out.println("from viewrestcontroller he fet el delete");
             listRestTornGrup.getItems().remove(selected);
 
         });
@@ -380,9 +367,7 @@ public class ViewRestController {
         borrarRestHoraAssig.setOnAction((event) -> {
             int selected = listRestHoraAssig.getSelectionModel().getSelectedIndex();
             String[] aux = rests.get("RestHoraAssig").get(selected);
-            System.out.println("from viewrestcontroller vull elminiar rest torn assig de lassig " + aux[0] + " a les " + aux[1]);
             cP.deleteRestHoraAssig(aux[0], aux[1]);
-            System.out.println("from viewrestcontroller he fet el delete");
             listRestHoraAssig.getItems().remove(selected);
 
         });
@@ -419,9 +404,7 @@ public class ViewRestController {
         borrarRestHoraGrup.setOnAction((event) -> {
             int selected = listRestHoraGrup.getSelectionModel().getSelectedIndex();
             String[] aux = rests.get("RestHoraGrup").get(selected);
-            System.out.println("from viewrestcontroller vull elminiar rest torn assig de lassig " + aux[0] + " del grup " + aux[1] +" al torn " + aux[2]);
             cP.deleteRestHoraGrup(aux[0], aux[1], aux[2]);
-            System.out.println("from viewrestcontroller he fet el delete");
             listRestHoraGrup.getItems().remove(selected);
 
         });
@@ -458,9 +441,7 @@ public class ViewRestController {
         borrarRestFranjaHoraria.setOnAction((event) -> {
             int selected = listRestFranjaHoraria.getSelectionModel().getSelectedIndex();
             String[] aux = rests.get("RestFranjaHoraria").get(selected);
-            System.out.println("from viewrestcontroller vull elminiar rest torn assig de lassig " + aux[0] + " del grup " + aux[1] +" al torn " + aux[2]);
             cP.deleteRestFranjaHoraria(aux[0], aux[1], aux[2]);
-            System.out.println("from viewrestcontroller he fet el delete");
             listRestFranjaHoraria.getItems().remove(selected);
 
         });
@@ -491,16 +472,9 @@ public class ViewRestController {
         });
 
         borrarRestSeparat.setOnAction((event) -> {
-            System.out.println("entro en borrarRestSeparat");
             int selected = listRestSeparat.getSelectionModel().getSelectedIndex();
-            System.out.println("abans string");
-            if(rests.containsKey("RestSeparat")) System.out.println("la conte");
-            else System.out.println("no la conte");
             String[] aux = rests.get("RestSeparat").get(selected);
-            System.out.println(aux[0]);
-            System.out.println("from viewrestcontroller vull elminiar rest torn assig de lassig " + aux[0]);
             cP.deleteRestSeparat(aux[0]);
-            System.out.println("from viewrestcontroller he fet el delete");
             listRestSeparat.getItems().remove(selected);
 
         });
